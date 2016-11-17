@@ -9,20 +9,20 @@ body {
     @include vendor-prefix('font-smoothing', 'antialiased');
     text-shadow:0 0 1px transparent;
     text-rendering:optimizeLegibility;
-    color: $grey;
+    color: black;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.42857143;
 }
 
 h1 {
-    color: $grey;
+    color: black;
     font-size: 46px;
     font-weight: 700;
 }
 
 h2  {
-    color: $grey;
+    color: black;
     font-size: 24px;
     font-weight: 600;
 }
@@ -34,7 +34,7 @@ h3 {
 }
 
 p {
-    color: $grey;
+    color: black;
     font-size: 16px;
     font-weight: 400;
 }
@@ -50,7 +50,7 @@ p.lead {
 }
 
 p.lead.dark {
-    color: $grey;
+    color: black;
     font-weight: 400;
     font-size: 20px;
 }
