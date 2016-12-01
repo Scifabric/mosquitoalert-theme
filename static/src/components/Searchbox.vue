@@ -2,8 +2,7 @@
         <div class="col-md-4">
             <div class="searchpanel" :class="{'moveleft': collapse}">
                 <h1>Search for a location or mosquito type</h1>
-                <!--<input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">-->
-                <input class="searchbox" type="text" name="search" id="search" placeholder="Search">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
 
                 <div v-if="searching" class="spinner"></div>
@@ -53,14 +52,25 @@ export default {
         },
         collapse() {
             return this.$store.state.collapse
+        },
+        query() {
+            return this.$store.state.query
+        },
+        endpoint() {
+            return this.$store.state.endpoint
         }
     },
     methods: {
         updateSearchPanelCollapse() {
             this.$store.commit('toggleSearchbox')
         },
+        updateQuery(e){
+            this.$store.commit('updateQuery', e.target.value)
+
+        },
         getResults() {
-            this.$store.commit('getResults')
+            this.$store.dispatch('getResults', {query: formatQuery(this.query),
+                                                endpoint: this.endpoint})
         }
     }
 }
