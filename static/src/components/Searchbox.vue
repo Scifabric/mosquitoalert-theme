@@ -1,28 +1,13 @@
 <template>
         <div class="col-md-4">
             <div class="searchpanel" :class="{'moveleft': collapse}">
-                <h1>Search for a location</h1>
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">
+                <h1>Search for a location or mosquito type</h1>
+                <!--<input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">-->
+                <input class="searchbox" type="text" name="search" id="search" placeholder="Search">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
 
                 <div v-if="searching" class="spinner"></div>
                 <div v-else class="secondfold">
-                    <h2>Choose a subject</h2>
-                    <div v-if="foundSubjects.length == 0" class="subjects">
-                        <div class="subject-div" v-for="subject in subjects.slice(0, 12)" transition="item" :class="{'subject-hidden': subject.hidden}">
-                            <div  class="subject" :style="{ 'background': 'url(/static/img/subjects/' + subject.img + ')', 'background-size': 'cover' }" v-on:click="getResultsBySubject(subject.subject)">
-                                <span>{{subject.subject}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-else class="subjects">
-                        <div class="subject-div" v-for="subject in foundSubjects.slice(0, 12)" transition="item" :class="{'subject-hidden': subject.hidden}">
-                            <div  class="subject" :style="{ 'background': 'url(/static/img/subjects/' + subject.img + ')', 'background-size': 'cover' }" v-on:click="getResultsBySubject(subject.subject)">
-                                <span>{{subject.subject}}</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             <div class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
@@ -42,17 +27,6 @@ function clearFoundSubjects(store) {
 }
 
 function clearMarkers(store) {
-    if (store.state.clusterMarkers != null) {
-        store.state.clusterMarkers.clearMarkers()
-        store.state.clusterMarkers.redraw()
-        console.log("Cluster clean")
-    }
-
-    store.state.mapMarkers.forEach(function(marker) {
-      marker.setMap(null)
-    });
-    store.state.mapMarkers = []
-    clearFoundSubjects(store)
     console.log("done in clearMarkers")
 }
 
@@ -73,8 +47,21 @@ function formatQuery(queryData) {
 }
 
 export default {
-    data(){
-        return {foo: 1}
+    computed: {
+        searching() {
+            return this.$store.state.searching
+        },
+        collapse() {
+            return this.$store.state.collapse
+        }
+    },
+    methods: {
+        updateSearchPanelCollapse() {
+            this.$store.commit('toggleSearchbox')
+        },
+        getResults() {
+            this.$store.commit('getResults')
+        }
     }
 }
 </script>
@@ -111,10 +98,9 @@ export default {
 }
 
 .searchpanel {
-  min-height: 300px;
   border-radius: 1px;
   background-color: #ffffff;
-  z-index: 9;
+  z-index: 999;
   position: absolute;
   margin-top: 111px;
   padding: 18px;

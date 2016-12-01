@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!--<Searchbox></Searchbox>-->
+        <Searchbox></Searchbox>
         <Map></Map>
     </div>
 </template>
@@ -8,6 +8,6 @@
 import Searchbox from './Searchbox.vue'
 import Map from './Map.vue'
 export default {
-    components: {  Map },
+    components: { Searchbox, Map },
 }
 </script>

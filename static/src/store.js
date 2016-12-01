@@ -5,12 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    spinner: true
+    searching: false,
+    collapse: false,
+    results: null
   },
   mutations: {
-    addTask(state, payload) {
-        state.tasks[payload.task.id] = payload.task
-        state.images[payload.task.id] = []
+    getResults(state) {
+        console.log("HOLA")
+    },
+    toggleSearchbox(state) {
+        state.collapse = !state.collapse
     }
   }
 })

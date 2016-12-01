@@ -8445,7 +8445,7 @@
 	//
 
 	exports.default = {
-	    components: { Map: _Map2.default }
+	    components: { Searchbox: _Searchbox2.default, Map: _Map2.default }
 	};
 
 /***/ },
@@ -8530,7 +8530,7 @@
 
 
 	// module
-	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  min-height: 300px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 9;\n  position: absolute;\n  margin-top: 111px;\n  padding: 18px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: solid 1px #777777;\n  padding: 15px;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
+	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 111px;\n  padding: 18px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: solid 1px #777777;\n  padding: 15px;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
 
 	// exports
 
@@ -8852,34 +8852,8 @@
 	//
 	//
 	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 
 	function clearMarkers(store) {
-	    if (store.state.clusterMarkers != null) {
-	        store.state.clusterMarkers.clearMarkers();
-	        store.state.clusterMarkers.redraw();
-	        console.log("Cluster clean");
-	    }
-
-	    store.state.mapMarkers.forEach(function (marker) {
-	        marker.setMap(null);
-	    });
-	    store.state.mapMarkers = [];
-	    clearFoundSubjects(store);
 	    console.log("done in clearMarkers");
 	}
 
@@ -8899,8 +8873,21 @@
 	}
 
 	exports.default = {
-	    data: function data() {
-	        return { foo: 1 };
+	    computed: {
+	        searching: function searching() {
+	            return this.$store.state.searching;
+	        },
+	        collapse: function collapse() {
+	            return this.$store.state.collapse;
+	        }
+	    },
+	    methods: {
+	        updateSearchPanelCollapse: function updateSearchPanelCollapse() {
+	            this.$store.commit('toggleSearchbox');
+	        },
+	        getResults: function getResults() {
+	            this.$store.commit('getResults');
+	        }
 	    }
 	};
 
@@ -11230,23 +11217,13 @@
 	    class: {
 	      'moveleft': _vm.collapse
 	    }
-	  }, [_h('h1', ["Search for a location"]), " ", _h('input', {
+	  }, [_h('h1', ["Search for a location or mosquito type"]), " ", " ", _h('input', {
 	    staticClass: "searchbox",
 	    attrs: {
 	      "type": "text",
 	      "name": "search",
 	      "id": "search",
 	      "placeholder": "Search"
-	    },
-	    domProps: {
-	      "value": _vm.query
-	    },
-	    on: {
-	      "input": _vm.updateQuery,
-	      "keyup": function($event) {
-	        if ($event.keyCode !== 13) { return; }
-	        _vm.getResults($event)
-	      }
 	    }
 	  }), " ", _h('span', {
 	    staticClass: "searchbtn",
@@ -11259,53 +11236,7 @@
 	    staticClass: "spinner"
 	  }) : _h('div', {
 	    staticClass: "secondfold"
-	  }, [_h('h2', ["Choose a subject"]), " ", (_vm.foundSubjects.length == 0) ? _h('div', {
-	    staticClass: "subjects"
-	  }, [_vm._l((_vm.subjects.slice(0, 12)), function(subject) {
-	    return _h('div', {
-	      staticClass: "subject-div",
-	      class: {
-	        'subject-hidden': subject.hidden
-	      },
-	      attrs: {
-	        "transition": "item"
-	      }
-	    }, [_h('div', {
-	      staticClass: "subject",
-	      style: ({
-	        'background': 'url(/static/img/subjects/' + subject.img + ')',
-	        'background-size': 'cover'
-	      }),
-	      on: {
-	        "click": function($event) {
-	          _vm.getResultsBySubject(subject.subject)
-	        }
-	      }
-	    }, [_h('span', [_vm._s(subject.subject)])])])
-	  })]) : _h('div', {
-	    staticClass: "subjects"
-	  }, [_vm._l((_vm.foundSubjects.slice(0, 12)), function(subject) {
-	    return _h('div', {
-	      staticClass: "subject-div",
-	      class: {
-	        'subject-hidden': subject.hidden
-	      },
-	      attrs: {
-	        "transition": "item"
-	      }
-	    }, [_h('div', {
-	      staticClass: "subject",
-	      style: ({
-	        'background': 'url(/static/img/subjects/' + subject.img + ')',
-	        'background-size': 'cover'
-	      }),
-	      on: {
-	        "click": function($event) {
-	          _vm.getResultsBySubject(subject.subject)
-	        }
-	      }
-	    }, [_h('span', [_vm._s(subject.subject)])])])
-	  })]), " "]), " ", " ", _h('div', {
+	  }), " ", " ", _h('div', {
 	    staticClass: "collapse-panel"
 	  }, [_h('div', {
 	    staticClass: "collapse-panel-label",
@@ -24969,7 +24900,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;
-	  return _h('div', [_h('Map')])
+	  return _h('div', [_h('Searchbox'), " ", _h('Map')])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -25003,12 +24934,16 @@
 
 	exports.default = new _vuex2.default.Store({
 	  state: {
-	    spinner: true
+	    searching: false,
+	    collapse: false,
+	    results: null
 	  },
 	  mutations: {
-	    addTask: function addTask(state, payload) {
-	      state.tasks[payload.task.id] = payload.task;
-	      state.images[payload.task.id] = [];
+	    getResults: function getResults(state) {
+	      console.log("HOLA");
+	    },
+	    toggleSearchbox: function toggleSearchbox(state) {
+	      state.collapse = !state.collapse;
 	    }
 	  }
 	});
