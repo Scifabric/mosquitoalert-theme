@@ -13383,7 +13383,7 @@
 	    class: {
 	      'moveleft': _vm.collapse
 	    }
-	  }, [_h('h1', ["Search for a location or mosquito type"]), " ", _h('input', {
+	  }, [_h('h1', ["Search for a location"]), " ", _h('input', {
 	    staticClass: "searchbox",
 	    attrs: {
 	      "type": "text",

@@ -1,7 +1,7 @@
 <template>
         <div class="col-md-4">
             <div class="searchpanel" :class="{'moveleft': collapse}">
-                <h1>Search for a location or mosquito type</h1>
+                <h1>Search for a location</h1>
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
 
