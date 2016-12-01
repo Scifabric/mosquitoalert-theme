@@ -13644,6 +13644,9 @@
 	        updateResults: function updateResults(state, data) {
 	            state.results = data.results;
 	        },
+	        toggleSearching: function toggleSearching(state) {
+	            state.searching = !state.searching;
+	        },
 	        addMap: function addMap(state) {
 	            console.log("map ready");
 	            var map = _leaflet2.default.map('mosquitomap', {
@@ -13698,6 +13701,11 @@
 	                    }
 	                }
 	            }
+
+	            var group = new _leaflet2.default.featureGroup(state.polygons);
+
+	            state.map.fitBounds(group.getBounds());
+	            state.searching = false;
 	        },
 	        cleanMarkers: function cleanMarkers(state) {
 	            var _iteratorNormalCompletion2 = true;
@@ -13754,6 +13762,7 @@
 	    actions: {
 	        getResults: function getResults(context, payload) {
 	            console.log("axios!");
+	            context.commit('toggleSearching');
 	            var url = payload.endpoint + '/api/result?info=display_name::' + payload.query + '&all=1&fulltextsearch=1';
 	            _axios2.default.get(url).then(function (response) {
 	                console.log(response);

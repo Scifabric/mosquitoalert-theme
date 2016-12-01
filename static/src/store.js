@@ -30,6 +30,9 @@ export default new Vuex.Store({
     updateResults(state, data) {
         state.results = data.results
     },
+    toggleSearching(state) {
+        state.searching = !state.searching
+    },
     addMap(state) {
         console.log("map ready")
         var map = L.map( 'mosquitomap', {
@@ -63,6 +66,10 @@ export default new Vuex.Store({
             }).addTo(state.map);
             state.polygons.push(polygon)
         }
+        var group = new L.featureGroup(state.polygons);
+        
+        state.map.fitBounds(group.getBounds())
+        state.searching = false
     },
     cleanMarkers(state) {
         for (var marker of state.markers) {
@@ -78,6 +85,7 @@ export default new Vuex.Store({
     actions: {
         getResults(context, payload) {
             console.log("axios!")
+            context.commit('toggleSearching')
             var url = payload.endpoint +  '/api/result?info=display_name::' + payload.query + '&all=1&fulltextsearch=1'
             axios.get(url)
               .then(function (response) {
