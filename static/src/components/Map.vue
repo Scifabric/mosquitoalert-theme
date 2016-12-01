@@ -11,7 +11,8 @@ export default {
         var map = L.map( 'mosquitomap', {
             center: [20.0, 5.0],
             minZoom: 2,
-            zoom: 2
+            zoom: 2,
+            zoomControl: false
         })
 
 

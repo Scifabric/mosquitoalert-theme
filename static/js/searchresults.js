@@ -11442,7 +11442,8 @@
 	        var map = _leaflet2.default.map('mosquitomap', {
 	            center: [20.0, 5.0],
 	            minZoom: 2,
-	            zoom: 2
+	            zoom: 2,
+	            zoomControl: false
 	        });
 
 	        _leaflet2.default.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
