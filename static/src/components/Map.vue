@@ -2,29 +2,22 @@
     <div id="mosquitomap" class="mosquitomap"></div>
 </template>
 <script>
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
 export default {
     mounted(){
-        console.log("map ready")
         // create the tile layer with correct attribution
-        var map = L.map( 'mosquitomap', {
-            center: [20.0, 5.0],
-            minZoom: 2,
-            zoom: 2,
-            zoomControl: false
-        })
-
-
-        L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            subdomains: ['a','b','c']
-        }).addTo( map );
+        this.$store.commit('addMap')
 
     },
+    computed: {
+        results() {
+            return this.$store.state.results
+        }
+    },
     watch: {
-        'mosquitoes': function(val, oldVal) {
-            console.log("New mosquitoes to draw")
+        'results': function(results) {
+            console.log("New data to draw")
+            this.$store.commit('addMarkers')
+            //var marker = L.marker([51.5, -0.09]).addTo(mymap);
         }
     }
 }

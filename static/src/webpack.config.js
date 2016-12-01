@@ -25,7 +25,7 @@ module.exports = {
       loader: "style-loader!css-loader"
       }, {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: 'file-loader'
+        loader: 'file-loader?outputPath=../img/search/&publicPath=../img/search/'
       }
     ],
     noParse: /dist\/ol.js/,
