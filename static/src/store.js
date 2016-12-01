@@ -13,7 +13,9 @@ export default new Vuex.Store({
     results: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
     query: null,
-    map: null
+    map: null,
+    markers: [],
+    polygons: []
   },
   mutations: {
     getResults(state) {
@@ -53,12 +55,24 @@ export default new Vuex.Store({
             // Add icon
             var icon = L.Icon.Default
             icon.imagePath = 'https://unpkg.com/leaflet@1.0.2/dist/images/'
-            L.marker([result.info.lat, result.info.lon]).addTo(state.map)
+            var marker = L.marker([result.info.lat, result.info.lon]).addTo(state.map)
+            state.markers.push(marker)
             // Add area
-            L.geoJSON(result.info.geojson, {
+            var polygon = L.geoJSON(result.info.geojson, {
                 style: myStyle
             }).addTo(state.map);
+            state.polygons.push(polygon)
         }
+    },
+    cleanMarkers(state) {
+        for (var marker of state.markers) {
+            marker.remove()
+        }
+
+        for (var polygon of state.polygons) {
+            polygon.remove()
+        }
+
     }
   },
     actions: {

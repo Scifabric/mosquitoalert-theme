@@ -8829,8 +8829,19 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function clearFoundSubjects(store) {
-	    store.state.foundSubjects = [];
+	function formatQuery(queryData) {
+	    var regex_non_words = (0, _xregexp2.default)("[^\\p{L}\\s\\d]", "g");
+	    queryData = _xregexp2.default.replace(queryData, regex_non_words, " ");
+	    var regex_spaces = (0, _xregexp2.default)("\\p{Z}+", "g");
+	    queryData = _xregexp2.default.replace(queryData, regex_spaces, " ");
+	    queryData = queryData.replace(/^ /gi, "");
+	    queryData = queryData.replace(/ $/gi, "");
+	    if ((queryData.match(/ /g) || []).length >= 1) {
+	        var query = queryData.replace(/ /g, '%26');
+	    } else {
+	        var query = queryData.replace(/ /g, '');
+	    }
+	    return query;
 	} //
 	//
 	//
@@ -8851,25 +8862,6 @@
 	//
 	//
 	//
-
-	function clearMarkers(store) {
-	    console.log("done in clearMarkers");
-	}
-
-	function formatQuery(queryData) {
-	    var regex_non_words = (0, _xregexp2.default)("[^\\p{L}\\s\\d]", "g");
-	    queryData = _xregexp2.default.replace(queryData, regex_non_words, " ");
-	    var regex_spaces = (0, _xregexp2.default)("\\p{Z}+", "g");
-	    queryData = _xregexp2.default.replace(queryData, regex_spaces, " ");
-	    queryData = queryData.replace(/^ /gi, "");
-	    queryData = queryData.replace(/ $/gi, "");
-	    if ((queryData.match(/ /g) || []).length >= 1) {
-	        var query = queryData.replace(/ /g, '%26');
-	    } else {
-	        var query = queryData.replace(/ /g, '');
-	    }
-	    return query;
-	}
 
 	exports.default = {
 	    computed: {
@@ -8894,6 +8886,7 @@
 	            this.$store.commit('updateQuery', e.target.value);
 	        },
 	        getResults: function getResults() {
+	            this.$store.commit('cleanMarkers');
 	            this.$store.dispatch('getResults', { query: formatQuery(this.query),
 	                endpoint: this.endpoint });
 	        }
@@ -13634,7 +13627,9 @@
 	        results: null,
 	        endpoint: 'http://mosquitoalert.pybossa.com',
 	        query: null,
-	        map: null
+	        map: null,
+	        markers: [],
+	        polygons: []
 	    },
 	    mutations: {
 	        getResults: function getResults(state) {
@@ -13681,11 +13676,13 @@
 	                    // Add icon
 	                    var icon = _leaflet2.default.Icon.Default;
 	                    icon.imagePath = 'https://unpkg.com/leaflet@1.0.2/dist/images/';
-	                    _leaflet2.default.marker([result.info.lat, result.info.lon]).addTo(state.map);
+	                    var marker = _leaflet2.default.marker([result.info.lat, result.info.lon]).addTo(state.map);
+	                    state.markers.push(marker);
 	                    // Add area
-	                    _leaflet2.default.geoJSON(result.info.geojson, {
+	                    var polygon = _leaflet2.default.geoJSON(result.info.geojson, {
 	                        style: myStyle
 	                    }).addTo(state.map);
+	                    state.polygons.push(polygon);
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -13698,6 +13695,57 @@
 	                } finally {
 	                    if (_didIteratorError) {
 	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        },
+	        cleanMarkers: function cleanMarkers(state) {
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+
+	            try {
+	                for (var _iterator2 = state.markers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var marker = _step2.value;
+
+	                    marker.remove();
+	                }
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+
+	            var _iteratorNormalCompletion3 = true;
+	            var _didIteratorError3 = false;
+	            var _iteratorError3 = undefined;
+
+	            try {
+	                for (var _iterator3 = state.polygons[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                    var polygon = _step3.value;
+
+	                    polygon.remove();
+	                }
+	            } catch (err) {
+	                _didIteratorError3 = true;
+	                _iteratorError3 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                        _iterator3.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError3) {
+	                        throw _iteratorError3;
 	                    }
 	                }
 	            }

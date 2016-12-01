@@ -21,14 +21,6 @@
 <script>
 import XRegExp from 'xregexp'
 
-function clearFoundSubjects(store) {
-    store.state.foundSubjects = []
-}
-
-function clearMarkers(store) {
-    console.log("done in clearMarkers")
-}
-
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
     queryData = XRegExp.replace(queryData, regex_non_words, " ")
@@ -69,6 +61,7 @@ export default {
 
         },
         getResults() {
+            this.$store.commit('cleanMarkers')
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
                                                 endpoint: this.endpoint})
         }
