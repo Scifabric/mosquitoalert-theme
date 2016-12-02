@@ -11,7 +11,7 @@
             <div v-if="searching" class="spinner"></div>
             <div v-else class="secondfold">
                 <div v-if="isInfoAll == false"> 
-                    <div v-for="result in results" class="results-list">
+                    <div v-for="result in results.slice(5)" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
                             <div class="info">
                                 <p class="type">{{result.info.mosquito.top}}</p>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="results" class="collapse-panel">
+            <div v-if="results.length" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
                     <i v-else class="fa fa-caret-left"></i>
@@ -294,12 +294,9 @@ export default {
     align-items: center;
 }
 
-.results-list:nth-child(even) {
-    border-bottom: 2px solid gray;
-}
-
 .results-list:nth-child(n+2) {
     margin-top: 5px;
+    border-bottom: 1px solid #d4d4d4;
 }
 
 .result-short {
