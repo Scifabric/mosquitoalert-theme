@@ -1,14 +1,16 @@
 <template>
     <div class="col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
-            <div>
+            <div v-bind:style="isCover">
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
-                <a class="back-results" v-if="isInfoAll" v-on:click="showAll(result)">Back to results</a>
+                <div v-if="isInfoAll" class="back-results">
+                    <a class="back-results" v-if="isInfoAll" v-on:click="showAll(result)">Volver a resultados</a>
+                </div>
             </div>
             <div v-if="searching" class="spinner"></div>
             <div v-else class="secondfold" v-bind:class="{all: isInfoAll}">
-                <div v-if="isInfoAll == false" v-for="result in results">
+                <div v-if="isInfoAll == false" v-for="result in results" class="results-list">
                     <div v-on:click="showAll(result)" class="result-short">
                         <div class="info">
                             <p class="type">{{result.info.mosquito.top}}</p>
@@ -41,7 +43,7 @@
                     </div>
                         <div class="extra-info">
                             <div v-if="result.all" class="result-full">
-                                <p>Analizado por {{result.info.mosquito.count}}</p>
+                                <p>Analizado por {{result.info.mosquito.count}} persona</p>
                                 <p v-if="result.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{result.info.mosquito_thorax.freq}}</p>
                                 <p v-if="result.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{result.info.mosquito_thorax.freq}}</p>
                             </div>
@@ -100,6 +102,19 @@ export default {
         },
         isInfoAll() {
             return this.$store.state.infoAll
+        },
+        isCover() {
+            if (this.result) {
+                return {
+                    'background': "url(" + this.result.info.mosquito_url + ")",
+                    'background-size': 'cover',
+                    'height': '200px'
+                }
+            }
+            else {
+                return {
+                }
+            }
         }
     },
     methods: {
@@ -268,13 +283,21 @@ export default {
     align-items: center;
 }
 
+.results-list:nth-child(even) {
+    border-bottom: 2px solid gray;
+}
+
 .result-short {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid gray;
     margin-top: 5px;
-    padding: 5px;
+    padding: 15px;
+}
+
+.result-short:hover {
+    cursor: pointer;
+    background-color: rgba(220, 220, 220, 0.8);
 }
 
 .result-short .type,
@@ -299,10 +322,14 @@ export default {
 .result-short img {
     height: 85px;
 }
-.back-results {
-    font-size: 13px;
+div.back-results {
     padding-top: 5px;
     padding-bottom: 5px;
+    background: white;
+    padding-left: 15px;
+}
+.back-results a {
+    font-size: 13px;
 }
 
 .banner {

@@ -31,6 +31,7 @@ export default new Vuex.Store({
         state.results[index].all = !state.results[index].all
         if (state.results[index].all) {
             state.result = state.results[index]
+            state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
             state.infoAll = true
         }
         else {
