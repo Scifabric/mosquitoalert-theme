@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div v-bind:style="isCover">
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll}">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
                     <a class="back-results" v-on:click="showAll(resultShown)">Volver a resultados</a>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="isInfoAll" class="collapse-panel">
+            <div v-if="results" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
                     <i v-else class="fa fa-caret-left"></i>
@@ -214,11 +214,13 @@ export default {
 }
 .searchbox:hover,
 .searchbox:focus {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);
 }
 
-.searchbox.allinfo {
-    box-shadow: none;
+.searchbox.allinfo,
+.searchbox.allinfo:hover,
+.searchbox.allinfo:focus {
+    box-shadow: none !important;
     border-bottom: 1px solid #d4d4d4;
 }
 .searchbtn {
@@ -296,11 +298,14 @@ export default {
     border-bottom: 2px solid gray;
 }
 
+.results-list:nth-child(n+2) {
+    margin-top: 5px;
+}
+
 .result-short {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 5px;
     padding: 15px;
 }
 
