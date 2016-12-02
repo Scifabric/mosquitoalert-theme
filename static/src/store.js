@@ -11,11 +11,13 @@ export default new Vuex.Store({
     searching: false,
     collapse: false,
     results: null,
+    result: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
     query: null,
     map: null,
     markers: [],
-    polygons: []
+    polygons: [],
+    infoAll: false
   },
   mutations: {
     getResults(state) {
@@ -24,10 +26,25 @@ export default new Vuex.Store({
     toggleSearchbox(state) {
         state.collapse = !state.collapse
     },
+    toggleResultAll(state, payload) {
+        var index = state.results.indexOf(payload.result)
+        if (state.infoAll == false) {
+            state.result = state.results[index]
+            state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
+            state.infoAll = true
+        }
+        else {
+            state.result = null
+            state.infoAll = false
+        }
+    },
     updateQuery(state, query) {
         state.query = query
     },
     updateResults(state, data) {
+        for (var result of data.results) {
+            result.all = false
+        }
         state.results = data.results
     },
     toggleSearching(state) {
@@ -86,7 +103,7 @@ export default new Vuex.Store({
         getResults(context, payload) {
             console.log("axios!")
             context.commit('toggleSearching')
-            var url = payload.endpoint +  '/api/result?info=display_name::' + payload.query + '&all=1&fulltextsearch=1'
+            var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1'
             axios.get(url)
               .then(function (response) {
                 console.log(response);

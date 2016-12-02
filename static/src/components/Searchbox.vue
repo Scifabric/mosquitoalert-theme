@@ -1,22 +1,66 @@
 <template>
-        <div class="col-md-4">
-            <div class="searchpanel" :class="{'moveleft': collapse}">
-                <h1>Search for a location</h1>
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">
+    <div class="col-md-4">
+        <div class="searchpanel" :class="{'moveleft': collapse}">
+            <div v-bind:style="isCover">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
-
-                <div v-if="searching" class="spinner"></div>
-                <div v-else class="secondfold">
+                <div v-if="isInfoAll" class="back-results">
+                    <a class="back-results" v-on:click="showAll(resultShown)">Volver a resultados</a>
                 </div>
-            <div class="collapse-panel">
+            </div>
+            <div v-if="searching" class="spinner"></div>
+            <div v-else class="secondfold">
+                <div v-if="isInfoAll == false"> 
+                    <div v-for="result in results" class="results-list">
+                        <div v-on:click="showAll(result)" class="result-short">
+                            <div class="info">
+                                <p class="type">{{result.info.mosquito.top}}</p>
+                                <div class="stars">
+                                    <i class="fa fa-star"></i>
+                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                </div>
+                                <p class="location">{{result.info.display_name}}</p>
+                            </div>
+                            <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
+                            <img v-else src="http://i.imgur.com/hZlv8lr.png">
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="banner">
+                        <div class="info">
+                            <p class="type">{{resultShown.info.mosquito.top}}</p>
+                            <div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i v-if="resultShown.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                                <i v-if="resultShown.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                            </div>
+                            <p class="location">{{resultShown.info.display_name}}</p>
+                        </div>
+                    </div>
+                    <div class="extra-info">
+                        <div class="result-full">
+                            <p>Analizado por {{resultShown.info.mosquito.count}} persona</p>
+                            <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+                            <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="results" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
                     <i v-else class="fa fa-caret-left"></i>
                 </div>
             </div>
 
-            </div>
         </div>
+    </div>
 </template>
 <script>
 import XRegExp from 'xregexp'
@@ -50,6 +94,28 @@ export default {
         },
         endpoint() {
             return this.$store.state.endpoint
+        },
+        results() {
+            return this.$store.state.results
+        },
+        resultShown() {
+            return this.$store.state.result
+        },
+        isInfoAll() {
+            return this.$store.state.infoAll
+        },
+        isCover() {
+            if (this.resultShown) {
+                return {
+                    'background': "url(" + this.resultShown.info.mosquito_url + ")",
+                    'background-size': 'cover',
+                    'height': '200px'
+                }
+            }
+            else {
+                return {
+                }
+            }
         }
     },
     methods: {
@@ -59,6 +125,12 @@ export default {
         updateQuery(e){
             this.$store.commit('updateQuery', e.target.value)
 
+        },
+        showAll(result){
+            this.$store.commit('toggleResultAll', {result})
+        },
+        removeResult(){
+            this.$store.commit('removeResult')
         },
         getResults() {
             this.$store.commit('cleanMarkers')
@@ -105,8 +177,7 @@ export default {
   background-color: #ffffff;
   z-index: 999;
   position: absolute;
-  margin-top: 111px;
-  padding: 18px;
+  margin-top: 10px;
   width: 383px;
   transition: margin-left 1s;
 }
@@ -136,8 +207,21 @@ export default {
   height: 45px;
   border-radius: 1px;
   background-color: #ffffff;
-  border: solid 1px #777777;
+  border: none;
+  outline: none;
   padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);
+}
+.searchbox:hover,
+.searchbox:focus {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);
+}
+
+.searchbox.allinfo,
+.searchbox.allinfo:hover,
+.searchbox.allinfo:focus {
+    box-shadow: none !important;
+    border-bottom: 1px solid #d4d4d4;
 }
 .searchbtn {
     position: absolute;
@@ -208,6 +292,76 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.results-list:nth-child(even) {
+    border-bottom: 2px solid gray;
+}
+
+.results-list:nth-child(n+2) {
+    margin-top: 5px;
+}
+
+.result-short {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.result-short:hover {
+    cursor: pointer;
+    background-color: rgba(220, 220, 220, 0.8);
+}
+
+.result-short .type,
+.info .type {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+}
+
+.result-short .location,
+.info .location {
+    font-size: 13px;
+    color: gray;
+}
+
+.result-short .stars,
+.info .stars{
+    display: flex;
+    padding-bottom: 10px;
+}
+.result-short img {
+    height: 85px;
+}
+div.back-results {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: white;
+    padding-left: 15px;
+}
+.back-results a {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.banner {
+    background: #a41f1b;
+    color: white;
+    height: 110px;
+    padding: 16px 24px 20px;
+}
+
+.extra-info {
+    padding: 16px 24px 20px;
+}
+
+.banner .info .type,
+.banner .info .stars,
+.banner .info .location {
+    color: white;
 }
 </style>
 
