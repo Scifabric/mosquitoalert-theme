@@ -10,14 +10,16 @@ export default new Vuex.Store({
   state: {
     searching: false,
     collapse: false,
-    results: null,
+    results: [],
     result: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
     query: null,
     map: null,
     markers: [],
     polygons: [],
-    infoAll: false
+    infoAll: false,
+    limit: 5,
+    offset:0
   },
   mutations: {
     getResults(state) {
