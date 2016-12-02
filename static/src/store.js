@@ -11,11 +11,13 @@ export default new Vuex.Store({
     searching: false,
     collapse: false,
     results: null,
+    result: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
     query: null,
     map: null,
     markers: [],
-    polygons: []
+    polygons: [],
+    infoAll: false
   },
   mutations: {
     getResults(state) {
@@ -25,10 +27,16 @@ export default new Vuex.Store({
         state.collapse = !state.collapse
     },
     toggleResultAll(state, payload) {
-        console.log(payload.result)
         var index = state.results.indexOf(payload.result)
-        console.log(index)
         state.results[index].all = !state.results[index].all
+        if (state.results[index].all) {
+            state.result = state.results[index]
+            state.infoAll = true
+        }
+        else {
+            state.result = null
+            state.infoAll = false
+        }
     },
     updateQuery(state, query) {
         state.query = query

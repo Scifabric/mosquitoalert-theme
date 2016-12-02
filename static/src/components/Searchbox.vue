@@ -1,44 +1,63 @@
 <template>
-        <div class="col-md-4">
-            <div class="searchpanel" :class="{'moveleft': collapse}">
-                <h1>Search for a location</h1>
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search" v-on:keyup.enter="getResults">
+    <div class="col-md-4">
+        <div class="searchpanel" :class="{'moveleft': collapse}">
+            <div>
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
-
-                <div v-if="searching" class="spinner"></div>
-                <div v-else class="secondfold">
-                    <div v-for="result in results">
-                        <div v-on:click="showAll(result)" class="result-short">
-                            <div class="info">
-                                <p class="type">{{result.info.mosquito.top}}</p>
-                                <div class="stars">
-                                    <i class="fa fa-star"></i>
-                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
-                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
-                                </div>
-                                <p class="location">{{result.info.display_name}}</p>
-                                </div>
-                                <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
-                                <img v-else src="http://i.imgur.com/hZlv8lr.png">
+                <a class="back-results" v-if="isInfoAll" v-on:click="showAll(result)">Back to results</a>
+            </div>
+            <div v-if="searching" class="spinner"></div>
+            <div v-else class="secondfold" v-bind:class="{all: isInfoAll}">
+                <div v-if="isInfoAll == false" v-for="result in results">
+                    <div v-on:click="showAll(result)" class="result-short">
+                        <div class="info">
+                            <p class="type">{{result.info.mosquito.top}}</p>
+                            <div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                                <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                            </div>
+                            <p class="location">{{result.info.display_name}}</p>
                         </div>
-                        <div v-if="result.all" class="result-full">
-                            <p>Analizado por {{result.info.mosquito.count}}</p>
-                            <p v-if="result.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{result.info.mosquito_thorax.freq}}</p>
-                            <p v-if="result.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{result.info.mosquito_thorax.freq}}</p>
-                        </div>
+                        <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
+                        <img v-else src="http://i.imgur.com/hZlv8lr.png">
                     </div>
                 </div>
-            <div class="collapse-panel">
+                <div v-else>
+                    <div class="banner">
+                        <div class="info">
+                            <p class="type">{{result.info.mosquito.top}}</p>
+                            <div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                                <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                <i v-else class="fa fa-star-o"></i>
+                            </div>
+                            <p class="location">{{result.info.display_name}}</p>
+                        </div>
+                    </div>
+                        <div class="extra-info">
+                            <div v-if="result.all" class="result-full">
+                                <p>Analizado por {{result.info.mosquito.count}}</p>
+                                <p v-if="result.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{result.info.mosquito_thorax.freq}}</p>
+                                <p v-if="result.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{result.info.mosquito_thorax.freq}}</p>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            <div v-if="isInfoAll" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
                     <i v-else class="fa fa-caret-left"></i>
                 </div>
             </div>
 
-            </div>
         </div>
+    </div>
 </template>
 <script>
 import XRegExp from 'xregexp'
@@ -75,6 +94,12 @@ export default {
         },
         results() {
             return this.$store.state.results
+        },
+        result() {
+            return this.$store.state.result
+        },
+        isInfoAll() {
+            return this.$store.state.infoAll
         }
     },
     methods: {
@@ -133,8 +158,7 @@ export default {
   background-color: #ffffff;
   z-index: 999;
   position: absolute;
-  margin-top: 111px;
-  padding: 18px;
+  margin-top: 10px;
   width: 383px;
   transition: margin-left 1s;
 }
@@ -164,8 +188,14 @@ export default {
   height: 45px;
   border-radius: 1px;
   background-color: #ffffff;
-  border: solid 1px #777777;
+  border: none;
+  outline: none;
   padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);
+}
+.searchbox:hover,
+.searchbox:focus {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02) !important;
 }
 .searchbtn {
     position: absolute;
@@ -247,24 +277,49 @@ export default {
     padding: 5px;
 }
 
-.result-short .type {
+.result-short .type,
+.info .type {
     font-size: 15px;
     font-weight: bold;
     color: black;
     text-transform: capitalize;
 }
 
-.result-short .location {
+.result-short .location,
+.info .location {
     font-size: 13px;
     color: gray;
 }
 
-.result-short .stars {
+.result-short .stars,
+.info .stars{
     display: flex;
     padding-bottom: 10px;
 }
 .result-short img {
     height: 85px;
+}
+.back-results {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.banner {
+    background: #a41f1b;
+    color: white;
+    height: 110px;
+    padding: 16px 24px 20px;
+}
+
+.extra-info {
+    padding: 16px 24px 20px;
+}
+
+.banner .info .type,
+.banner .info .stars,
+.banner .info .location {
+    color: white;
 }
 </style>
 

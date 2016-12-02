@@ -8530,7 +8530,7 @@
 
 
 	// module
-	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 111px;\n  padding: 18px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: solid 1px #777777;\n  padding: 15px;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.result-short {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    border-bottom: 2px solid gray;\n    margin-top: 5px;\n    padding: 5px;\n}\n.result-short .type {\n    font-size: 15px;\n    font-weight: bold;\n    color: black;\n    text-transform: capitalize;\n}\n.result-short .location {\n    font-size: 13px;\n    color: gray;\n}\n.result-short .stars {\n    display: flex;\n    padding-bottom: 10px;\n}\n.result-short img {\n    height: 85px;\n}\n", ""]);
+	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 10px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: none;\n  outline: none;\n  padding: 15px;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);\n}\n.searchbox:hover,\n.searchbox:focus {\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02) !important;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.result-short {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    border-bottom: 2px solid gray;\n    margin-top: 5px;\n    padding: 5px;\n}\n.result-short .type,\n.info .type {\n    font-size: 15px;\n    font-weight: bold;\n    color: black;\n    text-transform: capitalize;\n}\n.result-short .location,\n.info .location {\n    font-size: 13px;\n    color: gray;\n}\n.result-short .stars,\n.info .stars{\n    display: flex;\n    padding-bottom: 10px;\n}\n.result-short img {\n    height: 85px;\n}\n.back-results {\n    font-size: 13px;\n    padding-top: 5px;\n    padding-bottom: 5px;\n}\n.banner {\n    background: #a41f1b;\n    color: white;\n    height: 110px;\n    padding: 16px 24px 20px;\n}\n.extra-info {\n    padding: 16px 24px 20px;\n}\n.banner .info .type,\n.banner .info .stars,\n.banner .info .location {\n    color: white;\n}\n", ""]);
 
 	// exports
 
@@ -8884,6 +8884,25 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 	    computed: {
@@ -8901,6 +8920,12 @@
 	        },
 	        results: function results() {
 	            return this.$store.state.results;
+	        },
+	        result: function result() {
+	            return this.$store.state.result;
+	        },
+	        isInfoAll: function isInfoAll() {
+	            return this.$store.state.infoAll;
 	        }
 	    },
 	    methods: {
@@ -13411,13 +13436,13 @@
 	    class: {
 	      'moveleft': _vm.collapse
 	    }
-	  }, [_h('h1', ["Search for a location"]), " ", _h('input', {
+	  }, [_h('div', [_h('input', {
 	    staticClass: "searchbox",
 	    attrs: {
 	      "type": "text",
 	      "name": "search",
 	      "id": "search",
-	      "placeholder": "Search"
+	      "placeholder": "Search for a location"
 	    },
 	    domProps: {
 	      "value": _vm.query
@@ -13436,12 +13461,22 @@
 	    }
 	  }, [_h('i', {
 	    staticClass: "fa fa-search"
-	  })]), " ", (_vm.searching) ? _h('div', {
+	  })]), " ", (_vm.isInfoAll) ? _h('a', {
+	    staticClass: "back-results",
+	    on: {
+	      "click": function($event) {
+	        _vm.showAll(_vm.result)
+	      }
+	    }
+	  }, ["Back to results"]) : _vm._e()]), " ", (_vm.searching) ? _h('div', {
 	    staticClass: "spinner"
 	  }) : _h('div', {
-	    staticClass: "secondfold"
+	    staticClass: "secondfold",
+	    class: {
+	      all: _vm.isInfoAll
+	    }
 	  }, [_vm._l((_vm.results), function(result) {
-	    return _h('div', [_h('div', {
+	    return (_vm.isInfoAll == false) ? _h('div', [_h('div', {
 	      staticClass: "result-short",
 	      on: {
 	        "click": function($event) {
@@ -13474,10 +13509,32 @@
 	      attrs: {
 	        "src": "http://i.imgur.com/hZlv8lr.png"
 	      }
-	    }), " "]), " ", (result.all) ? _h('div', {
+	    }), " "])]) : _h('div', [_h('div', {
+	      staticClass: "banner"
+	    }, [_h('div', {
+	      staticClass: "info"
+	    }, [_h('p', {
+	      staticClass: "type"
+	    }, [_vm._s(result.info.mosquito.top)]), " ", _h('div', {
+	      staticClass: "stars"
+	    }, [_h('i', {
+	      staticClass: "fa fa-star"
+	    }), " ", (result.info.mosquito_thorax.top == 'yes') ? _h('i', {
+	      staticClass: "fa fa-star"
+	    }) : _h('i', {
+	      staticClass: "fa fa-star-o"
+	    }), " ", " ", (result.info.mosquito_abdomen.top == 'yes') ? _h('i', {
+	      staticClass: "fa fa-star"
+	    }) : _h('i', {
+	      staticClass: "fa fa-star-o"
+	    }), " "]), " ", _h('p', {
+	      staticClass: "location"
+	    }, [_vm._s(result.info.display_name)])])]), " ", _h('div', {
+	      staticClass: "extra-info"
+	    }, [(result.all) ? _h('div', {
 	      staticClass: "result-full"
-	    }, [_h('p', ["Analizado por " + _vm._s(result.info.mosquito.count)]), " ", (result.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e(), " ", (result.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e()]) : _vm._e()])
-	  })]), " ", " ", _h('div', {
+	    }, [_h('p', ["Analizado por " + _vm._s(result.info.mosquito.count)]), " ", (result.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e(), " ", (result.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e()]) : _vm._e()])])
+	  }), " "]), " ", " ", (_vm.isInfoAll) ? _h('div', {
 	    staticClass: "collapse-panel"
 	  }, [_h('div', {
 	    staticClass: "collapse-panel-label",
@@ -13488,7 +13545,7 @@
 	    staticClass: "fa fa-caret-right"
 	  }) : _h('i', {
 	    staticClass: "fa fa-caret-left"
-	  }), " "])])])])
+	  }), " "])]) : _vm._e()])])
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -13690,11 +13747,13 @@
 	        searching: false,
 	        collapse: false,
 	        results: null,
+	        result: null,
 	        endpoint: 'http://mosquitoalert.pybossa.com',
 	        query: null,
 	        map: null,
 	        markers: [],
-	        polygons: []
+	        polygons: [],
+	        infoAll: false
 	    },
 	    mutations: {
 	        getResults: function getResults(state) {
@@ -13704,10 +13763,15 @@
 	            state.collapse = !state.collapse;
 	        },
 	        toggleResultAll: function toggleResultAll(state, payload) {
-	            console.log(payload.result);
 	            var index = state.results.indexOf(payload.result);
-	            console.log(index);
 	            state.results[index].all = !state.results[index].all;
+	            if (state.results[index].all) {
+	                state.result = state.results[index];
+	                state.infoAll = true;
+	            } else {
+	                state.result = null;
+	                state.infoAll = false;
+	            }
 	        },
 	        updateQuery: function updateQuery(state, query) {
 	            state.query = query;
