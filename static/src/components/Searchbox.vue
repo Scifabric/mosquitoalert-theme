@@ -2,53 +2,54 @@
     <div class="col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div v-bind:style="isCover">
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
-                    <a class="back-results" v-if="isInfoAll" v-on:click="showAll(result)">Volver a resultados</a>
+                    <a class="back-results" v-on:click="showAll(resultShown)">Volver a resultados</a>
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
-            <div v-else class="secondfold" v-bind:class="{all: isInfoAll}">
-                <div v-if="isInfoAll == false" v-for="result in results" class="results-list">
-                    <div v-on:click="showAll(result)" class="result-short">
-                        <div class="info">
-                            <p class="type">{{result.info.mosquito.top}}</p>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
-                                <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
+            <div v-else class="secondfold">
+                <div v-if="isInfoAll == false"> 
+                    <div v-for="result in results" class="results-list">
+                        <div v-on:click="showAll(result)" class="result-short">
+                            <div class="info">
+                                <p class="type">{{result.info.mosquito.top}}</p>
+                                <div class="stars">
+                                    <i class="fa fa-star"></i>
+                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                </div>
+                                <p class="location">{{result.info.display_name}}</p>
                             </div>
-                            <p class="location">{{result.info.display_name}}</p>
+                            <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
+                            <img v-else src="http://i.imgur.com/hZlv8lr.png">
                         </div>
-                        <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
-                        <img v-else src="http://i.imgur.com/hZlv8lr.png">
                     </div>
                 </div>
                 <div v-else>
                     <div class="banner">
                         <div class="info">
-                            <p class="type">{{result.info.mosquito.top}}</p>
+                            <p class="type">{{resultShown.info.mosquito.top}}</p>
                             <div class="stars">
                                 <i class="fa fa-star"></i>
-                                <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                <i v-if="resultShown.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
                                 <i v-else class="fa fa-star-o"></i>
-                                <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                <i v-if="resultShown.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
                                 <i v-else class="fa fa-star-o"></i>
                             </div>
-                            <p class="location">{{result.info.display_name}}</p>
+                            <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
                     </div>
-                        <div class="extra-info">
-                            <div v-if="result.all" class="result-full">
-                                <p>Analizado por {{result.info.mosquito.count}} persona</p>
-                                <p v-if="result.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{result.info.mosquito_thorax.freq}}</p>
-                                <p v-if="result.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{result.info.mosquito_thorax.freq}}</p>
-                            </div>
+                    <div class="extra-info">
+                        <div class="result-full">
+                            <p>Analizado por {{resultShown.info.mosquito.count}} persona</p>
+                            <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+                            <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
                         </div>
-
+                    </div>
                 </div>
             </div>
             <div v-if="isInfoAll" class="collapse-panel">
@@ -97,16 +98,16 @@ export default {
         results() {
             return this.$store.state.results
         },
-        result() {
+        resultShown() {
             return this.$store.state.result
         },
         isInfoAll() {
             return this.$store.state.infoAll
         },
         isCover() {
-            if (this.result) {
+            if (this.resultShown) {
                 return {
-                    'background': "url(" + this.result.info.mosquito_url + ")",
+                    'background': "url(" + this.resultShown.info.mosquito_url + ")",
                     'background-size': 'cover',
                     'height': '200px'
                 }
@@ -127,6 +128,9 @@ export default {
         },
         showAll(result){
             this.$store.commit('toggleResultAll', {result})
+        },
+        removeResult(){
+            this.$store.commit('removeResult')
         },
         getResults() {
             this.$store.commit('cleanMarkers')
@@ -211,6 +215,11 @@ export default {
 .searchbox:hover,
 .searchbox:focus {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02) !important;
+}
+
+.searchbox.allinfo {
+    box-shadow: none;
+    border-bottom: 1px solid #d4d4d4;
 }
 .searchbtn {
     position: absolute;
@@ -330,6 +339,7 @@ div.back-results {
 }
 .back-results a {
     font-size: 13px;
+    cursor: pointer;
 }
 
 .banner {

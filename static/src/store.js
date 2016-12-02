@@ -28,8 +28,7 @@ export default new Vuex.Store({
     },
     toggleResultAll(state, payload) {
         var index = state.results.indexOf(payload.result)
-        state.results[index].all = !state.results[index].all
-        if (state.results[index].all) {
+        if (state.infoAll == false) {
             state.result = state.results[index]
             state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
             state.infoAll = true
