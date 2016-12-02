@@ -11,7 +11,7 @@
             <div v-if="searching" class="spinner"></div>
             <div v-else class="secondfold">
                 <div v-if="isInfoAll == false"> 
-                    <div v-for="result in results.slice(5)" class="results-list">
+                    <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
                             <div class="info">
                                 <p class="type">{{result.info.mosquito.top}}</p>
@@ -135,7 +135,10 @@ export default {
         getResults() {
             this.$store.commit('cleanMarkers')
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
-                                                endpoint: this.endpoint})
+                                                endpoint: this.endpoint,
+                                                limit: 5,
+                                                offset:0
+                                                })
         }
     }
 }
