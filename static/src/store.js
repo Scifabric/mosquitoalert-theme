@@ -105,7 +105,7 @@ export default new Vuex.Store({
         getResults(context, payload) {
             console.log("axios!")
             context.commit('toggleSearching')
-            var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1'
+            var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
             axios.get(url)
               .then(function (response) {
                 console.log(response);

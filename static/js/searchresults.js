@@ -8958,7 +8958,10 @@
 	        getResults: function getResults() {
 	            this.$store.commit('cleanMarkers');
 	            this.$store.dispatch('getResults', { query: formatQuery(this.query),
-	                endpoint: this.endpoint });
+	                endpoint: this.endpoint,
+	                limit: 5,
+	                offset: 0
+	            });
 	        }
 	    }
 	};
@@ -13496,7 +13499,7 @@
 	    staticClass: "spinner"
 	  }) : _h('div', {
 	    staticClass: "secondfold"
-	  }, [(_vm.isInfoAll == false) ? _h('div', [_vm._l((_vm.results.slice(5)), function(result) {
+	  }, [(_vm.isInfoAll == false) ? _h('div', [_vm._l((_vm.results), function(result) {
 	    return _h('div', {
 	      staticClass: "results-list"
 	    }, [_h('div', {
@@ -13948,7 +13951,7 @@
 	        getResults: function getResults(context, payload) {
 	            console.log("axios!");
 	            context.commit('toggleSearching');
-	            var url = payload.endpoint + '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1';
+	            var url = payload.endpoint + '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset;
 	            _axios2.default.get(url).then(function (response) {
 	                console.log(response);
 	                context.commit('updateResults', { results: response.data });
