@@ -7,6 +7,28 @@
 
                 <div v-if="searching" class="spinner"></div>
                 <div v-else class="secondfold">
+                    <div v-for="result in results">
+                        <div v-on:click="showAll(result)" class="result-short">
+                            <div class="info">
+                                <p class="type">{{result.info.mosquito.top}}</p>
+                                <div class="stars">
+                                    <i class="fa fa-star"></i>
+                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
+                                    <i v-else class="fa fa-star-o"></i>
+                                </div>
+                                <p class="location">{{result.info.display_name}}</p>
+                                </div>
+                                <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
+                                <img v-else src="http://i.imgur.com/hZlv8lr.png">
+                        </div>
+                        <div v-if="result.all" class="result-full">
+                            <p>Analizado por {{result.info.mosquito.count}}</p>
+                            <p v-if="result.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{result.info.mosquito_thorax.freq}}</p>
+                            <p v-if="result.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{result.info.mosquito_thorax.freq}}</p>
+                        </div>
+                    </div>
                 </div>
             <div class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
@@ -50,6 +72,9 @@ export default {
         },
         endpoint() {
             return this.$store.state.endpoint
+        },
+        results() {
+            return this.$store.state.results
         }
     },
     methods: {
@@ -59,6 +84,9 @@ export default {
         updateQuery(e){
             this.$store.commit('updateQuery', e.target.value)
 
+        },
+        showAll(result){
+            this.$store.commit('toggleResultAll', {result})
         },
         getResults() {
             this.$store.commit('cleanMarkers')
@@ -208,6 +236,35 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.result-short {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid gray;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.result-short .type {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-transform: capitalize;
+}
+
+.result-short .location {
+    font-size: 13px;
+    color: gray;
+}
+
+.result-short .stars {
+    display: flex;
+    padding-bottom: 10px;
+}
+.result-short img {
+    height: 85px;
 }
 </style>
 

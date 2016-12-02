@@ -24,10 +24,19 @@ export default new Vuex.Store({
     toggleSearchbox(state) {
         state.collapse = !state.collapse
     },
+    toggleResultAll(state, payload) {
+        console.log(payload.result)
+        var index = state.results.indexOf(payload.result)
+        console.log(index)
+        state.results[index].all = !state.results[index].all
+    },
     updateQuery(state, query) {
         state.query = query
     },
     updateResults(state, data) {
+        for (var result of data.results) {
+            result.all = false
+        }
         state.results = data.results
     },
     toggleSearching(state) {
@@ -86,7 +95,7 @@ export default new Vuex.Store({
         getResults(context, payload) {
             console.log("axios!")
             context.commit('toggleSearching')
-            var url = payload.endpoint +  '/api/result?info=display_name::' + payload.query + '&all=1&fulltextsearch=1'
+            var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1'
             axios.get(url)
               .then(function (response) {
                 console.log(response);

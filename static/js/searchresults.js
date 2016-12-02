@@ -8530,7 +8530,7 @@
 
 
 	// module
-	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 111px;\n  padding: 18px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: solid 1px #777777;\n  padding: 15px;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n", ""]);
+	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 111px;\n  padding: 18px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: solid 1px #777777;\n  padding: 15px;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.result-short {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    border-bottom: 2px solid gray;\n    margin-top: 5px;\n    padding: 5px;\n}\n.result-short .type {\n    font-size: 15px;\n    font-weight: bold;\n    color: black;\n    text-transform: capitalize;\n}\n.result-short .location {\n    font-size: 13px;\n    color: gray;\n}\n.result-short .stars {\n    display: flex;\n    padding-bottom: 10px;\n}\n.result-short img {\n    height: 85px;\n}\n", ""]);
 
 	// exports
 
@@ -8862,6 +8862,28 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	exports.default = {
 	    computed: {
@@ -8876,6 +8898,9 @@
 	        },
 	        endpoint: function endpoint() {
 	            return this.$store.state.endpoint;
+	        },
+	        results: function results() {
+	            return this.$store.state.results;
 	        }
 	    },
 	    methods: {
@@ -8884,6 +8909,9 @@
 	        },
 	        updateQuery: function updateQuery(e) {
 	            this.$store.commit('updateQuery', e.target.value);
+	        },
+	        showAll: function showAll(result) {
+	            this.$store.commit('toggleResultAll', { result: result });
 	        },
 	        getResults: function getResults() {
 	            this.$store.commit('cleanMarkers');
@@ -13412,7 +13440,44 @@
 	    staticClass: "spinner"
 	  }) : _h('div', {
 	    staticClass: "secondfold"
-	  }), " ", " ", _h('div', {
+	  }, [_vm._l((_vm.results), function(result) {
+	    return _h('div', [_h('div', {
+	      staticClass: "result-short",
+	      on: {
+	        "click": function($event) {
+	          _vm.showAll(result)
+	        }
+	      }
+	    }, [_h('div', {
+	      staticClass: "info"
+	    }, [_h('p', {
+	      staticClass: "type"
+	    }, [_vm._s(result.info.mosquito.top)]), " ", _h('div', {
+	      staticClass: "stars"
+	    }, [_h('i', {
+	      staticClass: "fa fa-star"
+	    }), " ", (result.info.mosquito_thorax.top == 'yes') ? _h('i', {
+	      staticClass: "fa fa-star"
+	    }) : _h('i', {
+	      staticClass: "fa fa-star-o"
+	    }), " ", " ", (result.info.mosquito_abdomen.top == 'yes') ? _h('i', {
+	      staticClass: "fa fa-star"
+	    }) : _h('i', {
+	      staticClass: "fa fa-star-o"
+	    }), " "]), " ", _h('p', {
+	      staticClass: "location"
+	    }, [_vm._s(result.info.display_name)])]), " ", (result.info.mosquito.top == 'tiger') ? _h('img', {
+	      attrs: {
+	        "src": "http://i.imgur.com/PHPuc8l.png"
+	      }
+	    }) : _h('img', {
+	      attrs: {
+	        "src": "http://i.imgur.com/hZlv8lr.png"
+	      }
+	    }), " "]), " ", (result.all) ? _h('div', {
+	      staticClass: "result-full"
+	    }, [_h('p', ["Analizado por " + _vm._s(result.info.mosquito.count)]), " ", (result.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e(), " ", (result.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(result.info.mosquito_thorax.freq)]) : _vm._e()]) : _vm._e()])
+	  })]), " ", " ", _h('div', {
 	    staticClass: "collapse-panel"
 	  }, [_h('div', {
 	    staticClass: "collapse-panel-label",
@@ -13638,10 +13703,41 @@
 	        toggleSearchbox: function toggleSearchbox(state) {
 	            state.collapse = !state.collapse;
 	        },
+	        toggleResultAll: function toggleResultAll(state, payload) {
+	            console.log(payload.result);
+	            var index = state.results.indexOf(payload.result);
+	            console.log(index);
+	            state.results[index].all = !state.results[index].all;
+	        },
 	        updateQuery: function updateQuery(state, query) {
 	            state.query = query;
 	        },
 	        updateResults: function updateResults(state, data) {
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = data.results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var result = _step.value;
+
+	                    result.all = false;
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
 	            state.results = data.results;
 	        },
 	        toggleSearching: function toggleSearching(state) {
@@ -13668,13 +13764,13 @@
 	                "weight": 5,
 	                "opacity": 0.65
 	            };
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
 
 	            try {
-	                for (var _iterator = state.results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var result = _step.value;
+	                for (var _iterator2 = state.results[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var result = _step2.value;
 
 	                    // Add icon
 	                    var icon = _leaflet2.default.Icon.Default;
@@ -13686,37 +13782,6 @@
 	                        style: myStyle
 	                    }).addTo(state.map);
 	                    state.polygons.push(polygon);
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            var group = new _leaflet2.default.featureGroup(state.polygons);
-
-	            state.map.fitBounds(group.getBounds());
-	            state.searching = false;
-	        },
-	        cleanMarkers: function cleanMarkers(state) {
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-
-	            try {
-	                for (var _iterator2 = state.markers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var marker = _step2.value;
-
-	                    marker.remove();
 	                }
 	            } catch (err) {
 	                _didIteratorError2 = true;
@@ -13733,15 +13798,21 @@
 	                }
 	            }
 
+	            var group = new _leaflet2.default.featureGroup(state.polygons);
+
+	            state.map.fitBounds(group.getBounds());
+	            state.searching = false;
+	        },
+	        cleanMarkers: function cleanMarkers(state) {
 	            var _iteratorNormalCompletion3 = true;
 	            var _didIteratorError3 = false;
 	            var _iteratorError3 = undefined;
 
 	            try {
-	                for (var _iterator3 = state.polygons[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	                    var polygon = _step3.value;
+	                for (var _iterator3 = state.markers[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                    var marker = _step3.value;
 
-	                    polygon.remove();
+	                    marker.remove();
 	                }
 	            } catch (err) {
 	                _didIteratorError3 = true;
@@ -13757,13 +13828,38 @@
 	                    }
 	                }
 	            }
+
+	            var _iteratorNormalCompletion4 = true;
+	            var _didIteratorError4 = false;
+	            var _iteratorError4 = undefined;
+
+	            try {
+	                for (var _iterator4 = state.polygons[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                    var polygon = _step4.value;
+
+	                    polygon.remove();
+	                }
+	            } catch (err) {
+	                _didIteratorError4 = true;
+	                _iteratorError4 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                        _iterator4.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError4) {
+	                        throw _iteratorError4;
+	                    }
+	                }
+	            }
 	        }
 	    },
 	    actions: {
 	        getResults: function getResults(context, payload) {
 	            console.log("axios!");
 	            context.commit('toggleSearching');
-	            var url = payload.endpoint + '/api/result?info=display_name::' + payload.query + '&all=1&fulltextsearch=1';
+	            var url = payload.endpoint + '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1';
 	            _axios2.default.get(url).then(function (response) {
 	                console.log(response);
 	                context.commit('updateResults', { results: response.data });
