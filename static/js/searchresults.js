@@ -13794,7 +13794,7 @@
 	            var index = state.results.indexOf(payload.result);
 	            if (state.infoAll == false) {
 	                state.result = state.results[index];
-	                state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg';
+	                //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
 	                state.infoAll = true;
 	            } else {
 	                state.result = null;
