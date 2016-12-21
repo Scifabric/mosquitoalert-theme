@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
-            <div v-else class="secondfold">
+            <div v-else class="secondfold" scrollbar>
                 <div v-if="isInfoAll == false"> 
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
@@ -211,8 +211,9 @@ export default {
 }
 
 .secondfold {
-  max-height: 500px;
-  overflow: scroll;
+  max-height: 514px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .secondfold > h2 {
