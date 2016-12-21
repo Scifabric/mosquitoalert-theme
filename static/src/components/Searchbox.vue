@@ -50,6 +50,7 @@
                             <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
                         </div>
                     </div>
+                    <Chart></Chart>
                 </div>
             </div>
             <div v-if="results.length" class="collapse-panel">
@@ -58,12 +59,12 @@
                     <i v-else class="fa fa-caret-left"></i>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 <script>
 import XRegExp from 'xregexp'
+import Chart from './Chart.vue'
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -82,6 +83,7 @@ function formatQuery(queryData) {
 }
 
 export default {
+    components: {Chart},
     computed: {
         searching() {
             return this.$store.state.searching
@@ -116,6 +118,15 @@ export default {
                 return {
                 }
             }
+        },
+        chartData() {
+            return this.$store.state.chartData
+        },
+        chartOptions() {
+            return this.$store.state.chartOptions
+        },
+        result() {
+            return this.$store.state.result
         }
     },
     methods: {
@@ -140,7 +151,7 @@ export default {
                                                 offset:0
                                                 })
         }
-    }
+    },
 }
 </script>
 <style>

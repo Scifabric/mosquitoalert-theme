@@ -19,7 +19,14 @@ export default new Vuex.Store({
     polygons: [],
     infoAll: false,
     limit: 5,
-    offset:0
+    offset:0,
+    chartData: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Oct', 'Nov', 'Dec'],
+        series: [20, 60, 120, 200, 180, 20, 10, 8, 2, 10, 34, 12]
+    },
+    chartOptions: {
+        distributeSeries: true
+    }
   },
   mutations: {
     getResults(state) {
@@ -99,7 +106,7 @@ export default new Vuex.Store({
             polygon.remove()
         }
 
-    }
+    },
   },
     actions: {
         getResults(context, payload) {
