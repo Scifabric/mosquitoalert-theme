@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
-            <div v-else class="secondfold" scrollbar>
+            <div v-else class="secondfold" v-bind:class="{zero: results.length === 0}">
                 <div v-if="isInfoAll == false"> 
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
@@ -215,6 +215,17 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.secondfold.zero {
+    height: 0;
+}
+
+.secondfold::-webkit-scrollbar{width: 5px;}
+
+.secondfold::-webkit-scrollbar-thumb{background-color:rgb(196, 196, 196); border-radius: 0;}
+.secondfold::-webkit-scrollbar-thumb:hover{background-color:rgb(196, 196, 196);}
+
+.secondfold::-webkit-scrollbar-track{background-color:rgb(237, 237, 237);}
 
 .secondfold > h2 {
   font-size: 18px;
