@@ -147,7 +147,7 @@ export default {
             this.$store.commit('cleanMarkers')
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
                                                 endpoint: this.endpoint,
-                                                limit: 5,
+                                                limit: 100,
                                                 offset:0
                                                 })
         }

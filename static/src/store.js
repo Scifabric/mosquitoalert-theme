@@ -18,7 +18,7 @@ export default new Vuex.Store({
     markers: [],
     polygons: [],
     infoAll: false,
-    limit: 5,
+    limit: 100,
     offset:0,
     chartData: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
