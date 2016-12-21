@@ -65,6 +65,8 @@
 <script>
 import XRegExp from 'xregexp'
 import Chart from './Chart.vue'
+import 'smooth-scrollbar/dist/smooth-scrollbar.css'
+import Scrollbar from 'smooth-scrollbar'
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -206,6 +208,11 @@ export default {
 
 .searchpanel.moveleft{
     margin-left: -398px;
+}
+
+.secondfold {
+  max-height: 500px;
+  overflow: scroll;
 }
 
 .secondfold > h2 {
