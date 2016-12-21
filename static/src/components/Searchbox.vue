@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
-            <div v-else class="secondfold">
+            <div v-else class="secondfold" scrollbar>
                 <div v-if="isInfoAll == false"> 
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
@@ -50,6 +50,7 @@
                             <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
                         </div>
                     </div>
+                    <Chart></Chart>
                 </div>
             </div>
             <div v-if="results.length" class="collapse-panel">
@@ -58,12 +59,14 @@
                     <i v-else class="fa fa-caret-left"></i>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 <script>
 import XRegExp from 'xregexp'
+import Chart from './Chart.vue'
+import 'smooth-scrollbar/dist/smooth-scrollbar.css'
+import Scrollbar from 'smooth-scrollbar'
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -82,6 +85,7 @@ function formatQuery(queryData) {
 }
 
 export default {
+    components: {Chart},
     computed: {
         searching() {
             return this.$store.state.searching
@@ -116,6 +120,15 @@ export default {
                 return {
                 }
             }
+        },
+        chartData() {
+            return this.$store.state.chartData
+        },
+        chartOptions() {
+            return this.$store.state.chartOptions
+        },
+        result() {
+            return this.$store.state.result
         }
     },
     methods: {
@@ -136,11 +149,11 @@ export default {
             this.$store.commit('cleanMarkers')
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
                                                 endpoint: this.endpoint,
-                                                limit: 5,
+                                                limit: 100,
                                                 offset:0
                                                 })
         }
-    }
+    },
 }
 </script>
 <style>
@@ -195,6 +208,12 @@ export default {
 
 .searchpanel.moveleft{
     margin-left: -398px;
+}
+
+.secondfold {
+  max-height: 514px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .secondfold > h2 {

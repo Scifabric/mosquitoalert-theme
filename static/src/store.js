@@ -18,8 +18,16 @@ export default new Vuex.Store({
     markers: [],
     polygons: [],
     infoAll: false,
-    limit: 5,
-    offset:0
+    limit: 100,
+    offset:0,
+    chartData: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+        series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    chartOptions: {
+        distributeSeries: true,
+        axisY: {onlyInteger: true}
+    }
   },
   mutations: {
     getResults(state) {
@@ -44,8 +52,11 @@ export default new Vuex.Store({
         state.query = query
     },
     updateResults(state, data) {
+        state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for (var result of data.results) {
             result.all = false
+            var idx = result.info.month - 1
+            state.chartData.series[idx] += 1
         }
         state.results = data.results
     },
@@ -99,11 +110,11 @@ export default new Vuex.Store({
             polygon.remove()
         }
 
-    }
+    },
   },
     actions: {
         getResults(context, payload) {
-            console.log("axios!")
+            //console.log("axios!")
             context.commit('toggleSearching')
             var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
             axios.get(url)
