@@ -16,7 +16,7 @@
 }
 
 .navbar-mosquito {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -33,4 +33,9 @@
     color: $brand-primary;
     background: transparent;
     border-bottom: 2px solid $brand-primary;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a
+{
+    color: $brand-primary;
 }
