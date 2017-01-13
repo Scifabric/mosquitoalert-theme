@@ -1025,6 +1025,7 @@ msgid ""
 "the yellow fever are, as well as its expansion in order to reduce the "
 "risks of the diseases that they spread."
 msgstr ""
+"Es un observatorio ciudadano creado por varios centros de investigación (CEAB-CSIC, CREAF) para conocer dónde se encuentra el mosquito tigre y el de la fiebre amarilla, controlar su expansión y reducir el riesgo de transmisión de las enfermedades que transmiten. "
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:7
 msgid ""
@@ -1033,6 +1034,7 @@ msgid ""
 "its expansion and handle the risks that their presence has in the quality"
 " of life and health of people."
 msgstr ""
+"Aunque ya existen algunos datos sobre estas especies, es importante tener el máximo de información en tiempo real para poder predecir su expansión y gestionar a tiempo los riesgos que su presencia conlleva para la calidad de vida y la salud de las personas."
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:8
 msgid ""
@@ -1043,6 +1045,7 @@ msgid ""
 "worldwide with researchers and people in charge of controlling these "
 "species among different cities."
 msgstr ""
+"Es relevante, ¿verdad? Pues únete clasificando imágenes que ya han enviado otros ciudadanos. Así sabremos si son las especies que buscamos. Una vez clasificados, estos datos forman el mapa colaborativo Mosquito Alert, que se pone a disposición de todos, además de investigadores y de responsables del seguimiento y control de estas especies en varias ciudades."
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:10
 msgid ""
