@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-4">
+    <div class="col-xs-12 col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div v-bind:style="isCover">
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
@@ -199,6 +199,22 @@ export default {
   width: 383px;
   transition: margin-left 1s;
 }
+
+@media(max-width:768px) {
+    .searchpanel {
+        width: 333px;
+    }
+
+}
+
+@media(max-width:320px) {
+    .searchpanel {
+        width: 290px;
+    }
+
+}
+
+
 .searchpanel > h1 {
   height: 36px;
   font-size: 28px;
