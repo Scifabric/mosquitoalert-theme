@@ -16,15 +16,14 @@
                     <h1>Mosquito Alert</h1>
                 </div>
                 <div class="col-md-10">
-                <p>Somos una plataforma ciudadana para investigar y controlar mosquitos transmisores de enfermedades globales.</p>
-                <p>Mosquito Alert es un observatorio ciudadano para investigar y controlar el mosquito tigre y el de la fiebre amarilla, mosquitos transmisores de enfermedades globales. ¡Únete y lucha contra el Dengue, el Chikungunya y el Zika!</p>
-                <p>Las fotos de mosquito que clasifiques se comparten en un mapa público, y también con investigadores y expertos en su control. </p>
+                    <p>{{_('Mosquito Alert is a citizen observatory that investigates and controls the tiger mosquito and yello fever, mosquitoes that transmit diseases. Join us and fight agains Dengue, Chikungunya and Zika!')}}</p>
+                    <p>{{_('The mosquito pictures that you classify will be shared in a public map as well as with experts.')}}
                 </div>
                 <div class="col-md-2">
                     <img class="img-responsive" src="http://www.mosquitoalert.com/wp-content/uploads/homemobileNou_homepng_ENG.png"/>
                 </div>
                 <div class="col-md-12">
-                    <a class="btn btn-lg btn-primary" href="{{ url_for('project.presenter', short_name='mosquito-alert')}}">{{_('Empieza a clasificar')}}</a>
+                    <a class="btn btn-lg btn-primary" href="{{ url_for('project.presenter', short_name='mosquito-alert')}}">{{_('Start contributing')}}</a>
                 </div>
             </div>
             {% endif %}
