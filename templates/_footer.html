@@ -84,8 +84,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var lang = getCookie('language').toLowerCase();
         if (lang != '') 
             {
-            if (lang == 'es') { $("#languagelabel").text('Español');}
+                if (lang == 'es') { 
+                    $("#languagelabel").text('Español');
+                }
             else { $("#languagelabel").text('English');}
+            $(".app-badge").hide();
+            $(".app-badge." + lang).show();
             }
         else{
         $("#languagelabel").text('{{_('Language')}}');

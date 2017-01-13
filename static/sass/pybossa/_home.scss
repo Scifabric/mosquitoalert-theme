@@ -1,5 +1,13 @@
 section.home {
     margin-bottom: 40px;
+
+    .app-badge {
+        max-width: 135px;
+    }
+
+    .ios {
+        max-width: 123px;
+    }
 }
 section.home.featured {
     border-bottom: 1px solid $bright-grey;
