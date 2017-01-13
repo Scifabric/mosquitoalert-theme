@@ -1053,6 +1053,7 @@ msgid ""
 "funded by Fundación Española para la Ciencia y la Tecnología–Ministerio "
 "de Economía y Competitividad."
 msgstr ""
+"Mosquito Alert está financiado por la Obra Social la Caixa. Este proyecto está co-financiado por la Fundación Española para la Ciencia y la Tecnología–Ministerio de Economía y Competitividad."
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:11
 msgid "About the tiger mosquito and yellow fever"
