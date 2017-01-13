@@ -4,16 +4,28 @@
 {% block content %}
 <section class="home featured">
     <div class="jumbotron">
-        <div class="container text-center firstfold">
-            {% if categories_projects['featured'] | count > 0 %}
+        <div class="container firstfold">
+            {% if categories_projects['featured'] | count == 0 %}
             {% set featured_project = categories_projects['featured'] | random %}
             <h1>{{ featured_project.name }}</h1>
             <p>{{ featured_project.description }}</p>
             <a class="btn btn-primary" href="{{ url_for('project.details', short_name=featured_project.short_name)}}">{{_('Contribute')}}</a>
             {% else %}
-            <h1>Somos una plataforma ciudadana para investigar y controlar mosquitos transmisores de enfermedades globales.</h1>
-
-            <p>¡Únete y lucha contra el Dengue, el Chikungunya y el Zika!</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Mosquito Alert</h1>
+                </div>
+                <div class="col-md-10">
+                    <p>{{_('Mosquito Alert is a citizen observatory that investigates and controls the tiger mosquito and yello fever, mosquitoes that transmit diseases. Join us and fight agains Dengue, Chikungunya and Zika!')}}</p>
+                    <p>{{_('The mosquito pictures that you classify will be shared in a public map as well as with experts.')}}
+                </div>
+                <div class="col-md-2">
+                    <img class="img-responsive" src="http://www.mosquitoalert.com/wp-content/uploads/homemobileNou_homepng_ENG.png"/>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-lg btn-primary" href="{{ url_for('project.presenter', short_name='mosquito-alert')}}">{{_('Start contributing')}}</a>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>
