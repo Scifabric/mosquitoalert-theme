@@ -3,14 +3,27 @@ section.home {
 
     .app-badge {
         max-width: 135px;
+        margin-bottom: 15px;
     }
 
     .ios {
         max-width: 123px;
     }
+
+    @media(max-width(768px)) {
+        .flexcentered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+    .phonedemo {
+        display: flex;
+        flex-direction: column;
+    }
 }
 section.home.featured {
-    border-bottom: 1px solid $bright-grey;
 }
 
 section.home.projects {
