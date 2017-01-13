@@ -30,7 +30,6 @@
                     <p><a href="{{url_for('help.tos')}}">{{ _('Terms of Use') }}</a></p>
                     <p><a href="{{url_for('help.cookies_policy')}}">{{ _('Cookies Policy') }}</a></p>
                     <p><a href="{{url_for('help.privacy')}}">{{ _('Privacy Policy') }}</a></p>
-                    <p><a href="{{ url_for('account.index')}}">{{ _('Community') }}</a></p>
                     <p><a href="{{url_for('stats.index')}}">{{ _('Stats') }}</a></p>
 
                 </div>
@@ -84,8 +83,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var lang = getCookie('language').toLowerCase();
         if (lang != '') 
             {
-            if (lang == 'es') { $("#languagelabel").text('Español');}
+                if (lang == 'es') { 
+                    $("#languagelabel").text('Español');
+                }
             else { $("#languagelabel").text('English');}
+            $(".app-badge").hide();
+            $(".app-badge." + lang).show();
             }
         else{
         $("#languagelabel").text('{{_('Language')}}');

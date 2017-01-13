@@ -11,14 +11,27 @@
                 </div>
                 <div class="col-md-10">
                     <p>{{_('Mosquito Alert is a citizen observatory that investigates and controls the tiger mosquito and yello fever, mosquitoes that transmit diseases. Join us and fight agains Dengue, Chikungunya and Zika!')}}</p>
-                    <p>{{_('The mosquito pictures that you classify will be shared in a public map as well as with experts.')}}
+                    <p>{{_('The mosquito pictures that you classify will be shared in a public map as well as with experts.')}}</p>
+                    <p>{{_('Download the app and notify if you see a tiger mosquito or a Yellow fever mosquito.')}}</p>
+                    <div class="flexcentered">
+                        <a href="https://itunes.apple.com/app/id890635644">
+                                <img class="app-badge en ios" src="{{url_for('static', filename='img/app/ios-store-badge.svg')}}"/>
+                                <img class="app-badge es ios" src="{{url_for('static', filename='img/app/ios-store-badge_es.svg')}}"/>
+
+                        </a>
+
+                        <a href="https://play.google.com/store/apps/details?id=ceab.movelab.tigatrapp">
+                            <img class="app-badge en" src="{{url_for('static', filename='img/app/google-play-badge.png')}}"/>
+                            <img class="app-badge es" src="{{url_for('static', filename='img/app/google-play-badge_es.png')}}"/>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 phonedemo">
                     <img class="img-responsive" src="http://www.mosquitoalert.com/wp-content/uploads/homemobileNou_homepng_ENG.png"/>
                 </div>
-                <div class="col-md-12">
+                <!--<div class="col-md-12">
                     <a class="btn btn-lg btn-primary" href="{{ url_for('project.presenter', short_name='mosquito-alert')}}">{{_('Start contributing')}}</a>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
