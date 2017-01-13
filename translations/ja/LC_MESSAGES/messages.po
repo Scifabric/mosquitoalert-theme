@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-13 11:33+0100\n"
+"POT-Creation-Date: 2017-01-13 13:01+0100\n"
 "PO-Revision-Date: 2015-07-13 10:40+0900\n"
 "Last-Translator: Yu Fujimoto <yu.fujimoto@geo-nara.net>\n"
 "Language: ja\n"
@@ -18,33 +18,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:29
+#: themes/mosquitoalert-theme/templates/_footer.html:27
 #: themes/pybossa-default-theme/templates/_footer.html:11
 msgid "Resources"
 msgstr "リソース"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:30
+#: themes/mosquitoalert-theme/templates/_footer.html:28
 #: themes/pybossa-default-theme/templates/_footer.html:12
 msgid "Docs"
 msgstr "ドキュメント"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:32
+#: themes/mosquitoalert-theme/templates/_footer.html:30
 #: themes/pybossa-default-theme/templates/_footer.html:14
 msgid "Terms of Use"
 msgstr "利用規約"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:33
+#: themes/mosquitoalert-theme/templates/_footer.html:31
 #: themes/pybossa-default-theme/templates/_footer.html:15
 msgid "Cookies Policy"
 msgstr "クッキーの利用ポリシー"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:34
+#: themes/mosquitoalert-theme/templates/_footer.html:32
 #: themes/pybossa-default-theme/templates/_footer.html:16
 msgid "Privacy Policy"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:35
-#: themes/mosquitoalert-theme/templates/_navbar.html:11
+#: themes/mosquitoalert-theme/templates/_footer.html:33
+#: themes/mosquitoalert-theme/templates/_navbar.html:12
 #: themes/mosquitoalert-theme/templates/account/index.html:15
 #: themes/pybossa-default-theme/templates/_footer.html:17
 #: themes/pybossa-default-theme/templates/_navbar.html:11
@@ -52,23 +52,23 @@ msgstr ""
 msgid "Community"
 msgstr "コミュニティ"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:36
+#: themes/mosquitoalert-theme/templates/_footer.html:34
 #: themes/pybossa-default-theme/templates/_footer.html:18
 msgid "Stats"
 msgstr "統計"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:42
+#: themes/mosquitoalert-theme/templates/_footer.html:40
 #: themes/pybossa-default-theme/templates/_footer.html:24
 msgid "Licenses"
 msgstr "ライセンス"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:43
+#: themes/mosquitoalert-theme/templates/_footer.html:41
 #: themes/pybossa-default-theme/templates/_footer.html:25
 msgid "Overview"
 msgstr "概要"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:44
-#: themes/mosquitoalert-theme/templates/_navbar.html:12
+#: themes/mosquitoalert-theme/templates/_footer.html:42
+#: themes/mosquitoalert-theme/templates/_navbar.html:13
 #: themes/mosquitoalert-theme/templates/projects/index.html:30
 #: themes/mosquitoalert-theme/templates/stats/global.html:81
 #: themes/pybossa-default-theme/templates/_footer.html:26
@@ -78,19 +78,27 @@ msgstr "概要"
 msgid "Projects"
 msgstr "プロジェクト"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:45
+#: themes/mosquitoalert-theme/templates/_footer.html:43
 #: themes/pybossa-default-theme/templates/_footer.html:27
 msgid "Data"
 msgstr "データ"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:46
+#: themes/mosquitoalert-theme/templates/_footer.html:44
 #: themes/pybossa-default-theme/templates/_footer.html:28
 msgid "Content"
 msgstr "内容"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:51
+#: themes/mosquitoalert-theme/templates/_footer.html:49
 #: themes/pybossa-default-theme/templates/_footer.html:33
 msgid "Social"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/_footer.html:58
+msgid "Choose"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/_footer.html:91
+msgid "Language"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/_navbar.html:6
@@ -98,38 +106,42 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:13
+#: themes/mosquitoalert-theme/templates/_navbar.html:11
+msgid "Map"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/_navbar.html:14
 #: themes/pybossa-default-theme/templates/_navbar.html:13
 msgid "Create"
 msgstr "作成"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:14
+#: themes/mosquitoalert-theme/templates/_navbar.html:15
 #: themes/mosquitoalert-theme/templates/home/_about.html:5
 #: themes/pybossa-default-theme/templates/_navbar.html:14
 #: themes/pybossa-default-theme/templates/home/_about.html:5
 msgid "About"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:21
+#: themes/mosquitoalert-theme/templates/_navbar.html:22
 #: themes/pybossa-default-theme/templates/_navbar.html:21
 msgid "My Profile"
 msgstr "ユーザー・プロフィール"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:22
+#: themes/mosquitoalert-theme/templates/_navbar.html:23
 #: themes/mosquitoalert-theme/templates/account/_helpers.html:7
 #: themes/pybossa-default-theme/templates/_navbar.html:22
 #: themes/pybossa-default-theme/templates/account/_helpers.html:7
 msgid "My Projects"
 msgstr "ユーザー・プロジェクト"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:23
+#: themes/mosquitoalert-theme/templates/_navbar.html:24
 #: themes/mosquitoalert-theme/templates/account/_helpers.html:11
 #: themes/pybossa-default-theme/templates/_navbar.html:23
 #: themes/pybossa-default-theme/templates/account/_helpers.html:11
 msgid "My Settings"
 msgstr "個人設定"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:26
+#: themes/mosquitoalert-theme/templates/_navbar.html:27
 #: themes/mosquitoalert-theme/templates/account/_helpers.html:9
 #: themes/mosquitoalert-theme/templates/admin/categories.html:9
 #: themes/mosquitoalert-theme/templates/admin/del_category.html:5
@@ -148,12 +160,12 @@ msgstr "個人設定"
 msgid "Admin Site"
 msgstr "管理ページ"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:29
+#: themes/mosquitoalert-theme/templates/_navbar.html:30
 #: themes/pybossa-default-theme/templates/_navbar.html:29
 msgid "Sign Out"
 msgstr "サインアウト"
 
-#: themes/mosquitoalert-theme/templates/_navbar.html:33
+#: themes/mosquitoalert-theme/templates/_navbar.html:34
 #: themes/mosquitoalert-theme/templates/account/signin.html:8
 #: themes/mosquitoalert-theme/templates/account/signin.html:10
 #: themes/pybossa-default-theme/templates/_navbar.html:33
@@ -1125,33 +1137,32 @@ msgstr "全てがオープンかつ自由に利用できます"
 msgid "Things computers can't do"
 msgstr "コンピュータには出来ないことができます"
 
-#: themes/mosquitoalert-theme/templates/home/index.html:12
-#: themes/mosquitoalert-theme/templates/home/index.html:44
-#: themes/mosquitoalert-theme/templates/projects/_helpers.html:57
-#: themes/pybossa-default-theme/templates/home/index.html:12
-#: themes/pybossa-default-theme/templates/home/index.html:31
-#: themes/pybossa-default-theme/templates/projects/_helpers.html:57
-msgid "Contribute"
-msgstr "貢献する"
-
-#: themes/mosquitoalert-theme/templates/home/index.html:19
+#: themes/mosquitoalert-theme/templates/home/index.html:13
 msgid ""
 "Mosquito Alert is a citizen observatory that investigates and controls "
 "the tiger mosquito and yello fever, mosquitoes that transmit diseases. "
 "Join us and fight agains Dengue, Chikungunya and Zika!"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/index.html:20
+#: themes/mosquitoalert-theme/templates/home/index.html:14
 msgid ""
 "The mosquito pictures that you classify will be shared in a public map as"
 " well as with experts."
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/index.html:26
+#: themes/mosquitoalert-theme/templates/home/index.html:20
 #: themes/mosquitoalert-theme/templates/projects/tutorial.html:14
 #: themes/pybossa-default-theme/templates/projects/tutorial.html:14
 msgid "Start contributing"
 msgstr "貢献作業を開始"
+
+#: themes/mosquitoalert-theme/templates/home/index.html:37
+#: themes/mosquitoalert-theme/templates/projects/_helpers.html:57
+#: themes/pybossa-default-theme/templates/home/index.html:12
+#: themes/pybossa-default-theme/templates/home/index.html:31
+#: themes/pybossa-default-theme/templates/projects/_helpers.html:57
+msgid "Contribute"
+msgstr "貢献する"
 
 #: themes/mosquitoalert-theme/templates/home/search.html:8
 #: themes/pybossa-default-theme/templates/home/search.html:8

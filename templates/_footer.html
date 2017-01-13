@@ -50,8 +50,56 @@
                     <p><a href="https://www.facebook.com/PyBossa/">Facebook</a></p>
                     <p><a href="http://twitter.com/PyBossa/">Twitter</a></p>
                 </div>
+
+
+                {% if current_user.is_anonymous() %}
+                <div class="col-sm-offset-2 col-sm-4 col-md-offset-0 col-md-2 col-lg-2">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle language-selector" type="button" id="languageselector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="languagelabel">{{_('Choose')}}</label> <span class="caret"></span></button>
+                        <ul class="dropdown-menu" aria-labelledby="languageselector">
+                            <li><a href="#" onclick="setLanguage(0);">English</a></li>
+                            <li><a href="#" onclick="setLanguage(1)">Español</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div> 
 </footer>
+<script>
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 
 
+document.addEventListener("DOMContentLoaded", function(event) { 
+  //do work
+        var lang = getCookie('language').toLowerCase();
+        if (lang != '') 
+            {
+            if (lang == 'es') { $("#languagelabel").text('Español');}
+            else { $("#languagelabel").text('English');}
+            }
+        else{
+        $("#languagelabel").text('{{_('Language')}}');
+        }
+
+});
+
+    function setLanguage(lang) {
+        if (lang == 1) {
+             document.cookie="language=es;path=/";
+        }
+        else {
+             document.cookie="language=en;path=/";
+        }
+        location.reload();
+    }
+</script>
