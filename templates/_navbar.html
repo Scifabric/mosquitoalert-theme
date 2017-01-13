@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-fixed-top">
+<div class="navbar navbar-default navbar-fixed-top navbar-mosquito">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url_for('home.home') }}"><img src="{{url_for('static',filename='img/' + logo)}}" alt="{{brand}}"></a>
@@ -8,6 +8,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
+                <li {% if active_page == 'results' %} class="active" {% endif %}><a href="{{ url_for('home.result') }}">{{ _('Map') }}</a></li>
                 <li {% if active_page == 'community' %} class="active" {% endif %}><a href="{{ url_for('account.index')}}">{{ _('Community') }}</a></li>
                 <!--<li {% if active_page == 'projects' %} class="active" {% endif %}><a href="{{ url_for('project.index') }}">{{ _('Projects') }}</a></li>-->
                 <!--<li {% if active_page == 'create' %} class="active" {% endif %}><a href="{{ url_for('project.new') }}">{{ _('Create') }}</a></li>-->
