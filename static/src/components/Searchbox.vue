@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div v-if="results.length" class="collapse-panel">
-                <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label">
+                <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label hidden-xs">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
                     <i v-else class="fa fa-caret-left"></i>
                 </div>
@@ -214,6 +214,12 @@ export default {
   max-height: 514px;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+@media(max-width:768px) {
+    .secondfold {
+        max-height: 300px;
+    }
 }
 
 .secondfold.zero {
