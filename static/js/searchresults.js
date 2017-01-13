@@ -8903,6 +8903,8 @@
 	//
 	//
 	//
+	//
+	//
 
 	function formatQuery(queryData) {
 	    var regex_non_words = (0, _xregexp2.default)("[^\\p{L}\\s\\d]", "g");
@@ -18491,7 +18493,7 @@
 	    staticClass: "extra-info"
 	  }, [_h('div', {
 	    staticClass: "result-full"
-	  }, [_h('p', ["Analizado por " + _vm._s(_vm.resultShown.info.mosquito.count) + " persona"]), " ", (_vm.resultShown.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e(), " ", (_vm.resultShown.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e()])]), " ", _h('Chart')]), " "]), " ", " ", (_vm.results.length) ? _h('div', {
+	  }, [_h('p', ["Analizado por " + _vm._s(_vm.resultShown.info.mosquito.count) + " persona"]), " ", (_vm.resultShown.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e(), " ", (_vm.resultShown.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e(), " ", _h('p', ["Distribución por meses"]), " ", _h('Chart')])])]), " "]), " ", " ", (_vm.results.length) ? _h('div', {
 	    staticClass: "collapse-panel"
 	  }, [_h('div', {
 	    staticClass: "collapse-panel-label hidden-xs",

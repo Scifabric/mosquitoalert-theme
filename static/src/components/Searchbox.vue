@@ -48,9 +48,11 @@
                             <p>Analizado por {{resultShown.info.mosquito.count}} persona</p>
                             <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
                             <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+
+                            <p>Distribución por meses</p>
+                            <Chart></Chart>
                         </div>
                     </div>
-                    <Chart></Chart>
                 </div>
             </div>
             <div v-if="results.length" class="collapse-panel">
