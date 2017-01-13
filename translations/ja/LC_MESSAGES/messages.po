@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-13 10:38+0100\n"
+"POT-Creation-Date: 2017-01-13 11:33+0100\n"
 "PO-Revision-Date: 2015-07-13 10:40+0900\n"
 "Last-Translator: Yu Fujimoto <yu.fujimoto@geo-nara.net>\n"
 "Language: ja\n"
@@ -1025,83 +1025,81 @@ msgstr "管理者特権を保持している現在のユーザー"
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:6
 msgid ""
-"Es un observatorio ciudadano creado por varios centros de investigación "
-"(CEAB-CSIC, CREAF) para conocer dónde se encuentra el mosquito tigre y el"
-" de la fiebre amarilla, controlar su expansión y reducir el riesgo de "
-"transmisión de las enfermedades que transmiten."
+"It is a citizen observatory founded by several research institutions "
+"(CEAB-CSIC, CREAF) with the aim to discover where the tiger mosquito and "
+"the yellow fever are, as well as its expansion in order to reduce the "
+"risks of the diseases that they spread."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:7
 msgid ""
-"Aunque ya existen algunos datos sobre estas especies, es importante tener"
-" el máximo de información en tiempo real para poder predecir su expansión"
-" y gestionar a tiempo los riesgos que su presencia conlleva para la "
-"calidad de vida y la salud de las personas."
+"Even though there is some data about these species, it is very important "
+"to have all the information in real time in order to be able to predict "
+"its expansion and handle the risks that their presence has in the quality"
+" of life and health of people."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:8
 msgid ""
-"Es relevante, ¿verdad? Pues únete clasificando imágenes que ya han "
-"enviado otros ciudadanos. Así sabremos si son las especies que buscamos. "
-"Una vez clasificados, estos datos forman el mapa colaborativo Mosquito "
-"Alert, que se pone a disposición de todos, además de investigadores y de "
-"responsables del seguimiento y control de estas especies en varias "
-"ciudades."
+"Important, isn't it? Thus, join us classifying images that have sent "
+"other citizens. Thanks to your contribution we will know if we are "
+"finding the species that we want. Once they are classified, this data "
+"will be part of the collaborative map of Mosquito Alert, that is shared "
+"worldwide with researchers and people in charge of controlling these "
+"species among different cities."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:10
 msgid ""
-"Mosquito Alert está financiado por la Obra Social la Caixa. Este proyecto"
-" está co-financiado por la Fundación Española para la Ciencia y la "
-"Tecnología–Ministerio de Economía y Competitividad."
+"Mosquito Alert is funded by la Obra Social la Caixa. This project is co-"
+"funded by Fundación Española para la Ciencia y la Tecnología–Ministerio "
+"de Economía y Competitividad."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:11
-msgid "Sobre el mosquito tigre y de la fiebre amarilla"
+msgid "About the tiger mosquito and yellow fever"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:12
 msgid ""
-"El mosquito tigre (Aedes albopictus) y el mosquito de la fiebre amarilla "
-"(Aedes aegypti) son mosquitos invasores y vectores de enfermedades. "
-"Tienen varios rasgos en común: son pequeños, oscuros y con rayas y "
-"manchas blancas en todo el cuerpo y en las patas. Viven principalmente en"
-" zonas urbanas, donde cría en recipientes pequeños con agua estancada."
+"The tiger mosquito (Aedes albopictus) and the yellow fever mosquito "
+"(Aedes aegypti) are invasive mosquitoes and vectors for diseases. They "
+"have several features in common: they are small, dark, and with lines and"
+" white spots over their bodies and their legs. They live mostly in urban "
+"areas, where they breed in small containers with some stagnant water."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:13
 msgid ""
-"¿Cómo se diferencian? Pues muy fácil: el mosquito tigre es negro (¡muy "
-"negro!) y tiene una sola línea blanca en la cabeza y el tórax (espalda). "
-"En cambio, el mosquito de la fiebre amarilla es marrón oscuro (¡muy "
-"oscuro!) y tiene 4 líneas blancas en forma de lira en el tórax. ¡Fíjate "
-"en su tórax (espalda) para reconocerlos mejor!"
+"How do we distinguish them? Easily! The tiger mosquito is black (very "
+"black!) and has one single white line in the head and thorax (the back). "
+"However, the yellow fever mosquito is dark brown (very dark!) and has 4 "
+"white lines in the shape of a lira in its thorax. Check the thorax to "
+"recognize them better!"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:14
-msgid "Sobre las enfermedades"
+msgid "About the diseases"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:15
 msgid ""
-"Estos mosquitos son vectores de arbovirus a nivel global, como el dengue,"
-" la fiebre amarilla, el chikungunya y el Zika. Los arbovirus son un grupo"
-" de virus que se transmiten mediante artrópodos que actúan como vectores."
-" Estas enfermedades pueden producir fiebre y dolores articulares y "
-"musculares, entre otros síntomas, y en algunas ocasiones se requiere "
-"hospitalizar a los pacientes. El virus se transmite cuando un mosquito "
-"del género Aedes pica a una persona después de infectarse al picar antes "
-"a otra persona infectada por el virus."
+"These mosquitoes are vectors of the arbovirus worldwide like denge, "
+"yellow fever, chikungunya, and Zika. The arbovirus are a group of viruses"
+" that are transmitted via arthropods that act like vectors. These "
+"diseases can produces fever and muscle and joint pain, among other "
+"symptoms and in some cases the patient needs to be hospitalized. The "
+"virus is transmitted when a mosquito from the Aedes genus bites a person "
+"after being infected from a previous bit from another infected person."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:16
 msgid ""
-"Conocer y entender la distribución geográfica y la presencia de estos dos"
-" vectores es muy importante para planear la prevención de enfermedades y "
-"el control de las diferentes intervenciones de gestión. Estas "
-"enfermedades han aumentado considerablemente en los últimos 50 años ya "
-"que estas dos especies de mosquito se han expandido por nuevas áreas "
-"geográficas."
+"Knowing and understanding the distribution of the mosquitoes and its "
+"presence of these two vectors is very important to prevent the spread of "
+"diseases and control the different plans of intervention. These diseases "
+"have increased in the last 50 years, as these two species have moved to "
+"new areas."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_pybossa_text.html:1
@@ -1128,7 +1126,7 @@ msgid "Things computers can't do"
 msgstr "コンピュータには出来ないことができます"
 
 #: themes/mosquitoalert-theme/templates/home/index.html:12
-#: themes/mosquitoalert-theme/templates/home/index.html:45
+#: themes/mosquitoalert-theme/templates/home/index.html:44
 #: themes/mosquitoalert-theme/templates/projects/_helpers.html:57
 #: themes/pybossa-default-theme/templates/home/index.html:12
 #: themes/pybossa-default-theme/templates/home/index.html:31
@@ -1136,9 +1134,24 @@ msgstr "コンピュータには出来ないことができます"
 msgid "Contribute"
 msgstr "貢献する"
 
-#: themes/mosquitoalert-theme/templates/home/index.html:27
-msgid "Empieza a clasificar"
+#: themes/mosquitoalert-theme/templates/home/index.html:19
+msgid ""
+"Mosquito Alert is a citizen observatory that investigates and controls "
+"the tiger mosquito and yello fever, mosquitoes that transmit diseases. "
+"Join us and fight agains Dengue, Chikungunya and Zika!"
 msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/index.html:20
+msgid ""
+"The mosquito pictures that you classify will be shared in a public map as"
+" well as with experts."
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/index.html:26
+#: themes/mosquitoalert-theme/templates/projects/tutorial.html:14
+#: themes/pybossa-default-theme/templates/projects/tutorial.html:14
+msgid "Start contributing"
+msgstr "貢献作業を開始"
 
 #: themes/mosquitoalert-theme/templates/home/search.html:8
 #: themes/pybossa-default-theme/templates/home/search.html:8
@@ -2403,11 +2416,6 @@ msgstr "成果の一部をダウンロード"
 msgid "Nothing to download yet"
 msgstr "まだ、ダウンロードできるものはありません"
 
-#: themes/mosquitoalert-theme/templates/projects/tutorial.html:14
-#: themes/pybossa-default-theme/templates/projects/tutorial.html:14
-msgid "Start contributing"
-msgstr "貢献作業を開始"
-
 #: themes/mosquitoalert-theme/templates/projects/update.html:8
 #: themes/pybossa-default-theme/templates/projects/update.html:8
 msgid "Update the avatar"
@@ -3532,11 +3540,6 @@ msgstr ""
 #~ msgid "Email"
 #~ msgstr "Eメール"
 
-#~ msgid ""
-#~ "If you want to be updated with our new features, projects, and\n"
-#~ "        scientific projects, subscribe to our newsletter."
-#~ msgstr "新しい機能、新規プロジェクト、および科学プロジェクトを更新したい場合は、私達のニュースレターを講読してください。"
-
 #~ msgid "Your Profile"
 #~ msgstr "プロファイル"
 
@@ -3560,11 +3563,6 @@ msgstr ""
 
 #~ msgid "my secret password"
 #~ msgstr "秘密のパスワード"
-
-#~ msgid ""
-#~ "below you are agreeing to\n"
-#~ "    the"
-#~ msgstr ""
 
 #~ msgid "Sign in with Twitter"
 #~ msgstr "Twitterでログイン"
@@ -3596,67 +3594,11 @@ msgstr ""
 #~ msgid "Monitor the background jobs"
 #~ msgstr "バックグランド処理を確認する。"
 
-#~ msgid ""
-#~ "PyBossa is a free, open-source "
-#~ "crowd-sourcing and micro-tasking platform."
-#~ " It enables people to create and "
-#~ "run projects that utilise online "
-#~ "assistance in performing tasks that "
-#~ "require human cognition such as image"
-#~ " classification, transcription, geocoding and "
-#~ "more. PyBossa is there to help "
-#~ "researchers, civic hackers and developers "
-#~ "to create projects where anyone around"
-#~ " the world with some time, interest"
-#~ " and an internet connection can "
-#~ "contribute."
-#~ msgstr "PyBossaは、無償のオープンソース・クラウド・ソーシングおよびマイクロ・タスキングのプラットフォームです。このシステムは、人による手作業を必要とするような、画像分類、転機、ジオコーディング、あるいは、それ以外の作業において、オンライン支援によるプロジェクトの作成と運用を可能にします。PyBossaは、プロジェクトを通して研究者、一般のIT技術者および開発者を手助けするとともに、時間がある人、興味がある人、そして、インターネット接続が可能な世界中の誰もが参加できる機会を提供します。"
-
 #~ msgid "PyBossa is different to existing efforts:"
 #~ msgstr "PyBossaは既存の努力と異なっています。"
 
-#~ msgid ""
-#~ "Unlike, say, “mechanical turk” style "
-#~ "projects, PyBossa is not designed to "
-#~ "handle payment or money — it is"
-#~ " designed to support volunteer-driven "
-#~ "projects."
-#~ msgstr ""
-#~ "いわゆる、「Mechanical "
-#~ "Turk」スタイルのプロジェクトではなく、PyBossaは、金銭的報酬を伴うようには設計されていません。PyBossaは、ボランティア・ベースのプロジェクトをサポートするように設計されています。"
-
-#~ msgid ""
-#~ "It's designed as a platform and "
-#~ "framework for developing deploying crowd-"
-#~ "sourcing and microtasking project rather "
-#~ "than being a crowd-sourcing project "
-#~ "itself. Individual crowd-sourcing projects "
-#~ "are written as simple snippets of "
-#~ "Javascript and HTML which are then "
-#~ "deployed on a PyBossa instance (such "
-#~ "as"
-#~ msgstr "展開されているクラウド・ソーシングあるいはマイクロ・タスキングのプロジェクトを開発するためのプラットフォームあるいはフレームワークとして設計されています。"
-
-#~ msgid ""
-#~ "This way one can easily develop "
-#~ "custom projects while using the PyBossa"
-#~ " platform to store your data, manage"
-#~ " users, and handle workflow"
-#~ msgstr "この方法によって、データの蓄積、ユーザー管理、ワークフロー通りの処理のためのPyBossaプラットフォームを使うことで、誰もが簡単にカスタム・プロジェクトを開発できます。"
-
 #~ msgid "PyBossa Documentation"
 #~ msgstr "PyBossaの解説書"
-
-#~ msgid ""
-#~ " PyBossa provides individual statistics "
-#~ "for every project in the system, "
-#~ "as well as a"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "general overview about the system like"
-#~ " total number of users, tasks, etc"
-#~ msgstr ""
 
 #~ msgid "Check the global statistics"
 #~ msgstr "全体の統計を確認する。"
@@ -3715,63 +3657,8 @@ msgstr ""
 #~ msgid "Sorry! This blogpost does not exist."
 #~ msgstr "申し訳ございません！このブログ投稿は存在していません。"
 
-#~ msgid ""
-#~ "This export option stills in beta "
-#~ "mode and may fail in the CKAN "
-#~ "server. If you get an error, "
-#~ "please send an e-mail to "
-#~ "info@pybossa.com"
-#~ msgstr "この出力オプションはまだベータ版であり、CKANサーバーの形式の場合には失敗する可能性があります。エラーが発生した場合には、info@pybossa.comにメールしてください。"
-
-#~ msgid ""
-#~ "Explain your project"
-#~ "                                                             \n"
-#~ "                · Why? Why you are "
-#~ "creating this project, what you want "
-#~ "to achieve with it"
-#~ "                                                             \n"
-#~ "                · How? Explain how your"
-#~ " project works"
-#~ "                                                             \n"
-#~ "                · How you can help: "
-#~ "Explain to the volunteers how they "
-#~ "can help and contribute to the "
-#~ "goal of your project"
-#~ "                                                             \n"
-#~ "                · Will you help make "
-#~ "a difference? Explain to the volunteers"
-#~ " why their contribution is essential "
-#~ "and how the result of your project"
-#~ " can help change things!"
-#~ "                                                             \n"
-#~ "            (you can use Markdown to give format to your description!)"
-#~ msgstr ""
-#~ "プロジェクトの説明\n"
-#~ "    · プロジェクトの目的と期待する成果について\n"
-#~ "    · プロジェクトの運用方法について\n"
-#~ "    · ボラティンティアの支援方法および貢献方法\n"
-#~ "    · 世の中に与えるインパクトについて\n"
-#~ "\n"
-#~ "（Markdownを使用して整形された記述を書くことができます。）"
-
 #~ msgid "Write a new blog post for ad"
 #~ msgstr "宣伝のための新規ブログの投稿記事を執筆する"
-
-#~ msgid ""
-#~ "Sorry, you've contributed to all the "
-#~ "tasks for this project, but this "
-#~ "project still needs more volunteers, so"
-#~ " please spread the word!"
-#~ msgstr "申し訳ございません。このプロジェクトではより多くのボランティアを必要としています。このプロジェクトの事を周知していただけると幸いです。"
-
-#~ msgid ""
-#~ "You are about to publish your "
-#~ "project. This CANNOT be undone! Once "
-#~ "your project has been published, people"
-#~ " will be able to contribute to "
-#~ "it and answers will begin to be"
-#~ " stored."
-#~ msgstr ""
 
 #~ msgid "No results"
 #~ msgstr ""
@@ -3797,60 +3684,11 @@ msgstr ""
 #~ msgid "Close"
 #~ msgstr "閉じる"
 
-#~ msgid ""
-#~ "of one or more tasks,\n"
-#~ "                providing a list of task"
-#~ " IDs separated by commas. The lowest"
-#~ "\n"
-#~ "                priority is"
-#~ msgstr "は、一つあるいは複数のタスクに与えることができ、カンマ区切りのタスクIDのリストによって定義されます。最も低い優先度＝"
-
-#~ msgid ""
-#~ "The priority value is only\n"
-#~ "                respected by the"
-#~ msgstr "優先度の値は、"
-
-#~ msgid ""
-#~ "returns a task that\n"
-#~ "                    has not been completed "
-#~ "(the value of number of answers "
-#~ "has\n"
-#~ "                    not achieved) excluding the current user"
-#~ msgstr "現在のユーザーを除いた、完了していないタスク（回答数の値は得られません）を検索します。"
-
-#~ msgid ""
-#~ "returns a\n"
-#~ "                    task which has the "
-#~ "least number of task runs (answers)\n"
-#~ ""
-#~ "                    excluding the current user"
-#~ msgstr "現在のユーザーを除いた、稼働中のタスクが最も少ないタスクを検索します。"
-
-#~ msgid ""
-#~ "returns a task\n"
-#~ "                    randomly --a user could"
-#~ " get the same task twice or "
-#~ "more\n"
-#~ "                    times"
-#~ msgstr "ランダムにタスクを検索します。したがって、同じタスクを複数回取得することがあります。"
-
 #~ msgid "Priority"
 #~ msgstr "優先度"
 
-#~ msgid ""
-#~ "The progress bar will the percentage "
-#~ "that has been completed for the "
-#~ "task"
-#~ msgstr "プログレスバーは、タスクの完了状況のパーセンテージを表しています"
-
 #~ msgid "Update the project"
 #~ msgstr "プロジェクトの更新"
-
-#~ msgid ""
-#~ "Please provide a URL (i.e. DropBox, "
-#~ "Box, Ubuntu One, etc. public link) "
-#~ "to a CSV file with data for"
-#~ msgstr "CSVファイルのURL（DropBox, Box, Ubuntu One等のパブリック・リンク）を入力してください："
 
 #~ msgid "The URL of the CSV file"
 #~ msgstr "CSVファイルのURL"
@@ -3906,69 +3744,11 @@ msgstr ""
 #~ msgid "Provide a public link to your own CSV file"
 #~ msgstr "自分のCSVファイルのパブリックリンクを使用"
 
-#~ msgid ""
-#~ "Use the CSV URL\n"
-#~ "      importer"
-#~ msgstr ""
-#~ "CSVのURLを使用する\n"
-#~ "インポートCSV URL\n"
-#~ "インポート"
-
-#~ msgid ""
-#~ "If you delete all the\n"
-#~ "            tasks and task runs they will be gone\n"
-#~ "            forever!"
-#~ msgstr "全てのタスクと稼働中のタスクを消去すると、永久に元に戻すことはできません！"
-
-#~ msgid ""
-#~ "No, do not delete\n"
-#~ "              anything!"
-#~ msgstr "いいえ、何も消去しません！"
-
 #~ msgid "Use the Dropbox importer"
 #~ msgstr "Dropboxのインポート"
 
-#~ msgid ""
-#~ "Use the EpiCollect\n"
-#~ "      Plus importer"
-#~ msgstr ""
-#~ "EpiCollect Plus\n"
-#~ "インポート"
-
 #~ msgid "Use the Flickr importer"
 #~ msgstr "Flickrのインポート"
-
-#~ msgid ""
-#~ "Use the\n"
-#~ "      Image tasks"
-#~ msgstr "画像タスクの使用"
-
-#~ msgid ""
-#~ "Use the\n"
-#~ "      Mapping tasks"
-#~ msgstr "マッピングタスクの使用"
-
-#~ msgid ""
-#~ "Use the\n"
-#~ "      Transcription tasks"
-#~ msgstr "転記タスクの使用"
-
-#~ msgid ""
-#~ "Use the\n"
-#~ "      Sound tasks"
-#~ msgstr "音声タスクの使用"
-
-#~ msgid ""
-#~ "Use the\n"
-#~ "      Video tasks"
-#~ msgstr "ビデオタスクの使用"
-
-#~ msgid ""
-#~ "Use the Google Drive\n"
-#~ "      importer"
-#~ msgstr ""
-#~ "Google Drive\n"
-#~ "インポート"
 
 #~ msgid "S3"
 #~ msgstr ""
@@ -3990,4 +3770,13 @@ msgstr ""
 
 #~ msgid "No active projects in the last 24 hours"
 #~ msgstr "過去24時刊に活動中のプロジェクトはありません"
+
+#~ msgid "Sobre el mosquito tigre y de la fiebre amarilla"
+#~ msgstr ""
+
+#~ msgid "Sobre las enfermedades"
+#~ msgstr ""
+
+#~ msgid "Empieza a clasificar"
+#~ msgstr ""
 
