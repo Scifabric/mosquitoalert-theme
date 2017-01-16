@@ -18747,6 +18747,7 @@
 	        },
 	        updateResults: function updateResults(state, data) {
 	            state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	            state.results = [];
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
@@ -18755,10 +18756,14 @@
 	                for (var _iterator = data.results[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var result = _step.value;
 
-	                    result.all = false;
-	                    var idx = result.info.month - 1;
-	                    state.chartData.series[idx] += 1;
+	                    if (result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') {
+	                        result.all = false;
+	                        var idx = result.info.month - 1;
+	                        state.chartData.series[idx] += 1;
+	                        state.results.push(result);
+	                    }
 	                }
+	                //state.results = data.results
 	            } catch (err) {
 	                _didIteratorError = true;
 	                _iteratorError = err;
@@ -18773,8 +18778,6 @@
 	                    }
 	                }
 	            }
-
-	            state.results = data.results;
 	        },
 	        toggleSearching: function toggleSearching(state) {
 	            state.searching = !state.searching;

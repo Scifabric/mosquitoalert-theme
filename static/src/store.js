@@ -53,12 +53,16 @@ export default new Vuex.Store({
     },
     updateResults(state, data) {
         state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        state.results = []
         for (var result of data.results) {
-            result.all = false
-            var idx = result.info.month - 1
-            state.chartData.series[idx] += 1
+            if (result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') {
+                result.all = false
+                var idx = result.info.month - 1
+                state.chartData.series[idx] += 1
+                state.results.push(result)
+            }
         }
-        state.results = data.results
+        //state.results = data.results
     },
     toggleSearching(state) {
         state.searching = !state.searching
