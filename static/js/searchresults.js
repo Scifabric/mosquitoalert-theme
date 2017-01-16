@@ -8987,6 +8987,13 @@
 	                offset: 0
 	            });
 	        }
+	    },
+	    watch: {
+	        'query': function query(val) {
+	            if (val === '') {
+	                this.$store.commit('cleanMarkers');
+	            }
+	        }
 	    }
 	};
 
