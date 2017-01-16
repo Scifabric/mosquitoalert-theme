@@ -115,6 +115,9 @@ export default new Vuex.Store({
         }
 
     },
+    cleanResults(state) {
+        state.results = []
+    },
   },
     actions: {
         getResults(context, payload) {

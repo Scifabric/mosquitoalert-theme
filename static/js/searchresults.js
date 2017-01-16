@@ -8992,6 +8992,7 @@
 	        'query': function query(val) {
 	            if (val === '') {
 	                this.$store.commit('cleanMarkers');
+	                this.$store.commit('cleanResults');
 	            }
 	        }
 	    }
@@ -18899,6 +18900,9 @@
 	                    }
 	                }
 	            }
+	        },
+	        cleanResults: function cleanResults(state) {
+	            state.results = [];
 	        }
 	    },
 	    actions: {

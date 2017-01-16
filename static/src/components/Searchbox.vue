@@ -160,6 +160,7 @@ export default {
         'query': function(val) {
             if (val === '') {
                 this.$store.commit('cleanMarkers')
+                this.$store.commit('cleanResults')
             }
         }
     }
