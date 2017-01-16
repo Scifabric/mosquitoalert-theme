@@ -46,22 +46,9 @@
 
                 <div class="col-sm-offset-2 col-sm-4 col-md-offset-0 col-md-2 col-lg-2">
                     <p><strong>{{_('Social')}}</strong></p>
-                    <p><a href="https://www.facebook.com/PyBossa/">Facebook</a></p>
-                    <p><a href="http://twitter.com/PyBossa/">Twitter</a></p>
+                    <p><a href="https://www.facebook.com/mosquitoalert/">Facebook</a></p>
+                    <p><a href="https://twitter.com/Mosquito_Alert">Twitter</a></p>
                 </div>
-
-
-                {% if current_user.is_anonymous() %}
-                <div class="col-sm-offset-2 col-sm-4 col-md-offset-0 col-md-2 col-lg-2">
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle language-selector" type="button" id="languageselector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="languagelabel">{{_('Choose')}}</label> <span class="caret"></span></button>
-                        <ul class="dropdown-menu" aria-labelledby="languageselector">
-                            <li><a href="#" onclick="setLanguage(0);">English</a></li>
-                            <li><a href="#" onclick="setLanguage(1)">Español</a></li>
-                        </ul>
-                    </div>
-                </div>
-                {% endif %}
             </div>
         </div>
     </div> 
@@ -78,9 +65,33 @@ function getCookie(cname) {
     return "";
 } 
 
+function getBrowserLanguage() {
+    // detect browser language (compatible with Chrome, Firefox, Safari and IE10+)
+    var userLang = window.navigator.languages ? window.navigator.languages[0] : null;
+        userLang = userLang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+    if (userLang.indexOf('-') !== -1)
+        userLang = userLang.split('-')[0];
+    
+    if (userLang.indexOf('_') !== -1)
+        userLang = userLang.split('_')[0];
+    // url parameter for lang?
+    // set language
+    var re = new RegExp("^es.*");
+    if (re.test(userLang)) {
+        userLocale = "es";
+    } else if (userLang === "ca") {
+        userLocale = "ca";
+    } else {
+        userLocale = "en";
+    }
+
+    console.log(userLocale);
+    return userLocale;
+}
+
 document.addEventListener("DOMContentLoaded", function(event) { 
   //do work
-        var lang = getCookie('language').toLowerCase();
+        var lang = getCookie('language').toLowerCase() || getBrowserLanguage();
         if (lang != '') 
             {
                 if (lang == 'es') { 
@@ -91,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             $(".app-badge." + lang).show();
             }
         else{
+
+
+
         $("#languagelabel").text('{{_('Language')}}');
         }
 

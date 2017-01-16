@@ -5,6 +5,54 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import 'swiper/dist/css/swiper.css'
 import swiper from 'swiper'
+import VueI18n from 'vue-i18n'
+import locales from './locales.js'
+
+Vue.use(VueI18n)
+
+function getBrowserLanguage() {
+    // detect browser language (compatible with Chrome, Firefox, Safari and IE10+)
+    var userLang = window.navigator.languages ? window.navigator.languages[0] : null;
+        userLang = userLang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+    if (userLang.indexOf('-') !== -1)
+        userLang = userLang.split('-')[0];
+    
+    if (userLang.indexOf('_') !== -1)
+        userLang = userLang.split('_')[0];
+    // url parameter for lang?
+    // set language
+    var re = new RegExp("^es.*");
+    var userLocale = "es"
+    if (re.test(userLang)) {
+        userLocale = "es";
+    } else if (userLang === "ca") {
+        userLocale = "ca";
+    } else {
+        userLocale = "en";
+    }
+
+    console.log(userLocale);
+    return userLocale;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+Vue.config.lang = getCookie('language').toLowerCase() || getBrowserLanguage()
+
+// set locales
+Object.keys(locales).forEach(function (lang) {
+  Vue.locale(lang, locales[lang])
+})
+
 
 
 Vue.use(Vuex)
@@ -79,6 +127,9 @@ export default new Vuex.Store({
                 state.results.push(result)
                 var url = result.info.mosquito_url
                 var type = result.info.mosquito.top
+                if (type === 'tiger') {
+                    type = Vue.t("message.tiger")
+                }
                 var location = result.info.county + ", " + result.info.country
                 var slide = `<div class="swiper-slide" style="background: url(${url}) 0% 0% / cover;"><p class="type">${type}</p><p class="location">${location}</p>` 
                 state.swiper.appendSlide(slide)
