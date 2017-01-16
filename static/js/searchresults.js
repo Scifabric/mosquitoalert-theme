@@ -18709,6 +18709,18 @@
 
 	_vue2.default.use(_vuex2.default);
 
+	function toogleResult(state, result) {
+	    var index = state.results.indexOf(result);
+	    if (state.infoAll == false) {
+	        state.result = state.results[index];
+	        //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
+	        state.infoAll = true;
+	    } else {
+	        state.result = null;
+	        state.infoAll = false;
+	    }
+	}
+
 	exports.default = new _vuex2.default.Store({
 	    state: {
 	        searching: false,
@@ -18740,15 +18752,7 @@
 	            state.collapse = !state.collapse;
 	        },
 	        toggleResultAll: function toggleResultAll(state, payload) {
-	            var index = state.results.indexOf(payload.result);
-	            if (state.infoAll == false) {
-	                state.result = state.results[index];
-	                //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
-	                state.infoAll = true;
-	            } else {
-	                state.result = null;
-	                state.infoAll = false;
-	            }
+	            toogleResult(state, payload.result);
 	        },
 	        updateQuery: function updateQuery(state, query) {
 	            state.query = query;
@@ -18825,15 +18829,17 @@
 	                    var marker = _leaflet2.default.marker([result.info.lat, result.info.lon]).addTo(state.map);
 	                    marker.result = result;
 	                    marker.on('click', function () {
-	                        var index = state.results.indexOf(this.result);
-	                        if (state.infoAll == false) {
-	                            state.result = state.results[index];
-	                            //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
-	                            state.infoAll = true;
-	                        } else {
-	                            state.result = null;
-	                            state.infoAll = false;
-	                        }
+	                        toogleResult(state, this.result);
+	                        //var index = state.results.indexOf(this.result)
+	                        //if (state.infoAll == false) {
+	                        //    state.result = state.results[index]
+	                        //    //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
+	                        //    state.infoAll = true
+	                        //}
+	                        //else {
+	                        //    state.result = null
+	                        //    state.infoAll = false
+	                        //}
 	                    });
 	                    state.markers.push(marker);
 	                    // Add area
