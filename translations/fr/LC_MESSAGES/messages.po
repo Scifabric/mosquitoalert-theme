@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-13 13:01+0100\n"
+"POT-Creation-Date: 2017-01-16 16:47+0100\n"
 "PO-Revision-Date: 2013-08-07 15:01+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -44,30 +44,21 @@ msgid "Privacy Policy"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/_footer.html:33
-#: themes/mosquitoalert-theme/templates/_navbar.html:12
-#: themes/mosquitoalert-theme/templates/account/index.html:15
-#: themes/pybossa-default-theme/templates/_footer.html:17
-#: themes/pybossa-default-theme/templates/_navbar.html:11
-#: themes/pybossa-default-theme/templates/account/index.html:15
-msgid "Community"
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/_footer.html:34
 #: themes/pybossa-default-theme/templates/_footer.html:18
 msgid "Stats"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:40
+#: themes/mosquitoalert-theme/templates/_footer.html:39
 #: themes/pybossa-default-theme/templates/_footer.html:24
 msgid "Licenses"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:41
+#: themes/mosquitoalert-theme/templates/_footer.html:40
 #: themes/pybossa-default-theme/templates/_footer.html:25
 msgid "Overview"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:42
+#: themes/mosquitoalert-theme/templates/_footer.html:41
 #: themes/mosquitoalert-theme/templates/_navbar.html:13
 #: themes/mosquitoalert-theme/templates/projects/index.html:30
 #: themes/mosquitoalert-theme/templates/stats/global.html:81
@@ -79,27 +70,27 @@ msgstr ""
 msgid "Projects"
 msgstr "Nom du Projet"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:43
+#: themes/mosquitoalert-theme/templates/_footer.html:42
 #: themes/pybossa-default-theme/templates/_footer.html:27
 #, fuzzy
 msgid "Data"
 msgstr "données"
 
-#: themes/mosquitoalert-theme/templates/_footer.html:44
+#: themes/mosquitoalert-theme/templates/_footer.html:43
 #: themes/pybossa-default-theme/templates/_footer.html:28
 msgid "Content"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:49
+#: themes/mosquitoalert-theme/templates/_footer.html:48
 #: themes/pybossa-default-theme/templates/_footer.html:33
 msgid "Social"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:58
+#: themes/mosquitoalert-theme/templates/_footer.html:57
 msgid "Choose"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:91
+#: themes/mosquitoalert-theme/templates/_footer.html:94
 msgid "Language"
 msgstr ""
 
@@ -110,6 +101,14 @@ msgstr ""
 
 #: themes/mosquitoalert-theme/templates/_navbar.html:11
 msgid "Map"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/_navbar.html:12
+#: themes/mosquitoalert-theme/templates/account/index.html:15
+#: themes/pybossa-default-theme/templates/_footer.html:17
+#: themes/pybossa-default-theme/templates/_navbar.html:11
+#: themes/pybossa-default-theme/templates/account/index.html:15
+msgid "Community"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/_navbar.html:14
@@ -1172,18 +1171,14 @@ msgid ""
 " well as with experts."
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/index.html:20
-#: themes/mosquitoalert-theme/templates/projects/tutorial.html:14
-#: themes/pybossa-default-theme/templates/projects/tutorial.html:14
-msgid "Start contributing"
+#: themes/mosquitoalert-theme/templates/home/index.html:15
+msgid ""
+"Download the app and notify if you see a tiger mosquito or a Yellow fever"
+" mosquito."
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/index.html:37
-#: themes/mosquitoalert-theme/templates/projects/_helpers.html:57
-#: themes/pybossa-default-theme/templates/home/index.html:12
-#: themes/pybossa-default-theme/templates/home/index.html:31
-#: themes/pybossa-default-theme/templates/projects/_helpers.html:57
-msgid "Contribute"
+#: themes/mosquitoalert-theme/templates/home/index.html:40
+msgid "Last identified mosquitoes"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/search.html:8
@@ -1260,6 +1255,13 @@ msgstr ""
 #: themes/pybossa-default-theme/templates/projects/_helpers.html:56
 #: themes/pybossa-default-theme/templates/projects/settings.html:21
 msgid "Blog"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/projects/_helpers.html:57
+#: themes/pybossa-default-theme/templates/home/index.html:12
+#: themes/pybossa-default-theme/templates/home/index.html:31
+#: themes/pybossa-default-theme/templates/projects/_helpers.html:57
+msgid "Contribute"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/projects/_helpers.html:66
@@ -2462,6 +2464,11 @@ msgstr ""
 #: themes/mosquitoalert-theme/templates/projects/tasks_browse.html:48
 #: themes/pybossa-default-theme/templates/projects/tasks_browse.html:48
 msgid "Nothing to download yet"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/projects/tutorial.html:14
+#: themes/pybossa-default-theme/templates/projects/tutorial.html:14
+msgid "Start contributing"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/projects/update.html:8
