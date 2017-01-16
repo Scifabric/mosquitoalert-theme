@@ -65,9 +65,33 @@ function getCookie(cname) {
     return "";
 } 
 
+function getBrowserLanguage() {
+    // detect browser language (compatible with Chrome, Firefox, Safari and IE10+)
+    var userLang = window.navigator.languages ? window.navigator.languages[0] : null;
+        userLang = userLang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+    if (userLang.indexOf('-') !== -1)
+        userLang = userLang.split('-')[0];
+    
+    if (userLang.indexOf('_') !== -1)
+        userLang = userLang.split('_')[0];
+    // url parameter for lang?
+    // set language
+    var re = new RegExp("^es.*");
+    if (re.test(userLang)) {
+        userLocale = "es";
+    } else if (userLang === "ca") {
+        userLocale = "ca";
+    } else {
+        userLocale = "en";
+    }
+
+    console.log(userLocale);
+    return userLocale;
+}
+
 document.addEventListener("DOMContentLoaded", function(event) { 
   //do work
-        var lang = getCookie('language').toLowerCase();
+        var lang = getCookie('language').toLowerCase() || getBrowserLanguage();
         if (lang != '') 
             {
                 if (lang == 'es') { 
@@ -78,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
             $(".app-badge." + lang).show();
             }
         else{
+
+
+
         $("#languagelabel").text('{{_('Language')}}');
         }
 
