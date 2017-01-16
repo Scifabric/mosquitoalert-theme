@@ -6,6 +6,19 @@ import L from 'leaflet'
 
 Vue.use(Vuex)
 
+function toogleResult(state, result) {
+    var index = state.results.indexOf(result)
+    if (state.infoAll == false) {
+        state.result = state.results[index]
+        //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
+        state.infoAll = true
+    }
+    else {
+        state.result = null
+        state.infoAll = false
+    }
+}
+
 export default new Vuex.Store({
   state: {
     searching: false,
@@ -37,28 +50,23 @@ export default new Vuex.Store({
         state.collapse = !state.collapse
     },
     toggleResultAll(state, payload) {
-        var index = state.results.indexOf(payload.result)
-        if (state.infoAll == false) {
-            state.result = state.results[index]
-            //state.result.info.mosquito_url = 'http://i.imgur.com/V1Xzzu6.jpg'
-            state.infoAll = true
-        }
-        else {
-            state.result = null
-            state.infoAll = false
-        }
+        toogleResult(state, payload.result)
     },
     updateQuery(state, query) {
         state.query = query
     },
     updateResults(state, data) {
         state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        state.results = []
         for (var result of data.results) {
-            result.all = false
-            var idx = result.info.month - 1
-            state.chartData.series[idx] += 1
+            if (result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') {
+                result.all = false
+                var idx = result.info.month - 1
+                state.chartData.series[idx] += 1
+                state.results.push(result)
+            }
         }
-        state.results = data.results
+        //state.results = data.results
     },
     toggleSearching(state) {
         state.searching = !state.searching
@@ -89,6 +97,10 @@ export default new Vuex.Store({
             var icon = L.Icon.Default
             icon.imagePath = 'https://unpkg.com/leaflet@1.0.2/dist/images/'
             var marker = L.marker([result.info.lat, result.info.lon]).addTo(state.map)
+            marker.result = result
+            marker.on('click', function() {
+                toogleResult(state, this.result)
+            })
             state.markers.push(marker)
             // Add area
             var polygon = L.geoJSON(result.info.geojson, {
@@ -110,6 +122,9 @@ export default new Vuex.Store({
             polygon.remove()
         }
 
+    },
+    cleanResults(state) {
+        state.results = []
     },
   },
     actions: {

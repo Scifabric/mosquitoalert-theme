@@ -156,6 +156,14 @@ export default {
                                                 })
         }
     },
+    watch: {
+        'query': function(val) {
+            if (val === '') {
+                this.$store.commit('cleanMarkers')
+                this.$store.commit('cleanResults')
+            }
+        }
+    }
 }
 </script>
 <style>
