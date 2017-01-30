@@ -519,6 +519,10 @@ div.back-results {
     padding: 15px;
 }
 
+.banner .info .location {
+    font-size: 24px;
+}
+
 .thorax, .abdomen {
     margin-right: 5px;
     padding: 2px;
