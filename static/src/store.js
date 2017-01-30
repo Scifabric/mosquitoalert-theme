@@ -45,6 +45,7 @@ export default new Vuex.Store({
     infoAll: false,
     limit: 100,
     offset:0,
+    scroll: 0,
     chartData: {
         labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

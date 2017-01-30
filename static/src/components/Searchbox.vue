@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div v-bind:style="isCover">
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
                     <a class="back-results" v-on:click="showAll(resultShown)">{{$t('message.back')}}</a>
@@ -14,7 +14,7 @@
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
                             <div class="info">
-                                <p class="type">{{result.info.mosquito.top}}</p>
+                                <p class="type">{{$t('message.' + result.info.mosquito.top)}}</p>
                                 <div class="stars">
                                     <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
                                     <span v-else class="thorax not"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
@@ -32,12 +32,12 @@
                 <div v-else>
                     <div class="banner">
                         <div class="info">
-                            <p class="type">{{resultShown.info.mosquito.top}}</p>
+                            <p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>
                             <div class="stars">
                                 <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
                                 <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
                                     <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
-                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
                             </div>
                             <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
@@ -232,6 +232,16 @@ export default {
             if (val === '') {
                 this.$store.commit('cleanMarkers')
                 this.$store.commit('cleanResults')
+            }
+        },
+        'isInfoAll': function(val) {
+            if (val) {
+                this.$store.state.scroll = $(".secondfold").scrollTop()
+                $(".secondfold").scrollTop(0)
+            }
+            else {
+                console.log("subiendo")
+                $(".secondfold").scrollTop(this.$store.state.scroll)
             }
         }
     }
@@ -430,8 +440,7 @@ export default {
     align-items: center;
 }
 
-.results-list:nth-child(n+2) {
-    margin-top: 5px;
+.results-list:nth-child(n+1) {
     border-bottom: 1px solid #d4d4d4;
 }
 
