@@ -20,6 +20,18 @@ export default {
       month: 'Distribution by month',
       by: 'by',
       users: 'of users',
+      jan: 'Jan',
+      feb: 'Feb',
+      mar: 'Mar',
+      apr: 'Apr',
+      may: 'May',
+      jun: 'Jun',
+      jul: 'Jul',
+      aug: 'Aug',
+      sep: 'Sep',
+      oct: 'Oct',
+      nov: 'Nov',
+      dec: 'Dec',
     }
   },
   es: {
@@ -43,6 +55,18 @@ export default {
       month: 'Distribución por meses',
       by: 'por el',
       users: 'de los usuarios',
+      jan: 'Ene',
+      feb: 'Feb',
+      mar: 'Mar',
+      apr: 'Abr',
+      may: 'May',
+      jun: 'Jun',
+      jul: 'Jul',
+      aug: 'Ago',
+      sep: 'Sep',
+      oct: 'Oct',
+      nov: 'Nov',
+      dec: 'Dic',
     }
   }
 }

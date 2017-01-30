@@ -18942,7 +18942,7 @@
 	        limit: 100,
 	        offset: 0,
 	        chartData: {
-	            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+	            labels: [_vue2.default.t('message.jan'), _vue2.default.t('message.feb'), _vue2.default.t('message.mar'), _vue2.default.t('message.apr'), _vue2.default.t('message.may'), _vue2.default.t('message.jun'), _vue2.default.t('message.jul'), _vue2.default.t('message.aug'), _vue2.default.t('message.sep'), _vue2.default.t('message.oct'), _vue2.default.t('message.nov'), _vue2.default.t('message.dec')],
 	            series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	        },
 	        chartOptions: {
@@ -35472,11 +35472,13 @@
 	  value: true
 	});
 
+	var _message, _message2;
+
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	exports.default = {
 	  en: {
-	    message: _defineProperty({
+	    message: (_message = {
 	      tiger: 'Tiger',
 	      yellow: 'Yellow Fever',
 	      back: 'Back to results',
@@ -35495,10 +35497,10 @@
 	      high: 'high',
 	      month: 'Distribution by month',
 	      by: 'by'
-	    }, 'users', 'of users')
+	    }, _defineProperty(_message, 'users', 'of users'), _defineProperty(_message, 'jan', 'Jan'), _defineProperty(_message, 'feb', 'Feb'), _defineProperty(_message, 'mar', 'Mar'), _defineProperty(_message, 'apr', 'Apr'), _defineProperty(_message, 'may', 'May'), _defineProperty(_message, 'jun', 'Jun'), _defineProperty(_message, 'jul', 'Jul'), _defineProperty(_message, 'aug', 'Aug'), _defineProperty(_message, 'sep', 'Sep'), _defineProperty(_message, 'oct', 'Oct'), _defineProperty(_message, 'nov', 'Nov'), _defineProperty(_message, 'dec', 'Dec'), _message)
 	  },
 	  es: {
-	    message: _defineProperty({
+	    message: (_message2 = {
 	      tiger: 'Tigre',
 	      yellow: 'Fiebre Amarilla',
 	      back: 'Volver a los resultados',
@@ -35517,7 +35519,7 @@
 	      high: 'Alto',
 	      month: 'Distribución por meses',
 	      by: 'por el'
-	    }, 'users', 'de los usuarios')
+	    }, _defineProperty(_message2, 'users', 'de los usuarios'), _defineProperty(_message2, 'jan', 'Ene'), _defineProperty(_message2, 'feb', 'Feb'), _defineProperty(_message2, 'mar', 'Mar'), _defineProperty(_message2, 'apr', 'Abr'), _defineProperty(_message2, 'may', 'May'), _defineProperty(_message2, 'jun', 'Jun'), _defineProperty(_message2, 'jul', 'Jul'), _defineProperty(_message2, 'aug', 'Ago'), _defineProperty(_message2, 'sep', 'Sep'), _defineProperty(_message2, 'oct', 'Oct'), _defineProperty(_message2, 'nov', 'Nov'), _defineProperty(_message2, 'dec', 'Dic'), _message2)
 	  }
 	};
 
