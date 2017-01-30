@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="results.length > 0 && !searching" class="searchchart">
+            <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
                 <p>Distribución por meses</p>
                 <Chart></Chart>
             </div>

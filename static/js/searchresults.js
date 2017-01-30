@@ -18686,7 +18686,7 @@
 	    staticClass: "small"
 	  }, ["ALTO"]), _h('p', {
 	    staticClass: "small number"
-	  }, [">70"])])])])])]), " "]), " ", " ", (_vm.results.length > 0 && !_vm.searching) ? _h('div', {
+	  }, [">70"])])])])])]), " "]), " ", " ", (_vm.results.length > 0 && !_vm.searching && !_vm.isInfoAll) ? _h('div', {
 	    staticClass: "searchchart"
 	  }, [_h('p', ["Distribución por meses"]), " ", _h('Chart')]) : _vm._e(), " ", (_vm.results.length) ? _h('div', {
 	    staticClass: "collapse-panel"
