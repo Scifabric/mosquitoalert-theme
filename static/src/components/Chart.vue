@@ -9,8 +9,23 @@ import Chartist from "chartist"
 
 export default {
     mounted() {
-        new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
+        var tmp = new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
+        this.$store.state.chartist = tmp
 
     },
+    computed: {
+        series() {
+            return this.$store.state.chartData.series
+        }
+    },
+    watch: {
+        'series': function(val) {
+            this.$store.state.chartist.detach()
+            var tmp = new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
+            this.$store.state.chartist = tmp
+
+
+        }
+    }
 }
 </script>

@@ -9044,7 +9044,6 @@
 	            });
 	        },
 	        cover: function cover(result) {
-	            console.log(result);
 	            if (result.info) return {
 	                'background': "url(" + result.info.mosquito_url + ")",
 	                'background-position-x': 'center',
@@ -13616,7 +13615,21 @@
 
 	exports.default = {
 	    mounted: function mounted() {
-	        new _chartist2.default.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions);
+	        var tmp = new _chartist2.default.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions);
+	        this.$store.state.chartist = tmp;
+	    },
+
+	    computed: {
+	        series: function series() {
+	            return this.$store.state.chartData.series;
+	        }
+	    },
+	    watch: {
+	        'series': function series(val) {
+	            this.$store.state.chartist.detach();
+	            var tmp = new _chartist2.default.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions);
+	            this.$store.state.chartist = tmp;
+	        }
 	    }
 	};
 
@@ -18916,7 +18929,8 @@
 	        chartOptions: {
 	            distributeSeries: true,
 	            axisY: { onlyInteger: true }
-	        }
+	        },
+	        chartist: null
 	    },
 	    mutations: {
 	        getResults: function getResults(state) {

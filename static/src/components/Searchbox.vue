@@ -212,7 +212,6 @@ export default {
                                                 })
         },
         cover(result){
-            console.log(result)
             if (result.info)
                  return {
                     'background': "url(" + result.info.mosquito_url + ")",

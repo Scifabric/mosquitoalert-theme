@@ -40,7 +40,8 @@ export default new Vuex.Store({
     chartOptions: {
         distributeSeries: true,
         axisY: {onlyInteger: true}
-    }
+    },
+    chartist: null,
   },
   mutations: {
     getResults(state) {
