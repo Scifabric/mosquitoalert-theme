@@ -16,11 +16,8 @@
                             <div class="info">
                                 <p class="type">{{result.info.mosquito.top}}</p>
                                 <div class="stars">
-                                    <i class="fa fa-star"></i>
-                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
-                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
+                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax">Thorax</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen">Abdomen</span>
                                 </div>
                                 <p class="location">{{result.info.display_name}}</p>
                             </div>
@@ -430,6 +427,15 @@ div.back-results {
 }
 .searchchart {
     padding: 15px;
+}
+
+.thorax, .abdomen {
+    margin-right: 5px;
+    border: 1px solid;
+    padding: 2px;
+    border-radius: 2px;
+    font-size: 10px;
+    text-transform: uppercase;
 }
 </style>
 
