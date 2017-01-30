@@ -208,7 +208,8 @@ export default {
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
                                                 endpoint: this.endpoint,
                                                 limit: 100,
-                                                offset:0
+                                                offset:0,
+                                                random: false,
                                                 })
         },
         cover(result){

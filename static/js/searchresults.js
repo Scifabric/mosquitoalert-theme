@@ -9040,7 +9040,8 @@
 	            this.$store.dispatch('getResults', { query: formatQuery(this.query),
 	                endpoint: this.endpoint,
 	                limit: 100,
-	                offset: 0
+	                offset: 0,
+	                random: false
 	            });
 	        },
 	        cover: function cover(result) {
@@ -18822,11 +18823,24 @@
 	    mounted: function mounted() {
 	        // create the tile layer with correct attribution
 	        this.$store.commit('addMap');
+	        this.populateMap();
 	    },
 
 	    computed: {
 	        results: function results() {
 	            return this.$store.state.results;
+	        }
+	    },
+	    methods: {
+	        populateMap: function populateMap() {
+	            this.$store.commit('cleanMarkers');
+	            var limit = 5;
+	            this.$store.dispatch('getResults', { query: null,
+	                endpoint: this.$store.state.endpoint,
+	                limit: limit,
+	                offset: Math.floor(Math.random() * limit) + 1,
+	                random: true
+	            });
 	        }
 	    },
 	    watch: {
@@ -19073,6 +19087,7 @@
 	            var group = new _leaflet2.default.featureGroup(state.polygons);
 
 	            state.map.fitBounds(group.getBounds());
+	            state.map.setZoom(5);
 	            state.searching = false;
 	        },
 	        cleanMarkers: function cleanMarkers(state) {
@@ -19134,7 +19149,12 @@
 	        getResults: function getResults(context, payload) {
 	            //console.log("axios!")
 	            context.commit('toggleSearching');
-	            var url = payload.endpoint + '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset;
+	            if (payload.random === false) {
+	                var url = payload.endpoint + '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset;
+	            } else {
+	                var url = payload.endpoint + '/api/result?info=mosquito_exists::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset;
+	            }
+	            console.log(url);
 	            _axios2.default.get(url).then(function (response) {
 	                console.log(response);
 	                context.commit('updateResults', { results: response.data });

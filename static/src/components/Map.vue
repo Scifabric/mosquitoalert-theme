@@ -6,12 +6,27 @@ export default {
     mounted(){
         // create the tile layer with correct attribution
         this.$store.commit('addMap')
+        this.populateMap()
 
     },
     computed: {
         results() {
             return this.$store.state.results
         }
+    },
+    methods: {
+        populateMap() {
+            this.$store.commit('cleanMarkers')
+            var limit = 5
+            this.$store.dispatch('getResults', {query: null,
+                                                endpoint: this.$store.state.endpoint,
+                                                limit: limit,
+                                                offset: Math.floor(Math.random() * limit) + 1,
+                                                random: true,
+                                                })
+
+        },
+
     },
     watch: {
         'results': function(results) {
