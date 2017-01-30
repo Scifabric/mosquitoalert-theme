@@ -2,10 +2,10 @@
     <div class="col-xs-12 col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div v-bind:style="isCover">
-                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
+                <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
-                    <a class="back-results" v-on:click="showAll(resultShown)">Volver a resultados</a>
+                    <a class="back-results" v-on:click="showAll(resultShown)">{{$t('message.back')}}</a>
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
@@ -14,47 +14,100 @@
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
                             <div class="info">
-                                <p class="type">{{result.info.mosquito.top}}</p>
+                                <p class="type">{{$t('message.' + result.info.mosquito.top)}}</p>
                                 <div class="stars">
-                                    <i class="fa fa-star"></i>
-                                    <i v-if="result.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
-                                    <i v-if="result.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                    <i v-else class="fa fa-star-o"></i>
+                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
                                 </div>
                                 <p class="location">{{result.info.display_name}}</p>
                             </div>
-                            <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
-                            <img v-else src="http://i.imgur.com/hZlv8lr.png">
+                            <div v-bind:style="cover(result)">
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <div v-else>
                     <div class="banner">
                         <div class="info">
-                            <p class="type">{{resultShown.info.mosquito.top}}</p>
+                            <p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>
                             <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i v-if="resultShown.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
-                                <i v-if="resultShown.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
+                                <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
+                                <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
                             </div>
                             <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
                     </div>
                     <div class="extra-info">
                         <div class="result-full">
-                            <p>Analizado por {{resultShown.info.mosquito.count}} persona</p>
-                            <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
-                            <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+                            <p>{{$t('message.classifiedAs')}}</p>
+                            <p class="mosquito-type">
+                                <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
+                                <span v-else>{{$t('message.yellow')}}</span>
+                            </p>
+                            <p>{{$t('message.by')}}</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
+                            <p>{{$t('message.users')}}</p>
+                            <p class="divider"></p>
 
-                            <p>Distribución por meses</p>
-                            <Chart></Chart>
+
+                            <p class="mosquito-type">
+                                <span>{{$t('message.thorax')}} {{$t('message.identified')}}</span>
+                            </p>
+                            <p>{{$t('message.by')}}</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
+                            <p>{{$t('message.users')}}</p>
+                            <p class="divider"></p>
+
+                            <p class="mosquito-type">
+                                <span>{{$t('message.abdomen')}} {{$t('message.identified')}}</span>
+                            </p>
+                            <p>{{$t('message.by')}}</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
+                            <p>{{$t('message.users')}}</p>
+                            <p class="divider"></p>
+
+
+
+                            <p>{{$t('message.classified')}}</p>
+                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} {{$tc('message.people', resultShown.info.mosquito.count)}}</p>
+                            <p class="divider"></p>
+
+
+                            <p>{{$t('message.confidence')}}</p>
+                            <div class="colors">
+                                <div class="column">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                        <rect class="low" v-bind:class="{chosen: resultShown.info.mosquito.count < 30}" x="0" y="0" width="30" height="30"></rect>
+                                    </svg>
+                                    <p class="small">{{$t('message.low')}}</p>
+                                    <p class="small number">&lt;30</p>
+                            </div>
+                            <div class="column">
+                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="mid" v-bind:class="{chosen: resultShown.info.mosquito.count >= 30 && resultShown.info.mosquito.count < 70}" x="0" y="0" width="30" height="30"></rect>
+                                </svg>
+                                <p class="small">{{$t('message.mid')}}</p><p class="small number">30 - 70</p>
+                            </div>
+                            <div class="column">
+                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="high"  v-bind:class="{chosen: resultShown.info.mosquito.count >= 70}" x="0" y="0" width="30" height="30"></rect>
+                                </svg>
+                                <p class="small">{{$t('message.high')}}</p><p class="small number">&gt;70</p>
+                            </div></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
+                <p>{{$t('message.month')}}</p>
+                <Chart></Chart>
+            </div>
+
             <div v-if="results.length" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label hidden-xs">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
@@ -114,8 +167,11 @@ export default {
             if (this.resultShown) {
                 return {
                     'background': "url(" + this.resultShown.info.mosquito_url + ")",
+                    'background-position-x': 'center',
+                    'background-position-y': 'center',
                     'background-size': 'cover',
-                    'height': '200px'
+                    'background-position-y': '45px',
+                    'height': '300px'
                 }
             }
             else {
@@ -152,15 +208,41 @@ export default {
             this.$store.dispatch('getResults', {query: formatQuery(this.query),
                                                 endpoint: this.endpoint,
                                                 limit: 100,
-                                                offset:0
+                                                offset:0,
+                                                random: false,
                                                 })
-        }
+        },
+        cover(result){
+            if (result.info)
+                 return {
+                    'background': "url(" + result.info.mosquito_url + ")",
+                    'background-position-x': 'center',
+                    'background-position-y': 'center',
+                    'background-size': 'cover',
+                    'height': '85px',
+                    'width': '85px'
+                }
+           
+        },
+        pct(data){
+            return (( 100 * data.freq)/data.count)
+        },
     },
     watch: {
         'query': function(val) {
             if (val === '') {
                 this.$store.commit('cleanMarkers')
                 this.$store.commit('cleanResults')
+            }
+        },
+        'isInfoAll': function(val) {
+            if (val) {
+                this.$store.state.scroll = $(".secondfold").scrollTop()
+                $(".secondfold").scrollTop(0)
+            }
+            else {
+                console.log("subiendo")
+                $(".secondfold").scrollTop(this.$store.state.scroll)
             }
         }
     }
@@ -237,7 +319,7 @@ export default {
 }
 
 .secondfold {
-  max-height: 514px;
+  max-height: 340px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -359,8 +441,7 @@ export default {
     align-items: center;
 }
 
-.results-list:nth-child(n+2) {
-    margin-top: 5px;
+.results-list:nth-child(n+1) {
     border-bottom: 1px solid #d4d4d4;
 }
 
@@ -374,6 +455,10 @@ export default {
 .result-short:hover {
     cursor: pointer;
     background-color: rgba(220, 220, 220, 0.8);
+}
+
+.result-short > .info {
+    width: 220px;
 }
 
 .result-short .type,
@@ -416,6 +501,7 @@ div.back-results {
     padding: 16px 24px 20px;
 }
 
+
 .extra-info {
     padding: 16px 24px 20px;
 }
@@ -425,5 +511,92 @@ div.back-results {
 .banner .info .location {
     color: white;
 }
+.searchchart {
+    border-top: 1px solid #d4d4d4;
+    padding: 15px;
+}
+
+.thorax, .abdomen {
+    margin-right: 5px;
+    padding: 2px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.thorax.not, .abdomen.not  {
+    color: gray;
+}
+
+.thorax.not.white,
+.abdomen.not.white {
+    color: white;
+}
+
+.result-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mosquito-type {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.divider {
+    bottom: 30px;
+    width: 50%;
+    height: 1px;
+    background: #a41f1b;
+ }
+
+.colors {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+}
+
+.colors > .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.low, .mid, .high {
+    stroke-width: 4px;
+}
+
+.low {
+    stroke: red;
+    fill: white;
+}
+
+.low.chosen {
+    fill: red;
+}
+
+.mid {
+    stroke: #ff9900;
+    fill: white;
+}
+
+.mid.chosen {
+    fill: #ff9900; 
+}
+
+.high {
+    stroke: #94CA55;
+    fill: white;
+}
+
+.high.chosen {
+    fill: #94CA55;
+}
+
 </style>
 

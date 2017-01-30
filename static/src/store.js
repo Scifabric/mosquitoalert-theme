@@ -3,8 +3,20 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import VueI18n from 'vue-i18n'
+import locales from './locales.js'
+import { getBrowserLanguage, getCookie } from './localesetup.js'
 
 Vue.use(Vuex)
+
+Vue.use(VueI18n)
+
+Vue.config.lang = getCookie('language').toLowerCase() || getBrowserLanguage()
+
+// set locales
+Object.keys(locales).forEach(function (lang) {
+  Vue.locale(lang, locales[lang])
+})
 
 function toogleResult(state, result) {
     var index = state.results.indexOf(result)
@@ -33,14 +45,16 @@ export default new Vuex.Store({
     infoAll: false,
     limit: 100,
     offset:0,
+    scroll: 0,
     chartData: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+        labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     chartOptions: {
         distributeSeries: true,
         axisY: {onlyInteger: true}
-    }
+    },
+    chartist: null,
   },
   mutations: {
     getResults(state) {
@@ -111,6 +125,7 @@ export default new Vuex.Store({
         var group = new L.featureGroup(state.polygons);
         
         state.map.fitBounds(group.getBounds())
+        state.map.setZoom(5)
         state.searching = false
     },
     cleanMarkers(state) {
@@ -131,7 +146,13 @@ export default new Vuex.Store({
         getResults(context, payload) {
             //console.log("axios!")
             context.commit('toggleSearching')
-            var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
+            if (payload.random === false) {
+                var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
+            }
+            else {
+                var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
+            }
+            console.log(url)
             axios.get(url)
               .then(function (response) {
                 console.log(response);
