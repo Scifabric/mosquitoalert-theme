@@ -27,6 +27,11 @@
                             <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
                             <img v-else src="http://i.imgur.com/hZlv8lr.png">
                         </div>
+
+                    </div>
+                    <div class="searchchart">
+                        <p>Distribución por meses</p>
+                        <Chart></Chart>
                     </div>
                 </div>
                 <div v-else>
@@ -49,8 +54,6 @@
                             <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
                             <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
 
-                            <p>Distribución por meses</p>
-                            <Chart></Chart>
                         </div>
                     </div>
                 </div>
@@ -424,6 +427,9 @@ div.back-results {
 .banner .info .stars,
 .banner .info .location {
     color: white;
+}
+.searchchart {
+    padding: 15px;
 }
 </style>
 
