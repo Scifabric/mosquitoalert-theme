@@ -23,8 +23,8 @@
                                 </div>
                                 <p class="location">{{result.info.display_name}}</p>
                             </div>
-                            <img v-if="result.info.mosquito.top == 'tiger'" src="http://i.imgur.com/PHPuc8l.png"></img>
-                            <img v-else src="http://i.imgur.com/hZlv8lr.png">
+                            <div v-bind:style="cover(result)">
+                            </div>
                         </div>
 
                     </div>
@@ -156,7 +156,21 @@ export default {
                                                 limit: 100,
                                                 offset:0
                                                 })
-        }
+        },
+        cover(result){
+            console.log(result)
+            if (result.info)
+                 return {
+                    'background': "url(" + result.info.mosquito_url + ")",
+                    'background-position-x': 'center',
+                    'background-position-y': 'center',
+                    'background-size': 'cover',
+                    'height': '85px',
+                    'width': '85px'
+                }
+           
+        },
+
     },
     watch: {
         'query': function(val) {
@@ -376,6 +390,10 @@ export default {
 .result-short:hover {
     cursor: pointer;
     background-color: rgba(220, 220, 220, 0.8);
+}
+
+.result-short > .info {
+    width: 220px;
 }
 
 .result-short .type,
