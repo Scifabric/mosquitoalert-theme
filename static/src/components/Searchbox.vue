@@ -38,11 +38,10 @@
                         <div class="info">
                             <p class="type">{{resultShown.info.mosquito.top}}</p>
                             <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i v-if="resultShown.info.mosquito_thorax.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
-                                <i v-if="resultShown.info.mosquito_abdomen.top == 'yes'" class="fa fa-star"></i>
-                                <i v-else class="fa fa-star-o"></i>
+                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> Thorax</span>
+                                    <span v-else class="thorax not white"><i class="fa fa-square-o"></i> Thorax</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> Abdomen</span>
+                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> Abdomen</span>
                             </div>
                             <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
@@ -119,6 +118,7 @@ export default {
                     'background-position-x': 'center',
                     'background-position-y': 'center',
                     'background-size': 'cover',
+                    'background-position-y': '45px',
                     'height': '300px'
                 }
             }
@@ -438,6 +438,7 @@ div.back-results {
     padding: 16px 24px 20px;
 }
 
+
 .extra-info {
     padding: 16px 24px 20px;
 }
@@ -461,5 +462,11 @@ div.back-results {
 .thorax.not, .abdomen.not  {
     color: gray;
 }
+
+.thorax.not.white,
+.abdomen.not.white {
+    color: white;
+}
+
 </style>
 
