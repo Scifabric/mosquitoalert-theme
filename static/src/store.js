@@ -3,8 +3,20 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import VueI18n from 'vue-i18n'
+import locales from './locales.js'
+import { getBrowserLanguage, getCookie } from './localesetup.js'
 
 Vue.use(Vuex)
+
+Vue.use(VueI18n)
+
+Vue.config.lang = getCookie('language').toLowerCase() || getBrowserLanguage()
+
+// set locales
+Object.keys(locales).forEach(function (lang) {
+  Vue.locale(lang, locales[lang])
+})
 
 function toogleResult(state, result) {
     var index = state.results.indexOf(result)

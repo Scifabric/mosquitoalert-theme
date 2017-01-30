@@ -5,7 +5,7 @@
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" placeholder="Search for a location" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
-                    <a class="back-results" v-on:click="showAll(resultShown)">Volver a resultados</a>
+                    <a class="back-results" v-on:click="showAll(resultShown)">{{$t('message.back')}}</a>
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
@@ -16,10 +16,10 @@
                             <div class="info">
                                 <p class="type">{{result.info.mosquito.top}}</p>
                                 <div class="stars">
-                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> Thorax</span>
-                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> Thorax</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> Abdomen</span>
-                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> Abdomen</span>
+                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
                                 </div>
                                 <p class="location">{{result.info.display_name}}</p>
                             </div>
@@ -34,77 +34,77 @@
                         <div class="info">
                             <p class="type">{{resultShown.info.mosquito.top}}</p>
                             <div class="stars">
-                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> Thorax</span>
-                                    <span v-else class="thorax not white"><i class="fa fa-square-o"></i> Thorax</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> Abdomen</span>
-                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> Abdomen</span>
+                                <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
+                                <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
                             </div>
                             <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
                     </div>
                     <div class="extra-info">
                         <div class="result-full">
-                            <p>Clasificado como</p>
+                            <p>{{$t('message.classifiedAs')}}</p>
                             <p class="mosquito-type">
-                                <span v-if="resultShown.info.mosquito.top === 'tiger'">Mosquito Tiger</span>
-                                <span v-else>Yellow fever</span>
+                                <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
+                                <span v-else>{{$t('message.yellow')}}</span>
                             </p>
-                            <p>Por el</p>
+                            <p>{{$t('message.by')}}</p>
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
-                            <p>de los usuarios</p>
+                            <p>{{$t('message.users')}}</p>
                             <p class="divider"></p>
 
 
                             <p class="mosquito-type">
-                                <span>Thorax identificado</span>
+                                <span>{{$t('message.thorax')}} {{$t('message.identified')}}</span>
                             </p>
-                            <p>Por el</p>
+                            <p>{{$t('message.by')}}</p>
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
-                            <p>de los usuarios</p>
+                            <p>{{$t('message.users')}}</p>
                             <p class="divider"></p>
 
                             <p class="mosquito-type">
-                                <span>Abdomen identificado</span>
+                                <span>{{$t('message.abdomen')}} {{$t('message.identified')}}</span>
                             </p>
-                            <p>Por el</p>
+                            <p>{{$t('message.by')}}</p>
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
-                            <p>de los usuarios</p>
+                            <p>{{$t('message.users')}}</p>
                             <p class="divider"></p>
 
 
 
-                            <p>Clasificación hecha por</p>
-                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} personas</p>
+                            <p>{{$t('message.classified')}}</p>
+                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} {{$tc('message.people', resultShown.info.mosquito.count)}}</p>
                             <p class="divider"></p>
 
 
-                            <p>Nivel de confianza</p>
+                            <p>{{$t('message.confidence')}}</p>
                             <div class="colors">
                                 <div class="column">
                                     <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                                         <rect class="low" v-bind:class="{chosen: resultShown.info.mosquito.count < 30}" x="0" y="0" width="30" height="30"></rect>
                                     </svg>
-                                    <p class="small">BAJO</p>
+                                    <p class="small">{{$t('message.low')}}</p>
                                     <p class="small number">&lt;30</p>
                             </div>
                             <div class="column">
                                 <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                                     <rect class="mid" v-bind:class="{chosen: resultShown.info.mosquito.count >= 30 && resultShown.info.mosquito.count < 70}" x="0" y="0" width="30" height="30"></rect>
                                 </svg>
-                                <p class="small">MEDIO</p><p class="small number">30 - 70</p>
+                                <p class="small">{{$t('message.mid')}}</p><p class="small number">30 - 70</p>
                             </div>
                             <div class="column">
                                 <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                                     <rect class="high"  v-bind:class="{chosen: resultShown.info.mosquito.count >= 70}" x="0" y="0" width="30" height="30"></rect>
                                 </svg>
-                                <p class="small">ALTO</p><p class="small number">&gt;70</p>
+                                <p class="small">{{$t('message.high')}}</p><p class="small number">&gt;70</p>
                             </div></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
-                <p>Distribución por meses</p>
+                <p>{{$t('message.month')}}</p>
                 <Chart></Chart>
             </div>
 
