@@ -8530,7 +8530,7 @@
 
 
 	// module
-	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 10px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n@media(max-width:768px) {\n.searchpanel {\n        width: 333px;\n}\n}\n@media(max-width:320px) {\n.searchpanel {\n        width: 290px;\n}\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold {\n  max-height: 514px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n@media(max-width:768px) {\n.secondfold {\n        max-height: 300px;\n}\n}\n.secondfold.zero {\n    height: 0;\n}\n.secondfold::-webkit-scrollbar{width: 5px;\n}\n.secondfold::-webkit-scrollbar-thumb{background-color:rgb(196, 196, 196); border-radius: 0;\n}\n.secondfold::-webkit-scrollbar-thumb:hover{background-color:rgb(196, 196, 196);\n}\n.secondfold::-webkit-scrollbar-track{background-color:rgb(237, 237, 237);\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: none;\n  outline: none;\n  padding: 15px;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);\n}\n.searchbox:hover,\n.searchbox:focus {\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);\n}\n.searchbox.allinfo,\n.searchbox.allinfo:hover,\n.searchbox.allinfo:focus {\n    box-shadow: none !important;\n    border-bottom: 1px solid #d4d4d4;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.results-list:nth-child(n+2) {\n    margin-top: 5px;\n    border-bottom: 1px solid #d4d4d4;\n}\n.result-short {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 15px;\n}\n.result-short:hover {\n    cursor: pointer;\n    background-color: rgba(220, 220, 220, 0.8);\n}\n.result-short > .info {\n    width: 220px;\n}\n.result-short .type,\n.info .type {\n    font-size: 15px;\n    font-weight: bold;\n    color: black;\n    text-transform: capitalize;\n}\n.result-short .location,\n.info .location {\n    font-size: 13px;\n    color: gray;\n}\n.result-short .stars,\n.info .stars{\n    display: flex;\n    padding-bottom: 10px;\n}\n.result-short img {\n    height: 85px;\n}\ndiv.back-results {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    background: white;\n    padding-left: 15px;\n}\n.back-results a {\n    font-size: 13px;\n    cursor: pointer;\n}\n.banner {\n    background: #a41f1b;\n    color: white;\n    height: 110px;\n    padding: 16px 24px 20px;\n}\n.extra-info {\n    padding: 16px 24px 20px;\n}\n.banner .info .type,\n.banner .info .stars,\n.banner .info .location {\n    color: white;\n}\n.searchchart {\n    padding: 15px;\n}\n.thorax, .abdomen {\n    margin-right: 5px;\n    padding: 2px;\n    font-size: 10px;\n    text-transform: uppercase;\n}\n.thorax.not, .abdomen.not  {\n    color: gray;\n}\n.thorax.not.white,\n.abdomen.not.white {\n    color: white;\n}\n\n", ""]);
+	exports.push([module.id, "\n.spinner {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #333;\n\n  border-radius: 100%;  \n  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;\n  animation: sk-scaleout 1.0s infinite ease-in-out;\n}\n@-webkit-keyframes sk-scaleout {\n0% { -webkit-transform: scale(0)\n}\n100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n}\n}\n@keyframes sk-scaleout {\n0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n}\n}\n.searchpanel {\n  border-radius: 1px;\n  background-color: #ffffff;\n  z-index: 999;\n  position: absolute;\n  margin-top: 10px;\n  width: 383px;\n  transition: margin-left 1s;\n}\n@media(max-width:768px) {\n.searchpanel {\n        width: 333px;\n}\n}\n@media(max-width:320px) {\n.searchpanel {\n        width: 290px;\n}\n}\n.searchpanel > h1 {\n  height: 36px;\n  font-size: 28px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #111111;\n}\n.searchpanel.moveleft{\n    margin-left: -398px;\n}\n.secondfold {\n  max-height: 340px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n@media(max-width:768px) {\n.secondfold {\n        max-height: 300px;\n}\n}\n.secondfold.zero {\n    height: 0;\n}\n.secondfold::-webkit-scrollbar{width: 5px;\n}\n.secondfold::-webkit-scrollbar-thumb{background-color:rgb(196, 196, 196); border-radius: 0;\n}\n.secondfold::-webkit-scrollbar-thumb:hover{background-color:rgb(196, 196, 196);\n}\n.secondfold::-webkit-scrollbar-track{background-color:rgb(237, 237, 237);\n}\n.secondfold > h2 {\n  font-size: 18px;\n  font-weight: 600;\n  font-style: normal;\n  font-stretch: normal;\n  color: #777777;\n}\n.searchbox {\n  width: 100%; \n  height: 45px;\n  border-radius: 1px;\n  background-color: #ffffff;\n  border: none;\n  outline: none;\n  padding: 15px;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);\n}\n.searchbox:hover,\n.searchbox:focus {\n  box-shadow: 0 2px 4px rgba(0,0,0,0.2),0 -1px 0px rgba(0,0,0,0.02);\n}\n.searchbox.allinfo,\n.searchbox.allinfo:hover,\n.searchbox.allinfo:focus {\n    box-shadow: none !important;\n    border-bottom: 1px solid #d4d4d4;\n}\n.searchbtn {\n    position: absolute;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: -45px;\n    margin-left: auto;\n    width: 45px;\n    left: 0;\n    right: 19px;\n}\n.foundmovies {\n    margin-top: 15px;\n}\n.item-move {\n  /* applied to the element when moving */\n  transition: transform .5s cubic-bezier(.55,0,.1,1);\n}\n.subjects {\n    display: flex;\n    flex-wrap: wrap;\n}\n.subject {\n    height: 99px;\n    width: 172px;\n    border: 1px solid white;\n    overflow: hidden;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: red;\n    color: white;\n    text-transform: capitalize;\n    font-style: italic;\n    font-size: 18px;\n    text-shadow: 1px 1px black;\n    padding: 40px;\n    text-align: center;\n}\n.subject-div {\n    background: #ff5555;\n}\n.subject:hover {\n    opacity: 0.8;\n    cursor: pointer;\n}\n.collapse-panel {\n    position: absolute;\n    top: 15px;\n    z-index: 3;\n    left: 382px;\n}\n.collapse-panel-label{\n    width: 23px;\n    height: 48px;\n    cursor: pointer;\n    background: white;\n    //border-left: 1px solid #D4D4D4;\n    //box-shadow: 0px 1px 4px rgba(0,0,0,0.3);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.results-list:nth-child(n+2) {\n    margin-top: 5px;\n    border-bottom: 1px solid #d4d4d4;\n}\n.result-short {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 15px;\n}\n.result-short:hover {\n    cursor: pointer;\n    background-color: rgba(220, 220, 220, 0.8);\n}\n.result-short > .info {\n    width: 220px;\n}\n.result-short .type,\n.info .type {\n    font-size: 15px;\n    font-weight: bold;\n    color: black;\n    text-transform: capitalize;\n}\n.result-short .location,\n.info .location {\n    font-size: 13px;\n    color: gray;\n}\n.result-short .stars,\n.info .stars{\n    display: flex;\n    padding-bottom: 10px;\n}\n.result-short img {\n    height: 85px;\n}\ndiv.back-results {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    background: white;\n    padding-left: 15px;\n}\n.back-results a {\n    font-size: 13px;\n    cursor: pointer;\n}\n.banner {\n    background: #a41f1b;\n    color: white;\n    height: 110px;\n    padding: 16px 24px 20px;\n}\n.extra-info {\n    padding: 16px 24px 20px;\n}\n.banner .info .type,\n.banner .info .stars,\n.banner .info .location {\n    color: white;\n}\n.searchchart {\n    border-top: 1px solid #d4d4d4;\n    padding: 15px;\n}\n.thorax, .abdomen {\n    margin-right: 5px;\n    padding: 2px;\n    font-size: 10px;\n    text-transform: uppercase;\n}\n.thorax.not, .abdomen.not  {\n    color: gray;\n}\n.thorax.not.white,\n.abdomen.not.white {\n    color: white;\n}\n.result-full {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.mosquito-type {\n    font-size: 20px;\n    font-weight: bold;\n    text-transform: uppercase;\n}\n.divider {\n    bottom: 30px;\n    width: 50%;\n    height: 1px;\n    background: #a41f1b;\n}\n.colors {\n    align-items: center;\n    justify-content: space-around;\n    display: flex;\n    width: 100%;\n}\n.colors > .column {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}\n.low, .mid, .high {\n    stroke-width: 4px;\n}\n.low {\n    stroke: red;\n    fill: white;\n}\n.low.chosen {\n    fill: red;\n}\n.mid {\n    stroke: #ff9900;\n    fill: white;\n}\n.mid.chosen {\n    fill: #ff9900;\n}\n.high {\n    stroke: #94CA55;\n    fill: white;\n}\n.high.chosen {\n    fill: #94CA55;\n}\n\n", ""]);
 
 	// exports
 
@@ -8906,6 +8906,58 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
 
 	function formatQuery(queryData) {
 	    var regex_non_words = (0, _xregexp2.default)("[^\\p{L}\\s\\d]", "g");
@@ -9001,6 +9053,9 @@
 	                'height': '85px',
 	                'width': '85px'
 	            };
+	        },
+	        pct: function pct(data) {
+	            return 100 * data.freq / data.count;
 	        }
 	    },
 	    watch: {
@@ -18492,9 +18547,7 @@
 	    }, [_vm._s(result.info.display_name)])]), " ", _h('div', {
 	      style: (_vm.cover(result))
 	    })])])
-	  }), " ", _h('div', {
-	    staticClass: "searchchart"
-	  }, [_h('p', ["Distribución por meses"]), " ", _h('Chart')])]) : _h('div', [_h('div', {
+	  })]) : _h('div', [_h('div', {
 	    staticClass: "banner"
 	  }, [_h('div', {
 	    staticClass: "info"
@@ -18524,7 +18577,105 @@
 	    staticClass: "extra-info"
 	  }, [_h('div', {
 	    staticClass: "result-full"
-	  }, [_h('p', ["Analizado por " + _vm._s(_vm.resultShown.info.mosquito.count) + " persona"]), " ", (_vm.resultShown.info.mosquito_thorax.top == 'yes') ? _h('p', ["Tórax identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e(), " ", (_vm.resultShown.info.mosquito_abdomen.top == 'yes') ? _h('p', ["Abdomen identificado por " + _vm._s(_vm.resultShown.info.mosquito_thorax.freq)]) : _vm._e()])])]), " "]), " ", " ", (_vm.results.length) ? _h('div', {
+	  }, [_h('p', ["Clasificado como"]), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [(_vm.resultShown.info.mosquito.top === 'tiger') ? _h('span', ["Mosquito Tiger"]) : _h('span', ["Yellow fever"]), " "]), " ", _h('p', ["Por el"]), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_vm._s(_vm.pct(_vm.resultShown.info.mosquito)) + "%"]), " ", _h('p', ["de los usuarios"]), " ", _h('p', {
+	    staticClass: "divider"
+	  }), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_h('span', ["Thorax identificado"])]), " ", _h('p', ["Por el"]), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_vm._s(_vm.pct(_vm.resultShown.info.mosquito_thorax)) + "%"]), " ", _h('p', ["de los usuarios"]), " ", _h('p', {
+	    staticClass: "divider"
+	  }), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_h('span', ["Abdomen identificado"])]), " ", _h('p', ["Por el"]), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_vm._s(_vm.pct(_vm.resultShown.info.mosquito_abdomen)) + "%"]), " ", _h('p', ["de los usuarios"]), " ", _h('p', {
+	    staticClass: "divider"
+	  }), " ", _h('p', ["Clasificación hecha por"]), " ", _h('p', {
+	    staticClass: "mosquito-type"
+	  }, [_vm._s(_vm.resultShown.info.mosquito.count) + " personas"]), " ", _h('p', {
+	    staticClass: "divider"
+	  }), " ", _h('p', ["Nivel de confianza"]), " ", _h('div', {
+	    staticClass: "colors"
+	  }, [_h('div', {
+	    staticClass: "column"
+	  }, [_h('svg', {
+	    attrs: {
+	      "width": "30",
+	      "height": "30",
+	      "viewBox": "0 0 30 30",
+	      "xmlns": "http://www.w3.org/2000/svg"
+	    }
+	  }, [_h('rect', {
+	    staticClass: "low",
+	    class: {
+	      chosen: _vm.resultShown.info.mosquito.count < 30
+	    },
+	    attrs: {
+	      "x": "0",
+	      "y": "0",
+	      "width": "30",
+	      "height": "30"
+	    }
+	  })]), " ", _h('p', {
+	    staticClass: "small"
+	  }, ["BAJO"]), " ", _h('p', {
+	    staticClass: "small number"
+	  }, ["<30"])]), " ", _h('div', {
+	    staticClass: "column"
+	  }, [_h('svg', {
+	    attrs: {
+	      "width": "30",
+	      "height": "30",
+	      "viewBox": "0 0 30 30",
+	      "xmlns": "http://www.w3.org/2000/svg"
+	    }
+	  }, [_h('rect', {
+	    staticClass: "mid",
+	    class: {
+	      chosen: _vm.resultShown.info.mosquito.count >= 30 && _vm.resultShown.info.mosquito.count < 70
+	    },
+	    attrs: {
+	      "x": "0",
+	      "y": "0",
+	      "width": "30",
+	      "height": "30"
+	    }
+	  })]), " ", _h('p', {
+	    staticClass: "small"
+	  }, ["MEDIO"]), _h('p', {
+	    staticClass: "small number"
+	  }, ["30 - 70"])]), " ", _h('div', {
+	    staticClass: "column"
+	  }, [_h('svg', {
+	    attrs: {
+	      "width": "30",
+	      "height": "30",
+	      "viewBox": "0 0 30 30",
+	      "xmlns": "http://www.w3.org/2000/svg"
+	    }
+	  }, [_h('rect', {
+	    staticClass: "high",
+	    class: {
+	      chosen: _vm.resultShown.info.mosquito.count >= 70
+	    },
+	    attrs: {
+	      "x": "0",
+	      "y": "0",
+	      "width": "30",
+	      "height": "30"
+	    }
+	  })]), " ", _h('p', {
+	    staticClass: "small"
+	  }, ["ALTO"]), _h('p', {
+	    staticClass: "small number"
+	  }, [">70"])])])])])]), " "]), " ", " ", (_vm.results.length > 0) ? _h('div', {
+	    staticClass: "searchchart"
+	  }, [_h('p', ["Distribución por meses"]), " ", _h('Chart')]) : _vm._e(), " ", (_vm.results.length) ? _h('div', {
 	    staticClass: "collapse-panel"
 	  }, [_h('div', {
 	    staticClass: "collapse-panel-label hidden-xs",

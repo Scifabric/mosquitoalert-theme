@@ -28,10 +28,6 @@
                         </div>
 
                     </div>
-                    <div class="searchchart">
-                        <p>Distribución por meses</p>
-                        <Chart></Chart>
-                    </div>
                 </div>
                 <div v-else>
                     <div class="banner">
@@ -48,14 +44,70 @@
                     </div>
                     <div class="extra-info">
                         <div class="result-full">
-                            <p>Analizado por {{resultShown.info.mosquito.count}} persona</p>
-                            <p v-if="resultShown.info.mosquito_thorax.top == 'yes'">Tórax identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
-                            <p v-if="resultShown.info.mosquito_abdomen.top == 'yes'">Abdomen identificado por {{resultShown.info.mosquito_thorax.freq}}</p>
+                            <p>Clasificado como</p>
+                            <p class="mosquito-type">
+                                <span v-if="resultShown.info.mosquito.top === 'tiger'">Mosquito Tiger</span>
+                                <span v-else>Yellow fever</span>
+                            </p>
+                            <p>Por el</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
+                            <p>de los usuarios</p>
+                            <p class="divider"></p>
 
+
+                            <p class="mosquito-type">
+                                <span>Thorax identificado</span>
+                            </p>
+                            <p>Por el</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
+                            <p>de los usuarios</p>
+                            <p class="divider"></p>
+
+                            <p class="mosquito-type">
+                                <span>Abdomen identificado</span>
+                            </p>
+                            <p>Por el</p>
+                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
+                            <p>de los usuarios</p>
+                            <p class="divider"></p>
+
+
+
+                            <p>Clasificación hecha por</p>
+                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} personas</p>
+                            <p class="divider"></p>
+
+
+                            <p>Nivel de confianza</p>
+                            <div class="colors">
+                                <div class="column">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                        <rect class="low" v-bind:class="{chosen: resultShown.info.mosquito.count < 30}" x="0" y="0" width="30" height="30"></rect>
+                                    </svg>
+                                    <p class="small">BAJO</p>
+                                    <p class="small number">&lt;30</p>
+                            </div>
+                            <div class="column">
+                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="mid" v-bind:class="{chosen: resultShown.info.mosquito.count >= 30 && resultShown.info.mosquito.count < 70}" x="0" y="0" width="30" height="30"></rect>
+                                </svg>
+                                <p class="small">MEDIO</p><p class="small number">30 - 70</p>
+                            </div>
+                            <div class="column">
+                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="high"  v-bind:class="{chosen: resultShown.info.mosquito.count >= 70}" x="0" y="0" width="30" height="30"></rect>
+                                </svg>
+                                <p class="small">ALTO</p><p class="small number">&gt;70</p>
+                            </div></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div v-if="results.length > 0" class="searchchart">
+                <p>Distribución por meses</p>
+                <Chart></Chart>
+            </div>
+
             <div v-if="results.length" class="collapse-panel">
                 <div v-on:click="updateSearchPanelCollapse" class="collapse-panel-label hidden-xs">
                     <i v-if="collapse" class="fa fa-caret-right"></i>
@@ -172,7 +224,9 @@ export default {
                 }
            
         },
-
+        pct(data){
+            return (( 100 * data.freq)/data.count)
+        },
     },
     watch: {
         'query': function(val) {
@@ -255,7 +309,7 @@ export default {
 }
 
 .secondfold {
-  max-height: 514px;
+  max-height: 340px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -449,6 +503,7 @@ div.back-results {
     color: white;
 }
 .searchchart {
+    border-top: 1px solid #d4d4d4;
     padding: 15px;
 }
 
@@ -466,6 +521,72 @@ div.back-results {
 .thorax.not.white,
 .abdomen.not.white {
     color: white;
+}
+
+.result-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mosquito-type {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.divider {
+    bottom: 30px;
+    width: 50%;
+    height: 1px;
+    background: #a41f1b;
+ }
+
+.colors {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+}
+
+.colors > .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.low, .mid, .high {
+    stroke-width: 4px;
+}
+
+.low {
+    stroke: red;
+    fill: white;
+}
+
+.low.chosen {
+    fill: red;
+}
+
+.mid {
+    stroke: #ff9900;
+    fill: white;
+}
+
+.mid.chosen {
+    fill: #ff9900; 
+}
+
+.high {
+    stroke: #94CA55;
+    fill: white;
+}
+
+.high.chosen {
+    fill: #94CA55;
 }
 
 </style>
