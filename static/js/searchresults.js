@@ -8951,8 +8951,10 @@
 	            if (this.resultShown) {
 	                return {
 	                    'background': "url(" + this.resultShown.info.mosquito_url + ")",
+	                    'background-position-x': 'center',
+	                    'background-position-y': 'center',
 	                    'background-size': 'cover',
-	                    'height': '200px'
+	                    'height': '300px'
 	                };
 	            } else {
 	                return {};
