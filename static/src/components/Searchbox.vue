@@ -32,13 +32,13 @@
                 <div v-else>
                     <div class="banner">
                         <div class="info">
-                            <p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>
-                            <div class="stars">
+                            <!--<p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>-->
+                            <!--<div class="stars">
                                 <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
                                 <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
                                     <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
                                     <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
-                            </div>
+                                </div>-->
                             <p class="location">{{resultShown.info.display_name}}</p>
                         </div>
                     </div>
@@ -55,6 +55,7 @@
                             <p class="divider"></p>
 
 
+                            <div class="flex" v-if="resultShown.info.mosquito_thorax.top === 'yes'">
                             <p class="mosquito-type">
                                 <span>{{$t('message.thorax')}} {{$t('message.identified')}}</span>
                             </p>
@@ -62,7 +63,9 @@
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
                             <p>{{$t('message.users')}}</p>
                             <p class="divider"></p>
+                            </div>
 
+                            <div class="flex" v-if="resultShown.info.mosquito_abdomen.top === 'yes'">
                             <p class="mosquito-type">
                                 <span>{{$t('message.abdomen')}} {{$t('message.identified')}}</span>
                             </p>
@@ -70,12 +73,12 @@
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
                             <p>{{$t('message.users')}}</p>
                             <p class="divider"></p>
+                            </div>
 
 
 
                             <p>{{$t('message.classified')}}</p>
                             <p class="mosquito-type">{{resultShown.info.mosquito.count}} {{$tc('message.people', resultShown.info.mosquito.count)}}</p>
-                            <p class="divider"></p>
 
 
                             <p>{{$t('message.confidence')}}</p>
@@ -596,6 +599,12 @@ div.back-results {
 
 .high.chosen {
     fill: #94CA55;
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>
