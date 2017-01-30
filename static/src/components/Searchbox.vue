@@ -16,8 +16,10 @@
                             <div class="info">
                                 <p class="type">{{result.info.mosquito.top}}</p>
                                 <div class="stars">
-                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax">Thorax</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen">Abdomen</span>
+                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> Thorax</span>
+                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> Thorax</span>
+                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> Abdomen</span>
+                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> Abdomen</span>
                                 </div>
                                 <p class="location">{{result.info.display_name}}</p>
                             </div>
@@ -431,11 +433,13 @@ div.back-results {
 
 .thorax, .abdomen {
     margin-right: 5px;
-    border: 1px solid;
     padding: 2px;
-    border-radius: 2px;
     font-size: 10px;
     text-transform: uppercase;
+}
+
+.thorax.not, .abdomen.not  {
+    color: gray;
 }
 </style>
 
