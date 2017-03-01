@@ -91,7 +91,7 @@ export default new Vuex.Store({
                pagination: '.swiper-pagination',
                slidesPerView: slidesPerView,
                centeredSlides: true,
-               paginationClickable: false,
+               paginationClickable: true,
                spaceBetween: 30
            })
     },
