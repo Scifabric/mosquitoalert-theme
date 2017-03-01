@@ -95,9 +95,6 @@ export default new Vuex.Store({
                spaceBetween: 30
            })
     },
-    getResults(state) {
-        console.log("HOLA")
-    },
     toggleSearchbox(state) {
         state.collapse = !state.collapse
     },
