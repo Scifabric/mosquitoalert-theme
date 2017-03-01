@@ -1,11 +1,13 @@
 // webpack.config.js
+var htmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   // entry point of our application
   entry: './lastresults.js',
   // where to place the compiled bundle
   output: {
     path: '../js/',
-    filename: 'lastresults.js'
+    filename: 'lastresults.min.js'
   },
   module: {
     // `loaders` is an array of loaders to use.
@@ -35,4 +37,12 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      filename: '../../templates/home/index.html',
+      template: '../../templates/home/index.webpack'
+    })
+  ]
 }
