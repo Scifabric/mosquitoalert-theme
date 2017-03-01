@@ -1,11 +1,13 @@
 // webpack.config.js
+var htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // entry point of our application
   entry: './search.js',
   // where to place the compiled bundle
   output: {
     path: '../js/',
-    filename: 'searchresults.js'
+    publicPath: '/static/js/',
+    filename: 'searchresults.min.js'
   },
   module: {
     // `loaders` is an array of loaders to use.
@@ -35,4 +37,13 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js'
     }
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      filename: '../../templates/home/_results.html',
+      template: '../../templates/home/_results.webpack'
+    })
+  ]
+
 }
