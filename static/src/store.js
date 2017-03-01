@@ -35,6 +35,7 @@ export default new Vuex.Store({
   state: {
     searching: false,
     collapse: false,
+    modal: false,
     results: [],
     result: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
@@ -62,6 +63,9 @@ export default new Vuex.Store({
     },
     toggleSearchbox(state) {
         state.collapse = !state.collapse
+    },
+    toggleModal(state) {
+        state.modal = !state.modal
     },
     toggleResultAll(state, payload) {
         toogleResult(state, payload.result)

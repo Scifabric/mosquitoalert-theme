@@ -29,3 +29,19 @@ export default {
     }
 }
 </script>
+<style>
+.ct-series-a .ct-bar,
+.ct-series-b .ct-bar,
+.ct-series-c .ct-bar,
+.ct-series-d .ct-bar,
+.ct-series-e .ct-bar,
+.ct-series-f .ct-bar,
+.ct-series-g .ct-bar,
+.ct-series-h .ct-bar,
+.ct-series-i .ct-bar,
+.ct-series-j .ct-bar,
+.ct-series-k .ct-bar,
+.ct-series-l .ct-bar{
+    stroke: #a41f1b !important;
+}
+</style>

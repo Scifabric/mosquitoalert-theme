@@ -1,7 +1,7 @@
 export default {
   en: {
     message: {
-      tiger: 'Tiger',
+      tiger: 'Asian Tiger',
       yellow: 'Yellow Fever',
       back: 'Back to results',
       thorax: 'Thorax',
