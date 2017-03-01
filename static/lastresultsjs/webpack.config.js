@@ -1,5 +1,6 @@
 // webpack.config.js
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
 
 module.exports = {
   // entry point of our application
@@ -43,6 +44,8 @@ module.exports = {
       hash: true,
       filename: '../../templates/home/index.html',
       template: '../../templates/home/index.webpack'
-    })
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 }
