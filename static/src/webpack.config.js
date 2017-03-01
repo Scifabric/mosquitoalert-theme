@@ -1,5 +1,6 @@
 // webpack.config.js
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
 module.exports = {
   // entry point of our application
   entry: './search.js',
@@ -43,7 +44,9 @@ module.exports = {
       hash: true,
       filename: '../../templates/home/_results.html',
       template: '../../templates/home/_results.webpack'
-    })
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ]
 
 }
