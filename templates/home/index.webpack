@@ -43,5 +43,5 @@
         </div>
     </div>
 </section>
-<script src="../../static/js/lastresults.min.js?5908f792c42188d28456"></script>
+<script src="<%= htmlWebpackPlugin.files.js %>"></script>
 {% endblock %}
