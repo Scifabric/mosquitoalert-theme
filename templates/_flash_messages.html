@@ -1,9 +1,18 @@
+{% set text = "Ooops!" %}
+{% set text2 = '¡Uy!' %}
 {% with messages = get_flashed_messages(with_categories=True) %}
 {% if messages %}
   {% for category, message in messages %}
+    {% if text not in message and text2 not in message %}
     <script>
+        console.log('{{message | safe}}');
         pybossaNotify('{{message|safe}}', true, "{{category}}");
     </script>
+    {% else %}
+    <script>
+        console.log('{{message | safe}}');
+    </script>
+    {% endif %}
   {% endfor %}
 {% endif %}
 {% endwith %}
