@@ -33,6 +33,7 @@ export default {
       oct: 'Oct',
       nov: 'Nov',
       dec: 'Dec',
+      welcome: '<h1>The Map</h1>'
     }
   },
   es: {
@@ -69,6 +70,8 @@ export default {
       oct: 'Oct',
       nov: 'Nov',
       dec: 'Dic',
+      welcome: '<h1>El Mapa</h1><p>¡Bienvenido a nuestro mapa ciudadano de mosquitos tigre y mosquitos de la fiebre amarilla!</p><p>¿Ves los pines en él? Esto significa que en esas zonas se han localizado mosquitos de uno o ambos tipos. </p><p>A la izquierda, además, tienes una serie de tarjetas con información sobre ellos.</p><h2>¿Cómo funciona?</h2><p>Es muy sencillo:</p><ol><li>En el mapa puedes pinchar sobre uno de los pines o bien sobre las tarjetas.</li><li>Al hacerlo, accederás a un montón de información más detallada sobre su clasificación: foto en mayor calidad, localización exacta del hallazgo, tipo de mosquito, número de personas que han clasificado la foto, si han distinguido su abdomen y/o tórax y el nivel de confianza de la clasificación. </li><li>Igualmente, podrás conocer la distribución de estas observaciones en esta localidad a lo largo del tiempo. </li></ol><h2>¿Quieres ayudarnos a construir el mapa?</h2><ol><li>Descárgate la app para Android o IOS.</li><li>Notifícanos si ves un mosquito tigre o de la fiebre amarilla. Si va acompañado de foto, ¡mejor!</li><li>Clasifica las fotos subidas por otros usuarios.</li></ol><h2>¿Cómo se analizan las fotos?</h2><p>Es muy fácil: gracias a un pequeño tutorial, aprenderás qué características son importantes para identificar ambos tipos de mosquito. Cuando lo tengas claro, solo tendrás que ir viendo fotografías y respondiendo pequeñas preguntas. Y no te preocupes si tienes dudas, todas las fotos se clasifican por varias personas, el análisis nunca se basa en una sola opinión.</p><p>¿Te animas? </p><p>¡Ayúdanos a controlar la expansión de estos mosquitos y a luchar contra el Dengue, Chikunguña y Zika!</p><div class="flexcentered">            <a href="https://itunes.apple.com/app/id890635644">                        <img class="app-badge en ios" src="/static/img/phonestores/ios-store-badge.svg"/>                        <img class="app-badge es ios" src="/static/img/phonestores/ios-store-badge_es.svg"/>                </a>                <a href="https://play.google.com/store/apps/details?id=ceab.movelab.tigatrapp">                    <img class="app-badge en" src="/static/img/phonestores/google-play-badge.png"/>                    <img class="app-badge es" src="/static/img/phonestores/google-play-badge_es.png"/>                </a>            </div>',
+
     }
   }
 }
