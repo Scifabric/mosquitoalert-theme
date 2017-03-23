@@ -23,7 +23,12 @@ export default {
             return this.$store.state.result
         },
         resultLargeImg() {
-            var url = this.$store.state.result.info.mosquito_url.replace('medium', 'large')
+            if (this.$store.state.result !== null) {
+                var url = this.$store.state.result.info.mosquito_url.replace('medium', 'large')
+            }
+            else {
+                var url = 'http://placehold.it/500x500'
+            }
             return url
         }
     }

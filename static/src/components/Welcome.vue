@@ -1,7 +1,7 @@
 <template>
     <div v-if="show" class="welcomecontainer" v-on:click='toggleModal'>
         <div class="welcomecontent">
-            <i class="fa fa-times pull-right" style="align-self: flex-end;"></i>
+            <i class="closeme fa fa-times pull-right" style="align-self: flex-end;"></i>
             <div class="text" v-html="$t('message.welcome')"></div>
         </div>
     </div>
@@ -21,6 +21,9 @@ export default {
 }
 </script>
 <style>
+.closeme {
+    cursor: pointer;
+}
 .welcomecontainer {
     position: absolute;
     top:0;
@@ -38,13 +41,19 @@ export default {
 
 .welcomecontent {
     background: white;
-    padding: 15px;
+    padding: 30px;
     display: flex;
     width: 80%;
     height: 80%;
     overflow-y: scroll;
     flex-direction: column;
 }
+
+.welcomecontent .text > h1,
+.welcomecontent .text > h2 {
+    color: #a41f1b;
+}
+
 
 .welcomecontent > p,
 .welcomecontent > ol {
@@ -61,5 +70,6 @@ export default {
 
 .welcomecontent .flexcentered img {
     max-height: 60px;
+    cursor: pointer;
 }
 </style>

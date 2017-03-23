@@ -1,7 +1,7 @@
 <template>
     <div class="col-xs-12 col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
-            <div v-bind:style="isCover"  v-on:click="toggleModalShow">
+            <div v-bind:style="isCover"  >
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
@@ -29,8 +29,8 @@
 
                     </div>
                 </div>
-                <div v-else>
-                    <div class="banner">
+                <div v-else v-on:click="toggleModalShow" style="cursor:pointer;">
+                    <div class="banner" >
                         <div class="info">
                             <!--<p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>-->
                             <!--<div class="stars">

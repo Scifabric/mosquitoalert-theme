@@ -29,10 +29,10 @@ export default {
 
     },
     watch: {
-        'results': function(results) {
-            console.log("New data to draw")
-            this.$store.commit('addMarkers')
-            //var marker = L.marker([51.5, -0.09]).addTo(mymap);
+        'results': function(val) {
+            if (val !== null && val.length > 0) {
+                this.$store.commit('addMarkers')
+            }
         }
     }
 }
