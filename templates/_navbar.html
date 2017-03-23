@@ -33,7 +33,7 @@
             {% else %}
             <!--<li><a href="{{ url_for('account.signin') }}"> {{ _('Sign in') }}</a></li>-->
                 {% if current_user.is_anonymous() %}
-                <li class="dropdown">
+                <li class="dropdown" style="cursor:pointer">
                         <a class="dropdown-toggle language-selector" type="button" id="languageselector" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id="languagelabel">{{_('Choose')}}</label> <span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="languageselector">
                             <li><a href="#" onclick="setLanguage(0);">English</a></li>
