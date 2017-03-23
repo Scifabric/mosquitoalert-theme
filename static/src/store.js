@@ -36,6 +36,7 @@ export default new Vuex.Store({
     searching: false,
     collapse: false,
     modal: false,
+    welcome: true,
     results: [],
     result: null,
     endpoint: 'http://mosquitoalert.pybossa.com',
@@ -66,6 +67,9 @@ export default new Vuex.Store({
     },
     toggleModal(state) {
         state.modal = !state.modal
+    },
+    toggleWelcome(state) {
+        state.welcome = !state.welcome
     },
     toggleResultAll(state, payload) {
         toogleResult(state, payload.result)
