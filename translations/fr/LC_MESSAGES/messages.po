@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-01-16 16:47+0100\n"
+"POT-Creation-Date: 2017-03-23 10:19+0100\n"
 "PO-Revision-Date: 2013-08-07 15:01+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -58,39 +58,12 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:41
-#: themes/mosquitoalert-theme/templates/_navbar.html:13
-#: themes/mosquitoalert-theme/templates/projects/index.html:30
-#: themes/mosquitoalert-theme/templates/stats/global.html:81
-#: themes/pybossa-default-theme/templates/_footer.html:26
-#: themes/pybossa-default-theme/templates/_navbar.html:12
-#: themes/pybossa-default-theme/templates/projects/index.html:30
-#: themes/pybossa-default-theme/templates/stats/global.html:81
-#, fuzzy
-msgid "Projects"
-msgstr "Nom du Projet"
-
-#: themes/mosquitoalert-theme/templates/_footer.html:42
-#: themes/pybossa-default-theme/templates/_footer.html:27
-#, fuzzy
-msgid "Data"
-msgstr "données"
-
-#: themes/mosquitoalert-theme/templates/_footer.html:43
-#: themes/pybossa-default-theme/templates/_footer.html:28
-msgid "Content"
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/_footer.html:48
+#: themes/mosquitoalert-theme/templates/_footer.html:44
 #: themes/pybossa-default-theme/templates/_footer.html:33
 msgid "Social"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/_footer.html:57
-msgid "Choose"
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/_footer.html:94
+#: themes/mosquitoalert-theme/templates/_footer.html:104
 msgid "Language"
 msgstr ""
 
@@ -111,13 +84,23 @@ msgstr ""
 msgid "Community"
 msgstr ""
 
+#: themes/mosquitoalert-theme/templates/_navbar.html:13
+#: themes/mosquitoalert-theme/templates/projects/index.html:30
+#: themes/mosquitoalert-theme/templates/stats/global.html:81
+#: themes/pybossa-default-theme/templates/_footer.html:26
+#: themes/pybossa-default-theme/templates/_navbar.html:12
+#: themes/pybossa-default-theme/templates/projects/index.html:30
+#: themes/pybossa-default-theme/templates/stats/global.html:81
+#, fuzzy
+msgid "Projects"
+msgstr "Nom du Projet"
+
 #: themes/mosquitoalert-theme/templates/_navbar.html:14
 #: themes/pybossa-default-theme/templates/_navbar.html:13
 msgid "Create"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/_navbar.html:15
-#: themes/mosquitoalert-theme/templates/home/_about.html:5
 #: themes/pybossa-default-theme/templates/_navbar.html:14
 #: themes/pybossa-default-theme/templates/home/_about.html:5
 msgid "About"
@@ -175,6 +158,10 @@ msgstr ""
 #: themes/pybossa-default-theme/templates/account/signin.html:8
 #: themes/pybossa-default-theme/templates/account/signin.html:10
 msgid "Sign in"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/_navbar.html:37
+msgid "Choose"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/account/_helpers.html:6
@@ -1056,83 +1043,139 @@ msgstr ""
 msgid "Current Users with Admin privileges"
 msgstr ""
 
+#: themes/mosquitoalert-theme/templates/home/_about.html:5
+msgid "About the project"
+msgstr ""
+
 #: themes/mosquitoalert-theme/templates/home/_about.html:6
 msgid ""
-"It is a citizen observatory founded by several research institutions "
-"(CEAB-CSIC, CREAF) with the aim to discover where the tiger mosquito and "
-"the yellow fever are, as well as its expansion in order to reduce the "
-"risks of the diseases that they spread."
+"Mosquito Alert is a project with the goal of detecting tiger and yellow "
+"fever mosquitoes, controlling their spread and reducing the risk of "
+"transmission diseases."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:7
 msgid ""
-"Even though there is some data about these species, it is very important "
-"to have all the information in real time in order to be able to predict "
-"its expansion and handle the risks that their presence has in the quality"
-" of life and health of people."
+"We are creating a web map and where we need the collaboration of "
+"citizens. How? Very easily: download our app and take pictures of "
+"mosquitoes or breeding sites, or just classifying the pictures upload by "
+"other citizens."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:8
+msgid "Why is it important?"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:9
 msgid ""
-"Important, isn't it? Thus, join us classifying images that have sent "
-"other citizens. Thanks to your contribution we will know if we are "
-"finding the species that we want. Once they are classified, this data "
-"will be part of the collaborative map of Mosquito Alert, that is shared "
-"worldwide with researchers and people in charge of controlling these "
-"species among different cities."
+"Because the presence of these mosquitoes can put at risk our health, as "
+"they are carrying diseases like Dengue, Chikungunya, and Zika. If we "
+"gather as much information as possible in real time, we will be able to "
+"better predict their expansion and handle the risks on time."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:10
 msgid ""
-"Mosquito Alert is funded by la Obra Social la Caixa. This project is co-"
-"funded by Fundación Española para la Ciencia y la Tecnología–Ministerio "
-"de Economía y Competitividad."
+"Mosquito Alert is a project co-created by different research institutions"
+" (CEAB-CSIC, CREAF) and funded by la Obra Social la Caixa. This portal is"
+" co-funded by Fundación Española para la Ciencia y la "
+"Tecnología–Ministerio de Economía y Competitividad."
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:11
-msgid "About the tiger mosquito and yellow fever"
+msgid "Visit the map and download the app!"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:12
 msgid ""
-"The tiger mosquito (Aedes albopictus) and the yellow fever mosquito "
-"(Aedes aegypti) are invasive mosquitoes and vectors for diseases. They "
-"have several features in common: they are small, dark, and with lines and"
-" white spots over their bodies and their legs. They live mostly in urban "
-"areas, where they breed in small containers with some stagnant water."
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/home/_about.html:13
-msgid ""
-"How do we distinguish them? Easily! The tiger mosquito is black (very "
-"black!) and has one single white line in the head and thorax (the back). "
-"However, the yellow fever mosquito is dark brown (very dark!) and has 4 "
-"white lines in the shape of a lira in its thorax. Check the thorax to "
-"recognize them better!"
+"NOTE: the app does not give you access to the map, the results are <a "
+"href='/results'>here</a>"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_about.html:14
+msgid "About the mosquitoes"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:17
+msgid "Tiger Mosquito"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:17
+msgid "Aedes albopictus"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:21
+msgid "Yellow Fever"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:21
+msgid "Aedes aegypti"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:25
+msgid ""
+"These two species are invasive and diseases vectors. They have in common "
+"that they are small, dark and with white strips in all their body and "
+"legs. They live mostly in urban areas, where they breed in small "
+"recipients with stagnant water."
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:26
+msgid ""
+"And how do you distinguish them? Very easily: the tiger mosquito is dark,"
+" (very dark!) and has only ONE white strip in their head and thorax (it's"
+" back)"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:27
+msgid ""
+"However, the yellow fever mosquito is brown dark (very dark!) and has "
+"FOUR white stripes with the shape of a lira in the thorax. Just double "
+"check their thorax (backs) to identify them properly!"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:28
 msgid "About the diseases"
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/_about.html:15
+#: themes/mosquitoalert-theme/templates/home/_about.html:29
 msgid ""
-"These mosquitoes are vectors of the arbovirus worldwide like denge, "
-"yellow fever, chikungunya, and Zika. The arbovirus are a group of viruses"
-" that are transmitted via arthropods that act like vectors. These "
-"diseases can produces fever and muscle and joint pain, among other "
-"symptoms and in some cases the patient needs to be hospitalized. The "
-"virus is transmitted when a mosquito from the Aedes genus bites a person "
-"after being infected from a previous bit from another infected person."
+"Dengue, yellow fever, chikungunya, and zika are viral diseases that are "
+"transmitted via arthropods (as the mosquitoes that we are looking for in "
+"this project) that act as transmission vectors."
 msgstr ""
 
-#: themes/mosquitoalert-theme/templates/home/_about.html:16
+#: themes/mosquitoalert-theme/templates/home/_about.html:30
 msgid ""
-"Knowing and understanding the distribution of the mosquitoes and its "
-"presence of these two vectors is very important to prevent the spread of "
-"diseases and control the different plans of intervention. These diseases "
-"have increased in the last 50 years, as these two species have moved to "
-"new areas."
+"These diseases have grown in the last 50 years due to the expansion of "
+"the tiger and yellow fever mosquitoes to new geographic areas like Spain."
+" For this reason, knowing and understanding their geographical "
+"distribution and their presence is very important to plan the prevention "
+"and control of these diseases."
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:31
+msgid "How are they transmitted?"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:32
+msgid ""
+"The mosquitoes can host the virus after stinging an infected person, and "
+"spread it to those who will be bitten afterwards."
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:33
+msgid "And what are the symptoms?"
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:34
+msgid ""
+"Among others, fever and muscle and joint pains. In some cases the patient"
+" needs to be hospitalized."
+msgstr ""
+
+#: themes/mosquitoalert-theme/templates/home/_about.html:43
+msgid "Last identified mosquitoes"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/_pybossa_text.html:1
@@ -1156,29 +1199,6 @@ msgstr ""
 #: themes/mosquitoalert-theme/templates/home/_pybossa_text.html:5
 #: themes/pybossa-default-theme/templates/home/_pybossa_text.html:5
 msgid "Things computers can't do"
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/home/index.html:13
-msgid ""
-"Mosquito Alert is a citizen observatory that investigates and controls "
-"the tiger mosquito and yello fever, mosquitoes that transmit diseases. "
-"Join us and fight agains Dengue, Chikungunya and Zika!"
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/home/index.html:14
-msgid ""
-"The mosquito pictures that you classify will be shared in a public map as"
-" well as with experts."
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/home/index.html:15
-msgid ""
-"Download the app and notify if you see a tiger mosquito or a Yellow fever"
-" mosquito."
-msgstr ""
-
-#: themes/mosquitoalert-theme/templates/home/index.html:40
-msgid "Last identified mosquitoes"
 msgstr ""
 
 #: themes/mosquitoalert-theme/templates/home/search.html:8
@@ -3134,6 +3154,15 @@ msgstr "Nom"
 msgid "Score"
 msgstr ""
 
+#: themes/pybossa-default-theme/templates/_footer.html:27
+#, fuzzy
+msgid "Data"
+msgstr "données"
+
+#: themes/pybossa-default-theme/templates/_footer.html:28
+msgid "Content"
+msgstr ""
+
 #: themes/pybossa-default-theme/templates/home/_about.html:6
 msgid ""
 "PYBOSSA is the ultimate crowdsourcing framework to analyze or enrich data"
@@ -4585,5 +4614,8 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Empieza a clasificar"
+#~ msgstr ""
+
+#~ msgid "About the tiger mosquito and yellow fever"
 #~ msgstr ""
 
