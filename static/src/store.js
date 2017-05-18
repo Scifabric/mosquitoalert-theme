@@ -6,6 +6,7 @@ import L from 'leaflet'
 import VueI18n from 'vue-i18n'
 import locales from './locales.js'
 import { getBrowserLanguage, getCookie } from './localesetup.js'
+import _ from "lodash"
 
 Vue.use(Vuex)
 
@@ -83,17 +84,28 @@ export default new Vuex.Store({
     },
     updateResults(state, data) {
         state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        state.results = []
+        var results = []
         for (var result of data.results) {
             if ((result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') && (result.info.mosquito_thorax.top === 'yes')) {
 
                 result.all = false
                 var idx = result.info.month - 1
                 state.chartData.series[idx] += 1
-                state.results.push(result)
+                result.thorax_pct = pct(result.info.mosquito_thorax)
+                result.people = result.info.mosquito.count
+                results.push(result)
             }
         }
         //state.results = data.results
+        // Order results by thorax quality
+        if (results.length >= 1) {
+            state.results = _.orderBy(results, ['thorax_pct', 'people'],['desc', 'desc'])
+        }
+        else {
+            state.results = []
+            state.searching = !state.searching
+
+        }
     },
     toggleSearching(state) {
         state.searching = !state.searching
@@ -163,7 +175,7 @@ export default new Vuex.Store({
                 var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
             }
             else {
-                var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
+                var url = payload.endpoint +  '/api/result?info=thorax::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&orderby=created&desc=true' 
             }
             console.log(url)
             axios.get(url)

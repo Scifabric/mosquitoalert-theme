@@ -239,7 +239,7 @@ export default {
             if ((tmp >=50) && (tmp< 75)) {
                 return "label-med"
             }
-            if ((tmp >=75) && (tmp< 100)) {
+            if ((tmp >=75) && (tmp <= 100)) {
                 return "label-high"
             }
         }
