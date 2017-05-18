@@ -18,6 +18,10 @@ Object.keys(locales).forEach(function (lang) {
   Vue.locale(lang, locales[lang])
 })
 
+function pct(data){
+    return (( 100 * data.freq)/data.count)
+}
+
 function toogleResult(state, result) {
     var index = state.results.indexOf(result)
     if (state.infoAll == false) {
@@ -81,7 +85,8 @@ export default new Vuex.Store({
         state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         state.results = []
         for (var result of data.results) {
-            if (result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') {
+            if ((result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') && (result.info.mosquito_thorax.top === 'yes')) {
+
                 result.all = false
                 var idx = result.info.month - 1
                 state.chartData.series[idx] += 1
