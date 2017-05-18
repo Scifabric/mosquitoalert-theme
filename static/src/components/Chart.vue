@@ -45,4 +45,7 @@ export default {
     stroke: rgb(220, 220, 220) !important;
 }
 
+.ct-label {
+    font-size: 10px;
+}
 </style>
