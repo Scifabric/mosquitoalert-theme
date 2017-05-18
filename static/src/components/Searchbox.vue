@@ -105,7 +105,9 @@
                 </div>
             </div>
             <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
-                <p>{{$t('message.month')}}</p>
+                <p v-if="query !== null">{{$t('message.month')}} "{{query}}"</p>
+                <p v-else>{{$t('message.month')}} "{{$t('message.noquery')}}"</p>
+                <p>{{$t('message.period')}} {{date}} {{$t('message.periodend')}}</p>
                 <Chart></Chart>
             </div>
 
@@ -123,6 +125,7 @@ import XRegExp from 'xregexp'
 import Chart from './Chart.vue'
 import 'smooth-scrollbar/dist/smooth-scrollbar.css'
 import Scrollbar from 'smooth-scrollbar'
+import dateformat from 'dateformat'
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -157,6 +160,9 @@ export default {
         },
         results() {
             return this.$store.state.results
+        },
+        date() {
+            return dateformat(this.$store.state.date, "mmmm yyyy")
         },
         resultShown() {
             return this.$store.state.result

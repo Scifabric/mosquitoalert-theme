@@ -42,6 +42,6 @@ export default {
 .ct-series-j .ct-bar,
 .ct-series-k .ct-bar,
 .ct-series-l .ct-bar{
-    stroke: #a41f1b !important;
+    stroke: rgb(220, 220, 220) !important;
 }
 </style>

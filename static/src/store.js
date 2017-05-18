@@ -53,6 +53,7 @@ export default new Vuex.Store({
     limit: 100,
     offset:0,
     scroll: 0,
+    date: null,
     chartData: {
         labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -85,6 +86,7 @@ export default new Vuex.Store({
     updateResults(state, data) {
         state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         var results = []
+        var dates = []
         for (var result of data.results) {
             if ((result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') && (result.info.mosquito_thorax.top === 'yes')) {
 
@@ -94,8 +96,12 @@ export default new Vuex.Store({
                 result.thorax_pct = pct(result.info.mosquito_thorax)
                 result.people = result.info.mosquito.count
                 results.push(result)
+                var tmp_date = result.info.year + "/" + result.info.month + "/" + result.info.day + " 00:00:00"
+                tmp_date = Math.round(new Date(tmp_date).getTime()/1000)
+                dates.push(tmp_date)
             }
         }
+        state.date = new Date(_.min(dates)*1000)
         //state.results = data.results
         // Order results by thorax quality
         if (results.length >= 1) {
