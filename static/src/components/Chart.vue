@@ -45,7 +45,7 @@ export default {
     stroke: rgb(220, 220, 220) !important;
 }
 
-.ct-label {
+.ct-chart-bar .ct-label.ct-horizontal.ct-end {
     font-size: 10px;
 }
 </style>
