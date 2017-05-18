@@ -17,7 +17,7 @@ export default {
     methods: {
         populateMap() {
             this.$store.commit('cleanMarkers')
-            var limit = 5
+            var limit = 100
             this.$store.dispatch('getResults', {query: null,
                                                 endpoint: this.$store.state.endpoint,
                                                 limit: limit,
