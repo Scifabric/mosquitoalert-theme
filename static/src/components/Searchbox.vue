@@ -107,7 +107,7 @@
             <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
                 <p v-if="query !== null">{{$t('message.month')}} "{{query}}"</p>
                 <p v-else>{{$t('message.month')}} "{{$t('message.noquery')}}"</p>
-                <p>{{$t('message.period')}} {{date}} {{$t('message.periodend')}}</p>
+                <p>{{$t('message.period')}} {{datemin}} - {{datemax}}</p>
                 <Chart></Chart>
             </div>
 
@@ -161,8 +161,11 @@ export default {
         results() {
             return this.$store.state.results
         },
-        date() {
-            return dateformat(this.$store.state.date, "mmmm yyyy")
+        datemin() {
+            return dateformat(this.$store.state.datemin, "mmmm yyyy")
+        },
+        datemax() {
+            return dateformat(this.$store.state.datemax, "mmmm yyyy")
         },
         resultShown() {
             return this.$store.state.result

@@ -53,7 +53,8 @@ export default new Vuex.Store({
     limit: 100,
     offset:0,
     scroll: 0,
-    date: null,
+    datemin: null,
+    datemax: null,
     chartData: {
         labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -101,7 +102,8 @@ export default new Vuex.Store({
                 dates.push(tmp_date)
             }
         }
-        state.date = new Date(_.min(dates)*1000)
+        state.datemin = new Date(_.min(dates)*1000)
+        state.datemax = new Date(_.max(dates)*1000)
         //state.results = data.results
         // Order results by thorax quality
         if (results.length >= 1) {
