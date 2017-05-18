@@ -16,12 +16,10 @@
                             <div class="info">
                                 <p class="type">{{$t('message.' + result.info.mosquito.top)}}</p>
                                 <div class="stars">
-                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
-                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span class="label" :class="pctConfidence(result.info.mosquito_thorax)">{{pct(result.info.mosquito_thorax)}}%</span> 
+                                    <span class="people">{{result.info.mosquito.count}} {{$tc('message.people', result.info.mosquito.count)}}</span>
                                 </div>
-                                <p class="location">{{result.info.display_name}}</p>
+                                <p class="location">{{result.info.city}}, {{result.info.country}}</p>
                             </div>
                             <div v-bind:style="cover(result)" >
                             </div>
@@ -225,14 +223,26 @@ export default {
                     'background-position-x': 'center',
                     'background-position-y': 'center',
                     'background-size': 'cover',
-                    'height': '85px',
-                    'width': '85px'
+                    'height': '79px',
+                    'width': '79px'
                 }
            
         },
         pct(data){
-            return (( 100 * data.freq)/data.count)
+            return (( 100 * data.freq)/data.count).toFixed(2)
         },
+        pctConfidence(data) {
+            var tmp = this.pct(data)
+            if (tmp < 50) {
+                return "label-low"
+            }
+            if ((tmp >=50) && (tmp< 75)) {
+                return "label-med"
+            }
+            if ((tmp >=75) && (tmp< 100)) {
+                return "label-high"
+            }
+        }
     },
     watch: {
         'query': function(val) {
@@ -456,6 +466,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    height: 100px;
 }
 
 .result-short:hover {
@@ -469,10 +480,12 @@ export default {
 
 .result-short .type,
 .info .type {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     color: black;
     text-transform: capitalize;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .result-short .location,
@@ -487,7 +500,7 @@ export default {
     padding-bottom: 10px;
 }
 .result-short img {
-    height: 85px;
+    height: 79px;
 }
 div.back-results {
     padding-top: 5px;
@@ -611,6 +624,35 @@ div.back-results {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.label {
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-low, .label-med {
+   background-color: rgb(253, 245, 190); 
+   color: rgb(164, 93, 4);
+}
+
+.label-high {
+   background-color: rgb(210, 255, 159);
+   color: rgb(52, 100, 8);
+}
+
+.people {
+    margin-left: 8px;
+    color: gray;
+    font-size: 14px;
+    display: flex;
     align-items: center;
 }
 
