@@ -61,7 +61,10 @@ export default new Vuex.Store({
     },
     chartOptions: {
         distributeSeries: true,
-        axisY: {onlyInteger: true}
+        axisY: {onlyInteger: true, showGrid: false, showLabel: false, offset: 0},
+        axisX: {showGrid: false},
+        width: "100%",
+        height: 100,
     },
     chartist: null,
   },

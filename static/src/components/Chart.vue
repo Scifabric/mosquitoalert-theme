@@ -1,6 +1,6 @@
 <template>
 <div class="distribution">
-    <div class="ct-chart ct-perfect-fourth"></div>
+    <div class="ct-chart"></div>
 </div>
 </template>
 <script>
@@ -44,4 +44,5 @@ export default {
 .ct-series-l .ct-bar{
     stroke: rgb(220, 220, 220) !important;
 }
+
 </style>
