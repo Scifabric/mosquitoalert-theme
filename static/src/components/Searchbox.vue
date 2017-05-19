@@ -1,7 +1,7 @@
 <template>
     <div class="col-xs-12 col-md-4">
         <div class="searchpanel" :class="{'moveleft': collapse}">
-            <div v-bind:style="isCover"  >
+            <div>
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
@@ -21,32 +21,27 @@
                                 </div>
                                 <p class="location">{{result.info.city}}, {{result.info.country}}</p>
                             </div>
-                            <div v-bind:style="cover(result)" >
-                            </div>
+                            <div v-bind:style="cover(result)"></div>
                         </div>
 
                     </div>
                 </div>
                 <div v-else v-on:click="toggleModalShow" style="cursor:pointer;">
                     <div class="banner" >
+                        <div v-bind:style="isCover" class="bannerphoto">
+                            <img src="/static/img/zoom-icon.svg">
+                        </div>
                         <div class="info">
-                            <!--<p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>-->
-                            <!--<div class="stars">
-                                <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
-                                <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
-                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
-                                </div>-->
-                            <p class="location">{{resultShown.info.display_name}}</p>
+                            <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
+                            <span v-else>{{$t('message.yellow')}}</span>
+
                         </div>
                     </div>
                     <div class="extra-info">
                         <div class="result-full">
                             <p>{{$t('message.classifiedAs')}}</p>
                             <p class="mosquito-type">
-                                <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
-                                <span v-else>{{$t('message.yellow')}}</span>
-                            </p>
+                                                            </p>
                             <p>{{$t('message.by')}}</p>
                             <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
                             <p>{{$t('message.users')}}</p>
@@ -182,8 +177,7 @@ export default {
                     'background-position-x': 'center',
                     'background-position-y': 'center',
                     'background-size': 'cover',
-                    'background-position-y': '45px',
-                    'height': '300px'
+                    'width': '50%'
                 }
             }
             else {
@@ -525,15 +519,26 @@ div.back-results {
 }
 
 .banner {
-    background: #a41f1b;
-    color: white;
-    height: 110px;
-    padding: 16px 24px 20px;
+    background: white;
+    color: rgb(38, 66, 82);
+    height: 140px;
+    display: flex;
 }
 
 
 .extra-info {
     padding: 16px 24px 20px;
+}
+
+.banner > .info {
+    width: 50%;
+    color: rgb(38, 66, 82);
+}
+
+.banner > .info > span {
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 16px;
 }
 
 .banner .info .type,
@@ -673,6 +678,14 @@ div.back-results {
     font-size: 14px;
     display: flex;
     align-items: center;
+}
+
+.bannerphoto {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
 }
 
 </style>
