@@ -110,7 +110,7 @@ export default new Vuex.Store({
         //state.results = data.results
         // Order results by thorax quality
         if (results.length >= 1) {
-            state.results = _.orderBy(results, ['thorax_pct', 'people'],['desc', 'desc'])
+            state.results = _.orderBy(results, ['people', 'thorax_pct'],['desc', 'desc'])
         }
         else {
             state.results = []

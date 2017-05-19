@@ -105,9 +105,11 @@
                 </div>
             </div>
             <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
-                <p v-if="query !== null">{{$t('message.month')}} "{{query}}"</p>
-                <p v-else>{{$t('message.month')}} "{{$t('message.noquery')}}"</p>
-                <p>{{$t('message.period')}} {{datemin}} - {{datemax}}</p>
+                <p>
+                    <span class="distribution bold">{{$t('message.month')}}</span> 
+                        <span v-if="query !== null" class="distribution">"{{query}}"</span>
+                        <span v-else class="distribution bold">{{$t('message.noquery')}}</span> 
+                    <br/><span style="font-size:12px;">{{$t('message.period')}} {{datemin}} - {{datemax}}</span></p>
                 <Chart></Chart>
             </div>
 
@@ -344,7 +346,7 @@ export default {
 }
 
 .secondfold {
-  max-height: 340px;
+  max-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -542,6 +544,14 @@ div.back-results {
 .searchchart {
     border-top: 1px solid #d4d4d4;
     padding: 15px;
+}
+
+.distribution {
+    font-size: 14px;
+}
+
+.distribution.bold {
+    font-weight: bold;
 }
 
 .banner .info .location {
