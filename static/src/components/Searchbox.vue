@@ -46,7 +46,7 @@
                     </div>
                     <div class="extra-info">
                         <div class="datarow">
-                            <span>{{$t('message.confidence')}} <img class="tippy" title="daniel" src="/static/img/info.svg" v-tippy data-html="#tooltip-confidence" data-arrow="true" data-interactive="true" data-theme="light"></span>
+                            <span>{{$t('message.confidence')}} <img class="tippy" title="daniel" src="/static/img/info.svg" ></span>
                             <span class="label" :class="pctConfidence(result.info.mosquito_thorax)"><span v-if="pct(resultShown.info.mosquito_thorax)>=75" style="font-size:15px;">HIGH</span><span v-else style="font-size:15px;">LOW</span></span> 
                         </div>
                         <div class="datarow">
@@ -92,10 +92,10 @@ import Chart from './Chart.vue'
 import 'smooth-scrollbar/dist/smooth-scrollbar.css'
 import Scrollbar from 'smooth-scrollbar'
 import dateformat from 'dateformat'
-import Vue from 'vue'
-import vueTippy from 'vue-tippy'
-
-Vue.use(vueTippy)
+//import Vue from 'vue'
+//import vueTippy from 'vue-tippy'
+//
+//Vue.use(vueTippy)
 
 
 function formatQuery(queryData) {

@@ -3,21 +3,9 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import VueI18n from 'vue-i18n'
-import locales from './locales.js'
-import { getBrowserLanguage, getCookie } from './localesetup.js'
 import _ from "lodash"
 
 Vue.use(Vuex)
-
-Vue.use(VueI18n)
-
-Vue.config.lang = getCookie('language').toLowerCase() || getBrowserLanguage()
-
-// set locales
-Object.keys(locales).forEach(function (lang) {
-  Vue.locale(lang, locales[lang])
-})
 
 function pct(data){
     return (( 100 * data.freq)/data.count)
@@ -56,7 +44,7 @@ export default new Vuex.Store({
     datemin: null,
     datemax: null,
     chartData: {
-        labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
+        //labels: [Vue.$t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     chartOptions: {
