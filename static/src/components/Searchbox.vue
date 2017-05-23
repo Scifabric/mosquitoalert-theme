@@ -1,5 +1,12 @@
 <template>
     <div class="col-xs-12 col-md-4">
+        <div id="tooltip-confidence" style="display:none; width:210px;">
+            <p>Confidence Level depends of the number of participants have identified the thorax.</p>
+
+            <p><span class="low">Low </span>< 75% participants </p>
+            <p><span class="high">High</span> >75% participants </p>
+        </div>
+
         <div class="searchpanel" :class="{'moveleft': collapse}">
             <div>
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
@@ -26,9 +33,9 @@
 
                     </div>
                 </div>
-                <div v-else v-on:click="toggleModalShow" style="cursor:pointer;">
+                <div v-else>
                     <div class="banner" >
-                        <div v-bind:style="isCover" class="bannerphoto">
+                        <div v-on:click="toggleModalShow" v-bind:style="isCover" class="bannerphoto">
                             <img src="/static/img/zoom-icon.svg">
                         </div>
                         <div class="info">
@@ -38,63 +45,25 @@
                         </div>
                     </div>
                     <div class="extra-info">
-                        <div class="result-full">
-                            <p>{{$t('message.classifiedAs')}}</p>
-                            <p class="mosquito-type">
-                                                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-
-
-                            <div class="flex" v-if="resultShown.info.mosquito_thorax.top === 'yes'">
-                            <p class="mosquito-type">
-                                <span>{{$t('message.thorax')}} {{$t('message.identified')}}</span>
-                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-                            </div>
-
-                            <div class="flex" v-if="resultShown.info.mosquito_abdomen.top === 'yes'">
-                            <p class="mosquito-type">
-                                <span>{{$t('message.abdomen')}} {{$t('message.identified')}}</span>
-                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-                            </div>
-
-
-
-                            <p>{{$t('message.classified')}}</p>
-                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} {{$tc('message.people', resultShown.info.mosquito.count)}}</p>
-
-
-                            <p>{{$t('message.confidence')}}</p>
-                            <div class="colors">
-                                <div class="column">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                        <rect class="low" v-bind:class="{chosen: resultShown.info.mosquito.count < 30}" x="0" y="0" width="30" height="30"></rect>
-                                    </svg>
-                                    <p class="small">{{$t('message.low')}}</p>
-                                    <p class="small number">&lt;30</p>
-                            </div>
-                            <div class="column">
-                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                    <rect class="mid" v-bind:class="{chosen: resultShown.info.mosquito.count >= 30 && resultShown.info.mosquito.count < 70}" x="0" y="0" width="30" height="30"></rect>
-                                </svg>
-                                <p class="small">{{$t('message.mid')}}</p><p class="small number">30 - 70</p>
-                            </div>
-                            <div class="column">
-                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                    <rect class="high"  v-bind:class="{chosen: resultShown.info.mosquito.count >= 70}" x="0" y="0" width="30" height="30"></rect>
-                                </svg>
-                                <p class="small">{{$t('message.high')}}</p><p class="small number">&gt;70</p>
-                            </div></div>
+                        <div class="datarow">
+                            <span>{{$t('message.confidence')}} <img class="tippy" title="daniel" src="/static/img/info.svg" v-tippy data-html="#tooltip-confidence" data-arrow="true" data-interactive="true" data-theme="light"></span>
+                            <span class="label" :class="pctConfidence(result.info.mosquito_thorax)"><span v-if="pct(resultShown.info.mosquito_thorax)>=75" style="font-size:15px;">HIGH</span><span v-else style="font-size:15px;">LOW</span></span> 
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.identified')}}</span>
+                            <span style="font-size:20px; font-weight: bold;">{{pct(resultShown.info.mosquito_thorax)}}%</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.classified')}}</span>
+                            <span>{{resultShown.info.mosquito.count}} {{$t('message.participants')}}</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.found')}}</span>
+                            <span>{{resultShown.info.city}}, {{resultShown.info.Country}}</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.uploaded')}}</span>
+                            <span>{{formatDate(resultShown)}}</span>
                         </div>
                     </div>
                 </div>
@@ -123,6 +92,11 @@ import Chart from './Chart.vue'
 import 'smooth-scrollbar/dist/smooth-scrollbar.css'
 import Scrollbar from 'smooth-scrollbar'
 import dateformat from 'dateformat'
+import Vue from 'vue'
+import vueTippy from 'vue-tippy'
+
+Vue.use(vueTippy)
+
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -142,6 +116,9 @@ function formatQuery(queryData) {
 
 export default {
     components: {Chart },
+    mounted(){
+        console.log("HLA daiel")
+    },
     computed: {
         searching() {
             return this.$store.state.searching
@@ -220,6 +197,11 @@ export default {
                                                 offset:0,
                                                 random: false,
                                                 })
+        },
+        formatDate(result){
+            var tmp_date = result.info.year + "/" + result.info.month + "/" + result.info.day + " 00:00:00"
+            tmp_date = Math.round(new Date(tmp_date).getTime()/1000)
+            return dateformat(tmp_date, "mmm dd, yyyy")
         },
         cover(result){
             if (result.info)
@@ -527,7 +509,6 @@ div.back-results {
 
 
 .extra-info {
-    padding: 16px 24px 20px;
 }
 
 .banner > .info {
@@ -687,6 +668,44 @@ div.back-results {
     justify-content: center;
     font-size: 80px;
 }
+
+.datarow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    padding-left: 17px;
+    padding-right: 13px;
+}
+
+.datarow:nth-child(n+1) {
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.datarow .label {
+}
+
+.tippy-tooltip-content {
+    font-size: 12px;
+    font-color: rgb(29, 50, 64);
+
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p {
+    font-size: 12px;
+    color: rgb(29, 50, 64);
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p > span.low {
+    color: rgb(164, 93, 4);
+}
+
 
 </style>
 
