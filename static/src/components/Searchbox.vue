@@ -46,7 +46,7 @@
                     </div>
                     <div class="extra-info">
                         <div class="datarow">
-                            <span>{{$t('message.confidence')}} <img class="tippy" title="daniel" src="/static/img/info.svg" ></span>
+                            <span>{{$t('message.confidence')}} <img title="daniel" src="/static/img/info.svg" v-tippy data-theme="light" data-html="#tooltip-confidence" data-arrow="true"></span>
                             <span class="label" :class="pctConfidence(result.info.mosquito_thorax)"><span v-if="pct(resultShown.info.mosquito_thorax)>=75" style="font-size:15px;">HIGH</span><span v-else style="font-size:15px;">LOW</span></span> 
                         </div>
                         <div class="datarow">
@@ -92,10 +92,10 @@ import Chart from './Chart.vue'
 import 'smooth-scrollbar/dist/smooth-scrollbar.css'
 import Scrollbar from 'smooth-scrollbar'
 import dateformat from 'dateformat'
-//import Vue from 'vue'
-//import vueTippy from 'vue-tippy'
-//
-//Vue.use(vueTippy)
+import Vue from 'vue'
+import vueTippy from 'vue-tippy'
+
+Vue.use(vueTippy)
 
 
 function formatQuery(queryData) {
@@ -694,6 +694,9 @@ div.back-results {
 .tippy-tooltip[data-template-id="#tooltip-confidence"] {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
     width: 210px;
 }
 
@@ -706,6 +709,9 @@ div.back-results {
     color: rgb(164, 93, 4);
 }
 
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p > span.high{
+    color: rgb(52, 100, 8);
+}
 
 </style>
 
