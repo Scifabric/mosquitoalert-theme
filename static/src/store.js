@@ -7,6 +7,7 @@ import _ from "lodash"
 
 Vue.use(Vuex)
 
+
 function pct(data){
     return (( 100 * data.freq)/data.count)
 }
@@ -44,7 +45,7 @@ export default new Vuex.Store({
     datemin: null,
     datemax: null,
     chartData: {
-        //labels: [Vue.$t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
+        //labels: [Vue.i18n.t('message.jan'), Vue.i18n.t('message.feb'), Vue.i18n.t('message.mar'), Vue.i18n.t('message.apr'), Vue.i18n.t('message.may'), Vue.i18n.t('message.jun'), Vue.i18n.t('message.jul'), Vue.i18n.t('message.aug'), Vue.i18n.t('message.sep'), Vue.i18n.t('message.oct'), Vue.i18n.t('message.nov'), Vue.i18n.t('message.dec')],
         series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     chartOptions: {

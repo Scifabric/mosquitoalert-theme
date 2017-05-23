@@ -9,6 +9,8 @@ import Chartist from "chartist"
 
 export default {
     mounted() {
+        var labels = [this.$t('message.jan'), this.$t('message.feb'), this.$t('message.mar'), this.$t('message.apr'), this.$t('message.may'), this.$t('message.jun'), this.$t('message.jul'), this.$t('message.aug'), this.$t('message.sep'), this.$t('message.oct'), this.$t('message.nov'), this.$t('message.dec')]
+        this.$store.state.chartData['labels'] = labels
         var tmp = new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
         this.$store.state.chartist = tmp
 
