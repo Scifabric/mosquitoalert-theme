@@ -94,6 +94,7 @@ import Scrollbar from 'smooth-scrollbar'
 import dateformat from 'dateformat'
 import Vue from 'vue'
 import vueTippy from 'vue-tippy'
+import { pad } from '../helpers.js'
 
 Vue.use(vueTippy)
 
@@ -116,9 +117,6 @@ function formatQuery(queryData) {
 
 export default {
     components: {Chart },
-    mounted(){
-        console.log("HLA daiel")
-    },
     computed: {
         searching() {
             return this.$store.state.searching
@@ -205,8 +203,8 @@ export default {
         },
         formatDate(result){
             var tmp_date = result.info.year + "/" + result.info.month + "/" + result.info.day + " 00:00:00"
-            tmp_date = Math.round(new Date(tmp_date).getTime()/1000)
-            return dateformat(tmp_date, "mmm dd, yyyy")
+            var tmp = this.$t('message.l' + pad(result.info.month, 2)) + " "+ result.info.day + ", " + result.info.year
+            return tmp
         },
         cover(result){
             if (result.info)

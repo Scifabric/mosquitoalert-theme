@@ -117,13 +117,14 @@ export default new Vuex.Store({
         state.searching = !state.searching
     },
     addMap(state) {
-        console.log("map ready")
         var map = L.map( 'mosquitomap', {
             center: [20.0, 5.0],
             minZoom: 2,
             zoom: 2,
-            zoomControl: false
+            zoomControl: true
         })
+
+        new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
         L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -183,10 +184,8 @@ export default new Vuex.Store({
             else {
                 var url = payload.endpoint +  '/api/result?info=thorax::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&orderby=created&desc=true' 
             }
-            console.log(url)
             axios.get(url)
               .then(function (response) {
-                console.log(response);
                 context.commit('updateResults', {results: response.data})
 
               })

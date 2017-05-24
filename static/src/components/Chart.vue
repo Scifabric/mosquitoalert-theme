@@ -6,16 +6,7 @@
 <script>
 import Chart from 'chart.js'
 import dateformat from 'dateformat'
-//import 'chartist/dist/chartist.css'
-//import jquery from 'jquery'
-//import Chartist from "chartist"
-//import tooltip from 'chartist-plugin-tooltip'
-
-function pad(num, size) {
-    var s = num+"";
-    while (s.length < size) s = "0" + s;
-    return s;
-}
+import { pad } from '../helpers.js'
 
 export default {
     mounted() {
@@ -24,9 +15,6 @@ export default {
         var tooltipperiod = this.$t('message.tooltipperiod')
         var tooltipto = this.$t('message.tooltipto')
         this.$store.state.chartData.labels = labels
-        //this.$store.state.chartOptions['plugins'] = [ Chartist.plugins.tooltip()]
-        //var tmp = new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
-        //this.$store.state.chartist = tmp
         var self = this
         var options = {
             responsive: true,
