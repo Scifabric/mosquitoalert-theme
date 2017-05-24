@@ -121,7 +121,7 @@ export default new Vuex.Store({
             center: [20.0, 5.0],
             minZoom: 2,
             zoom: 2,
-            zoomControl: true
+            zoomControl: false
         })
 
         new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
