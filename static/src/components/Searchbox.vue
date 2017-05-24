@@ -117,9 +117,6 @@ function formatQuery(queryData) {
 
 export default {
     components: {Chart },
-    mounted(){
-        console.log("HLA daiel")
-    },
     computed: {
         searching() {
             return this.$store.state.searching

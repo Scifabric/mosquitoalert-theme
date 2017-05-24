@@ -117,7 +117,6 @@ export default new Vuex.Store({
         state.searching = !state.searching
     },
     addMap(state) {
-        console.log("map ready")
         var map = L.map( 'mosquitomap', {
             center: [20.0, 5.0],
             minZoom: 2,
@@ -183,10 +182,8 @@ export default new Vuex.Store({
             else {
                 var url = payload.endpoint +  '/api/result?info=thorax::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&orderby=created&desc=true' 
             }
-            console.log(url)
             axios.get(url)
               .then(function (response) {
-                console.log(response);
                 context.commit('updateResults', {results: response.data})
 
               })

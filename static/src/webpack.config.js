@@ -42,7 +42,7 @@ module.exports = {
     new htmlWebpackPlugin({
       inject: false,
       hash: true,
-      filename: '../../templates/home/_results.html',
+      filename: '../../templates/home/index.html',
       template: '../../templates/home/_results.webpack'
     }),
     new webpack.optimize.DedupePlugin(),

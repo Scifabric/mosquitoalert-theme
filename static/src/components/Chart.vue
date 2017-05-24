@@ -15,9 +15,6 @@ export default {
         var tooltipperiod = this.$t('message.tooltipperiod')
         var tooltipto = this.$t('message.tooltipto')
         this.$store.state.chartData.labels = labels
-        //this.$store.state.chartOptions['plugins'] = [ Chartist.plugins.tooltip()]
-        //var tmp = new Chartist.Bar('.ct-chart', this.$store.state.chartData, this.$store.state.chartOptions)
-        //this.$store.state.chartist = tmp
         var self = this
         var options = {
             responsive: true,
