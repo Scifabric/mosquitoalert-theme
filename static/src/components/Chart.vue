@@ -6,16 +6,7 @@
 <script>
 import Chart from 'chart.js'
 import dateformat from 'dateformat'
-//import 'chartist/dist/chartist.css'
-//import jquery from 'jquery'
-//import Chartist from "chartist"
-//import tooltip from 'chartist-plugin-tooltip'
-
-function pad(num, size) {
-    var s = num+"";
-    while (s.length < size) s = "0" + s;
-    return s;
-}
+import { pad } from '../helpers.js'
 
 export default {
     mounted() {
