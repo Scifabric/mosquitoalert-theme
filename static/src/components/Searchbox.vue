@@ -672,6 +672,11 @@ div.back-results {
     align-items: center;
     justify-content: center;
     font-size: 80px;
+    cursor: pointer;
+}
+
+.bannerphoto:hover {
+    opacity: 0.7;
 }
 
 .datarow {
