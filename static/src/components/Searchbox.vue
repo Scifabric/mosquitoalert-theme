@@ -16,7 +16,12 @@
                 </div>
             </div>
             <div v-if="searching" class="spinner"></div>
-            <div v-else class="secondfold" v-bind:class="{zero: results.length === 0}">
+            <div v-else class="secondfold">
+                <div v-if="notfound">
+                    <div class="result-short">
+                        <p>{{$t('message.yoursearch')}} -<strong>{{query}}</strong>- {{$t('message.notfound')}}</p>
+                    </div>
+                </div>
                 <div v-if="isInfoAll == false"> 
                     <div v-for="result in results" class="results-list">
                         <div v-on:click="showAll(result)" class="result-short">
@@ -118,6 +123,9 @@ function formatQuery(queryData) {
 export default {
     components: {Chart },
     computed: {
+        notfound() {
+            return this.$store.state.notfound
+        },
         searching() {
             return this.$store.state.searching
         },
@@ -236,7 +244,7 @@ export default {
     },
     watch: {
         'query': function(val) {
-            if (val === '') {
+            if (this.results.length > 0) {
                 this.$store.commit('cleanMarkers')
                 this.$store.commit('cleanResults')
             }
