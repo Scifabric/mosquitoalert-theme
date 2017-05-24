@@ -28,6 +28,7 @@ function toogleResult(state, result) {
 export default new Vuex.Store({
   state: {
     searching: false,
+    notfound: false,
     collapse: false,
     modal: false,
     welcome: true,
@@ -105,11 +106,13 @@ export default new Vuex.Store({
         //state.results = data.results
         // Order results by thorax quality
         if (results.length >= 1) {
+            state.notfound = false
             state.results = _.orderBy(results, ['people', 'thorax_pct'],['desc', 'desc'])
         }
         else {
             state.results = []
             state.searching = !state.searching
+            state.notfound = true
 
         }
     },
@@ -172,6 +175,7 @@ export default new Vuex.Store({
     },
     cleanResults(state) {
         state.results = []
+        state.notfound = false
     },
   },
     actions: {
