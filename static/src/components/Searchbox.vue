@@ -136,10 +136,15 @@ export default {
             return this.$store.state.results
         },
         datemin() {
-            return dateformat(this.$store.state.datemin, "mmmm yyyy")
+            var month = dateformat(this.$store.state.datemin, "mm").toLowerCase()
+            month = this.$t('message.l' + month )
+            return month + dateformat(this.$store.state.datemin, ' yyyy')
         },
         datemax() {
-            return dateformat(this.$store.state.datemax, "mmmm yyyy")
+            var month = dateformat(this.$store.state.datemax, "mm").toLowerCase()
+            month = this.$t('message.l' + month)
+            return month + dateformat(this.$store.state.datemax, ' yyyy')
+
         },
         resultShown() {
             return this.$store.state.result
