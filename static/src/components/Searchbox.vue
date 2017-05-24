@@ -1,7 +1,14 @@
 <template>
     <div class="col-xs-12 col-md-4">
+        <div id="tooltip-confidence" style="display:none; width:210px; text-align: left;">
+            <p>{{$t('message.tooltipconfidence')}}</p>
+
+            <p><span class="low">{{$t('message.low')}} </span>< 75% {{$t('message.participants')}} </p>
+            <p><span class="high">{{$t('message.high')}}</span> > 75% {{$t('message.participants')}}</p>
+        </div>
+
         <div class="searchpanel" :class="{'moveleft': collapse}">
-            <div v-bind:style="isCover"  >
+            <div>
                 <input :value="query" @input="updateQuery" class="searchbox" type="text" name="search" id="search" :placeholder="$t('message.placeholder')" v-on:keyup.enter="getResults" v-bind:class="{allinfo: isInfoAll, allinfo: results}">
                 <span v-on:click="getResults"   class="searchbtn"><i class="fa fa-search"></i></span>
                 <div v-if="isInfoAll" class="back-results">
@@ -16,98 +23,57 @@
                             <div class="info">
                                 <p class="type">{{$t('message.' + result.info.mosquito.top)}}</p>
                                 <div class="stars">
-                                    <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-else class="thorax not"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
-                                    <span v-else class="abdomen not"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
+                                    <span class="label" :class="pctConfidence(result.info.mosquito_thorax)">{{pct(result.info.mosquito_thorax)}}%</span> 
+                                    <span class="people">{{result.info.mosquito.count}} {{$tc('message.people', result.info.mosquito.count)}}</span>
                                 </div>
-                                <p class="location">{{result.info.display_name}}</p>
+                                <p class="location">{{result.info.city}}, {{result.info.country}}</p>
                             </div>
-                            <div v-bind:style="cover(result)" >
-                            </div>
+                            <div v-bind:style="cover(result)"></div>
                         </div>
 
                     </div>
                 </div>
-                <div v-else v-on:click="toggleModalShow" style="cursor:pointer;">
+                <div v-else>
                     <div class="banner" >
+                        <div v-on:click="toggleModalShow" v-bind:style="isCover" class="bannerphoto">
+                            <img src="/static/img/zoom-icon.svg">
+                        </div>
                         <div class="info">
-                            <!--<p class="type">{{$t('message.' + resultShown.info.mosquito.top)}}</p>-->
-                            <!--<div class="stars">
-                                <span v-if="result.info.mosquito_thorax.top == 'yes'" class="thorax"><i class="fa fa-check-square-o"></i> {{$t('message.thorax')}}</span>
-                                <span v-else class="thorax not white"><i class="fa fa-square-o"></i> {{$t('message.thorax')}}</span>
-                                    <span v-if="result.info.mosquito_abdomen.top == 'yes'" class="abdomen"><i class="fa fa-check-square-o"></i> {{$t('message.abdomen')}}</span>
-                                    <span v-else class="abdomen not white"><i class="fa fa-square-o"></i> {{$t('message.abdomen')}}</span>
-                                </div>-->
-                            <p class="location">{{resultShown.info.display_name}}</p>
+                            <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
+                            <span v-else>{{$t('message.yellow')}}</span>
+
                         </div>
                     </div>
                     <div class="extra-info">
-                        <div class="result-full">
-                            <p>{{$t('message.classifiedAs')}}</p>
-                            <p class="mosquito-type">
-                                <span v-if="resultShown.info.mosquito.top === 'tiger'">{{$t("message.tiger")}}</span>
-                                <span v-else>{{$t('message.yellow')}}</span>
-                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-
-
-                            <div class="flex" v-if="resultShown.info.mosquito_thorax.top === 'yes'">
-                            <p class="mosquito-type">
-                                <span>{{$t('message.thorax')}} {{$t('message.identified')}}</span>
-                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_thorax)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-                            </div>
-
-                            <div class="flex" v-if="resultShown.info.mosquito_abdomen.top === 'yes'">
-                            <p class="mosquito-type">
-                                <span>{{$t('message.abdomen')}} {{$t('message.identified')}}</span>
-                            </p>
-                            <p>{{$t('message.by')}}</p>
-                            <p class="mosquito-type">{{pct(resultShown.info.mosquito_abdomen)}}%</p>
-                            <p>{{$t('message.users')}}</p>
-                            <p class="divider"></p>
-                            </div>
-
-
-
-                            <p>{{$t('message.classified')}}</p>
-                            <p class="mosquito-type">{{resultShown.info.mosquito.count}} {{$tc('message.people', resultShown.info.mosquito.count)}}</p>
-
-
-                            <p>{{$t('message.confidence')}}</p>
-                            <div class="colors">
-                                <div class="column">
-                                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                        <rect class="low" v-bind:class="{chosen: resultShown.info.mosquito.count < 30}" x="0" y="0" width="30" height="30"></rect>
-                                    </svg>
-                                    <p class="small">{{$t('message.low')}}</p>
-                                    <p class="small number">&lt;30</p>
-                            </div>
-                            <div class="column">
-                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                    <rect class="mid" v-bind:class="{chosen: resultShown.info.mosquito.count >= 30 && resultShown.info.mosquito.count < 70}" x="0" y="0" width="30" height="30"></rect>
-                                </svg>
-                                <p class="small">{{$t('message.mid')}}</p><p class="small number">30 - 70</p>
-                            </div>
-                            <div class="column">
-                                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-                                    <rect class="high"  v-bind:class="{chosen: resultShown.info.mosquito.count >= 70}" x="0" y="0" width="30" height="30"></rect>
-                                </svg>
-                                <p class="small">{{$t('message.high')}}</p><p class="small number">&gt;70</p>
-                            </div></div>
+                        <div class="datarow">
+                            <span>{{$t('message.confidence')}} <img title="daniel" src="/static/img/info.svg" v-tippy data-theme="light" data-html="#tooltip-confidence" data-arrow="true"></span>
+                            <span class="label" :class="pctConfidence(result.info.mosquito_thorax)"><span v-if="pct(resultShown.info.mosquito_thorax)>=75" style="font-size:15px;">HIGH</span><span v-else style="font-size:15px;">LOW</span></span> 
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.identified')}}</span>
+                            <span style="font-size:20px; font-weight: bold;">{{pct(resultShown.info.mosquito_thorax)}}%</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.classified')}}</span>
+                            <span>{{resultShown.info.mosquito.count}} {{$t('message.participants')}}</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.found')}}</span>
+                            <span>{{resultShown.info.city}}, {{resultShown.info.Country}}</span>
+                        </div>
+                        <div class="datarow">
+                            <span>{{$t('message.uploaded')}}</span>
+                            <span>{{formatDate(resultShown)}}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div v-if="results.length > 0 && !searching && !isInfoAll " class="searchchart">
-                <p>{{$t('message.month')}}</p>
+                <p>
+                    <span class="distribution bold">{{$t('message.month')}}</span> 
+                        <span v-if="query !== null" class="distribution">"{{query}}"</span>
+                        <span v-else class="distribution bold">{{$t('message.noquery')}}</span> 
+                    <br/><span style="font-size:12px;">{{$t('message.period')}} {{datemin}} - {{datemax}}</span></p>
                 <Chart></Chart>
             </div>
 
@@ -125,6 +91,12 @@ import XRegExp from 'xregexp'
 import Chart from './Chart.vue'
 import 'smooth-scrollbar/dist/smooth-scrollbar.css'
 import Scrollbar from 'smooth-scrollbar'
+import dateformat from 'dateformat'
+import Vue from 'vue'
+import vueTippy from 'vue-tippy'
+
+Vue.use(vueTippy)
+
 
 function formatQuery(queryData) {
     var regex_non_words = XRegExp("[^\\p{L}\\s\\d]", "g")
@@ -144,6 +116,9 @@ function formatQuery(queryData) {
 
 export default {
     components: {Chart },
+    mounted(){
+        console.log("HLA daiel")
+    },
     computed: {
         searching() {
             return this.$store.state.searching
@@ -160,6 +135,17 @@ export default {
         results() {
             return this.$store.state.results
         },
+        datemin() {
+            var month = dateformat(this.$store.state.datemin, "mm").toLowerCase()
+            month = this.$t('message.l' + month )
+            return month + dateformat(this.$store.state.datemin, ' yyyy')
+        },
+        datemax() {
+            var month = dateformat(this.$store.state.datemax, "mm").toLowerCase()
+            month = this.$t('message.l' + month)
+            return month + dateformat(this.$store.state.datemax, ' yyyy')
+
+        },
         resultShown() {
             return this.$store.state.result
         },
@@ -173,8 +159,7 @@ export default {
                     'background-position-x': 'center',
                     'background-position-y': 'center',
                     'background-size': 'cover',
-                    'background-position-y': '45px',
-                    'height': '300px'
+                    'width': '50%'
                 }
             }
             else {
@@ -218,6 +203,11 @@ export default {
                                                 random: false,
                                                 })
         },
+        formatDate(result){
+            var tmp_date = result.info.year + "/" + result.info.month + "/" + result.info.day + " 00:00:00"
+            tmp_date = Math.round(new Date(tmp_date).getTime()/1000)
+            return dateformat(tmp_date, "mmm dd, yyyy")
+        },
         cover(result){
             if (result.info)
                  return {
@@ -225,14 +215,26 @@ export default {
                     'background-position-x': 'center',
                     'background-position-y': 'center',
                     'background-size': 'cover',
-                    'height': '85px',
-                    'width': '85px'
+                    'height': '79px',
+                    'width': '79px'
                 }
            
         },
         pct(data){
-            return (( 100 * data.freq)/data.count)
+            return (( 100 * data.freq)/data.count).toFixed(2)
         },
+        pctConfidence(data) {
+            var tmp = this.pct(data)
+            if (tmp < 50) {
+                return "label-low"
+            }
+            if ((tmp >=50) && (tmp< 75)) {
+                return "label-med"
+            }
+            if ((tmp >=75) && (tmp <= 100)) {
+                return "label-high"
+            }
+        }
     },
     watch: {
         'query': function(val) {
@@ -325,7 +327,7 @@ export default {
 }
 
 .secondfold {
-  max-height: 340px;
+  max-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -456,6 +458,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
+    height: 100px;
 }
 
 .result-short:hover {
@@ -469,10 +472,12 @@ export default {
 
 .result-short .type,
 .info .type {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     color: black;
     text-transform: capitalize;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .result-short .location,
@@ -487,7 +492,7 @@ export default {
     padding-bottom: 10px;
 }
 .result-short img {
-    height: 85px;
+    height: 79px;
 }
 div.back-results {
     padding-top: 5px;
@@ -501,15 +506,25 @@ div.back-results {
 }
 
 .banner {
-    background: #a41f1b;
-    color: white;
-    height: 110px;
-    padding: 16px 24px 20px;
+    background: white;
+    color: rgb(38, 66, 82);
+    height: 140px;
+    display: flex;
 }
 
 
 .extra-info {
-    padding: 16px 24px 20px;
+}
+
+.banner > .info {
+    width: 50%;
+    color: rgb(38, 66, 82);
+}
+
+.banner > .info > span {
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 16px;
 }
 
 .banner .info .type,
@@ -520,6 +535,14 @@ div.back-results {
 .searchchart {
     border-top: 1px solid #d4d4d4;
     padding: 15px;
+}
+
+.distribution {
+    font-size: 14px;
+}
+
+.distribution.bold {
+    font-weight: bold;
 }
 
 .banner .info .location {
@@ -612,6 +635,93 @@ div.back-results {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.label {
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-low, .label-med {
+   background-color: rgb(253, 245, 190); 
+   color: rgb(164, 93, 4);
+}
+
+.label-high {
+   background-color: rgb(210, 255, 159);
+   color: rgb(52, 100, 8);
+}
+
+.people {
+    margin-left: 8px;
+    color: gray;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.bannerphoto {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+.bannerphoto:hover {
+    opacity: 0.7;
+}
+
+.datarow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    padding-left: 17px;
+    padding-right: 13px;
+}
+
+.datarow:nth-child(n+1) {
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.datarow .label {
+}
+
+.tippy-tooltip-content {
+    font-size: 12px;
+    font-color: rgb(29, 50, 64);
+
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    width: 210px;
+    padding: 5px;
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p {
+    font-size: 12px;
+    color: rgb(29, 50, 64);
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p > span.low {
+    color: rgb(164, 93, 4);
+}
+
+.tippy-tooltip[data-template-id="#tooltip-confidence"] p > span.high{
+    color: rgb(52, 100, 8);
 }
 
 </style>

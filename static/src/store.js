@@ -3,20 +3,14 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import VueI18n from 'vue-i18n'
-import locales from './locales.js'
-import { getBrowserLanguage, getCookie } from './localesetup.js'
+import _ from "lodash"
 
 Vue.use(Vuex)
 
-Vue.use(VueI18n)
 
-Vue.config.lang = getCookie('language').toLowerCase() || getBrowserLanguage()
-
-// set locales
-Object.keys(locales).forEach(function (lang) {
-  Vue.locale(lang, locales[lang])
-})
+function pct(data){
+    return (( 100 * data.freq)/data.count)
+}
 
 function toogleResult(state, result) {
     var index = state.results.indexOf(result)
@@ -48,13 +42,24 @@ export default new Vuex.Store({
     limit: 100,
     offset:0,
     scroll: 0,
+    datemin: null,
+    datemax: null,
     chartData: {
-        labels: [Vue.t('message.jan'), Vue.t('message.feb'), Vue.t('message.mar'), Vue.t('message.apr'), Vue.t('message.may'), Vue.t('message.jun'), Vue.t('message.jul'), Vue.t('message.aug'), Vue.t('message.sep'), Vue.t('message.oct'), Vue.t('message.nov'), Vue.t('message.dec')],
-        series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        labels: null,
+        datasets: [
+            {
+                borderWidth: 0,
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            }
+        ]
+        //labels: [Vue.i18n.t('message.jan'), Vue.i18n.t('message.feb'), Vue.i18n.t('message.mar'), Vue.i18n.t('message.apr'), Vue.i18n.t('message.may'), Vue.i18n.t('message.jun'), Vue.i18n.t('message.jul'), Vue.i18n.t('message.aug'), Vue.i18n.t('message.sep'), Vue.i18n.t('message.oct'), Vue.i18n.t('message.nov'), Vue.i18n.t('message.dec')],
     },
     chartOptions: {
         distributeSeries: true,
-        axisY: {onlyInteger: true}
+        axisY: {onlyInteger: true, showGrid: false, showLabel: false, offset: 0},
+        axisX: {showGrid: false},
+        width: "100%",
+        height: 100,
     },
     chartist: null,
   },
@@ -78,17 +83,35 @@ export default new Vuex.Store({
         state.query = query
     },
     updateResults(state, data) {
-        state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        state.results = []
+        state.chartData.datasets[0].data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        var results = []
+        var dates = []
         for (var result of data.results) {
-            if (result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') {
+            if ((result.info.mosquito.top === 'tiger' || result.info.mosquito.top === 'yellow') && (result.info.mosquito_thorax.top === 'yes')) {
+
                 result.all = false
                 var idx = result.info.month - 1
-                state.chartData.series[idx] += 1
-                state.results.push(result)
+                state.chartData.datasets[0].data[idx] += 1
+                result.thorax_pct = pct(result.info.mosquito_thorax)
+                result.people = result.info.mosquito.count
+                results.push(result)
+                var tmp_date = result.info.year + "/" + result.info.month + "/" + result.info.day + " 00:00:00"
+                tmp_date = Math.round(new Date(tmp_date).getTime()/1000)
+                dates.push(tmp_date)
             }
         }
+        state.datemin = new Date(_.min(dates)*1000)
+        state.datemax = new Date(_.max(dates)*1000)
         //state.results = data.results
+        // Order results by thorax quality
+        if (results.length >= 1) {
+            state.results = _.orderBy(results, ['people', 'thorax_pct'],['desc', 'desc'])
+        }
+        else {
+            state.results = []
+            state.searching = !state.searching
+
+        }
     },
     toggleSearching(state) {
         state.searching = !state.searching
@@ -158,7 +181,7 @@ export default new Vuex.Store({
                 var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes|display_name::' + payload.query + '&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
             }
             else {
-                var url = payload.endpoint +  '/api/result?info=mosquito_exists::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&offset=' + payload.offset
+                var url = payload.endpoint +  '/api/result?info=thorax::yes&all=1&fulltextsearch=1&limit=' + payload.limit + '&orderby=created&desc=true' 
             }
             console.log(url)
             axios.get(url)
