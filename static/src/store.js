@@ -121,8 +121,10 @@ export default new Vuex.Store({
             center: [20.0, 5.0],
             minZoom: 2,
             zoom: 2,
-            zoomControl: false
+            zoomControl: true
         })
+
+        new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
         L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
