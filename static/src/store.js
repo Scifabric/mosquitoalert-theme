@@ -45,8 +45,14 @@ export default new Vuex.Store({
     datemin: null,
     datemax: null,
     chartData: {
+        labels: null,
+        datasets: [
+            {
+                borderWidth: 0,
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            }
+        ]
         //labels: [Vue.i18n.t('message.jan'), Vue.i18n.t('message.feb'), Vue.i18n.t('message.mar'), Vue.i18n.t('message.apr'), Vue.i18n.t('message.may'), Vue.i18n.t('message.jun'), Vue.i18n.t('message.jul'), Vue.i18n.t('message.aug'), Vue.i18n.t('message.sep'), Vue.i18n.t('message.oct'), Vue.i18n.t('message.nov'), Vue.i18n.t('message.dec')],
-        series: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     },
     chartOptions: {
         distributeSeries: true,
@@ -77,7 +83,7 @@ export default new Vuex.Store({
         state.query = query
     },
     updateResults(state, data) {
-        state.chartData.series = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        state.chartData.datasets[0].data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         var results = []
         var dates = []
         for (var result of data.results) {
@@ -85,7 +91,7 @@ export default new Vuex.Store({
 
                 result.all = false
                 var idx = result.info.month - 1
-                state.chartData.series[idx] += 1
+                state.chartData.datasets[0].data[idx] += 1
                 result.thorax_pct = pct(result.info.mosquito_thorax)
                 result.people = result.info.mosquito.count
                 results.push(result)

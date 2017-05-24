@@ -1,10 +1,10 @@
 <template>
     <div class="col-xs-12 col-md-4">
-        <div id="tooltip-confidence" style="display:none; width:210px;">
-            <p>Confidence Level depends of the number of participants have identified the thorax.</p>
+        <div id="tooltip-confidence" style="display:none; width:210px; text-align: left;">
+            <p>{{$t('message.tooltipconfidence')}}</p>
 
-            <p><span class="low">Low </span>< 75% participants </p>
-            <p><span class="high">High</span> >75% participants </p>
+            <p><span class="low">{{$t('message.low')}} </span>< 75% {{$t('message.participants')}} </p>
+            <p><span class="high">{{$t('message.high')}}</span> > 75% {{$t('message.participants')}}</p>
         </div>
 
         <div class="searchpanel" :class="{'moveleft': collapse}">
@@ -698,6 +698,7 @@ div.back-results {
     align-content: flex-start;
     align-items: flex-start;
     width: 210px;
+    padding: 5px;
 }
 
 .tippy-tooltip[data-template-id="#tooltip-confidence"] p {
